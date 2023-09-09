@@ -11,28 +11,28 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public PlayerControls playerControls;
     public CameraManager cameraManager;
+    public SaveManager saveManager;
 
     Vector2 moveInput;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
+        saveManager = GameObject.Find("SaveManager").GetComponent<SaveManager>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        saveManager.DeleteSaveFile(1);
+        saveManager.Write("Saves", "HasStarted", 1, "1");
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Movement
         rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
     }
 
-    // Movement
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();

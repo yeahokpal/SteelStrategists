@@ -526,6 +526,7 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 362135341}
   cameraManager: {fileID: 362135348}
+  saveManager: {fileID: 0}
 --- !u!61 &362135347
 BoxCollider2D:
   m_ObjectHideFlags: 0
