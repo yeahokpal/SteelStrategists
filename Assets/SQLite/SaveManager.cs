@@ -11,8 +11,6 @@ using UnityEngine;
 using System.Data;
 using Mono.Data.Sqlite;
 using System.IO;
-using UnityEditor.MemoryProfiler;
-using JetBrains.Annotations;
 
 public class SaveManager : MonoBehaviour
 {
