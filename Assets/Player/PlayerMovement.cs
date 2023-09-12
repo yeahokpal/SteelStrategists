@@ -53,6 +53,12 @@ public class PlayerMovement : MonoBehaviour
             case "CameraTrigger2":
                 cameraManager.SwitchPriority(2);
                 break;
+            case "CameraTrigger3":
+                cameraManager.SwitchPriority(3);
+                break;
+            case "CameraTrigger4":
+                cameraManager.SwitchPriority(4);
+                break;
         }
     }
 }
