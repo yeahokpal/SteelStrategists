@@ -1,3 +1,10 @@
+/*
+ * Programmers: Jack Gill, Caden Mesina
+ * Purpose:
+ * Inputs:
+ * Outputs:
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -16,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerControls playerControls;
     public CameraManager cameraManager;
     public SaveManager saveManager;
+    private GameObject[] interactables;
 
     Vector2 moveInput;
 
@@ -23,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerControls = new PlayerControls();
         saveManager = GameObject.Find("SaveManager").GetComponent<SaveManager>();
+        interactables = GameObject.FindGameObjectsWithTag("Interactable");
     }
 
     void Start()
@@ -40,6 +49,15 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    //When player presses interact key, run interact script on all GameObjects with Interactable tag
+    public void OnInteract()
+    {
+        for (int i = 0; i < interactables.Length; ++i)
+        {
+            interactables[i].GetComponent<Interactables>().OnInteract();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
