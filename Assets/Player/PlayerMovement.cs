@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
         for (int i = 0; i < interactables.Length; ++i)
         {
-            interactables[i].GetComponent<Interactables>().OnInteract();
+            interactables[i].GetComponent<Interactables>().PlayerInteracted();
         }
     }
 
