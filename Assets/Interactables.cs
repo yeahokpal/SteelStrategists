@@ -25,7 +25,8 @@ public class Interactables : MonoBehaviour
     private void Awake()
     {
         interactionArea.radius = interactionRadius;
-        child = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        child = gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

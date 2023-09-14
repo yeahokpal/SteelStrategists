@@ -14,15 +14,14 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-
     public int woodAmount = 0;
     public int steelAmount = 0;
     public int electronicsAmount = 0;
 
-    public Rigidbody2D rb;
-    public PlayerControls playerControls;
-    public CameraManager cameraManager;
-    public SaveManager saveManager;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] PlayerControls playerControls;
+    [SerializeField] CameraManager cameraManager;
+    [SerializeField] SaveManager saveManager;
     private GameObject[] interactables;
 
     Vector2 moveInput;
