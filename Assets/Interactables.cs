@@ -24,19 +24,22 @@ public class Interactables : MonoBehaviour
 
     private void Awake()
     {
-        child = this.GetComponentInChildren<SpriteRenderer>();
+        interactionArea.radius = interactionRadius;
+        child = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         canInteract = true;
         child.enabled = true;
+        spriteRenderer.color = new Color(0.5f, 0.75f, 1f);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         canInteract = false;
         child.enabled = false;
+        spriteRenderer.color = Color.white;
     }
 
     public void PlayerInteracted()
@@ -47,9 +50,6 @@ public class Interactables : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canInteract) spriteRenderer.color = new Color(0.5f, 0.75f, 1f);
-        else spriteRenderer.color = Color.white;
-        interactionArea.radius = interactionRadius;
         if ((canInteract == true) && (playerInteracted))
         {
             Debug.Log("Player Interacted");
