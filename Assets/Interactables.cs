@@ -18,7 +18,7 @@ public class Interactables : MonoBehaviour
     [SerializeField] private CircleCollider2D interactionArea;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float interactionRadius;
-    private SpriteRenderer child;
+    private GameObject child;
     private bool canInteract;
     private bool playerInteracted;
 
@@ -26,20 +26,20 @@ public class Interactables : MonoBehaviour
     {
         interactionArea.radius = interactionRadius;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        child = gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        child = gameObject.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         canInteract = true;
-        child.enabled = true;
+        child.SetActive(true);
         spriteRenderer.color = new Color(0.5f, 0.75f, 1f);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         canInteract = false;
-        child.enabled = false;
+        child.SetActive(false);
         spriteRenderer.color = Color.white;
     }
 
