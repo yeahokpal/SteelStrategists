@@ -18,7 +18,8 @@ public class Interactables : MonoBehaviour
     [SerializeField] private CircleCollider2D interactionArea;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float interactionRadius;
-    private GameObject child;
+    [SerializeField] public CraftingTable ct;
+    [SerializeField] GameObject child;
     private bool canInteract;
     private bool playerInteracted;
 
@@ -26,7 +27,6 @@ public class Interactables : MonoBehaviour
     {
         interactionArea.radius = interactionRadius;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        child = gameObject.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -39,6 +39,7 @@ public class Interactables : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         canInteract = false;
+        child = gameObject.transform.GetChild(0).gameObject;
         child.SetActive(false);
         spriteRenderer.color = Color.white;
     }
@@ -46,6 +47,10 @@ public class Interactables : MonoBehaviour
     public void PlayerInteracted()
     {
         playerInteracted = true;
+        if (ct != null)
+        {
+            ct.Craft();
+        }
     }
 
     // Update is called once per frame

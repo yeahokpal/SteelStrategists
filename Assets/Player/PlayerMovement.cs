@@ -1,6 +1,6 @@
 /*
  * Programmers: Jack Gill, Caden Mesina
- * Purpose:
+ * Purpose: Manage and contain
  * Inputs:
  * Outputs:
  */
@@ -14,9 +14,9 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public int woodAmount = 0;
-    public int steelAmount = 0;
-    public int electronicsAmount = 0;
+    public int woodAmount;
+    public int steelAmount;
+    public int electronicsAmount;
 
     [SerializeField] Rigidbody2D rb;
     [SerializeField] PlayerControls playerControls;
