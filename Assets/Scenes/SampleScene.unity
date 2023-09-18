@@ -26691,11 +26691,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 278175217983174772, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 278175217983174772, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 278175217983174772, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26729,6 +26729,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 665990964644982144, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3544885584394106832, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
       propertyPath: player
       value: 
@@ -26740,6 +26744,38 @@ PrefabInstance:
     - target: {fileID: 4824017637076463666, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
       propertyPath: m_Name
       value: CraftingTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549021898975353444, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549021898975353444, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549021898975353444, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549021898975353444, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756976329278015809, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a3cbe98b79bccb34b840ec6248f8511b, type: 3}
+    - target: {fileID: 6756976329278015809, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756976329278015809, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756976329278015809, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
