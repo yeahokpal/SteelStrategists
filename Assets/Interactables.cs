@@ -27,6 +27,7 @@ public class Interactables : MonoBehaviour
     {
         interactionArea.radius = interactionRadius;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        child.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

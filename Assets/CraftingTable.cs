@@ -10,6 +10,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class CraftingTable : MonoBehaviour
@@ -18,11 +19,15 @@ public class CraftingTable : MonoBehaviour
     [SerializeField] int requiredWood;
     [SerializeField] int requiredSteel;
     [SerializeField] int requiredElectronics;
-    public TextMeshProUGUI requiredText1;
-    public TextMeshProUGUI requiredText2;
+    [SerializeField] TextMeshProUGUI requiredText1;
+    [SerializeField] TextMeshProUGUI requiredText2;
+    [SerializeField] GameObject material1;
+    [SerializeField] GameObject material2;
 
     bool canCraft = false;
     public PlayerMovement player;
+    [SerializeField] Sprite materialSprite1;
+    [SerializeField] Sprite materialSprite2;
 
     int playerWood;
     int playerSteel;
@@ -30,6 +35,9 @@ public class CraftingTable : MonoBehaviour
 
     private void Awake()
     {
+        material1.GetComponent<Image>().sprite = materialSprite1;
+        material2.GetComponent<Image>().sprite = materialSprite2;
+
         player = GameObject.Find("Player").GetComponent<PlayerMovement>();
         // Deciding what integers to put in the text fields - Can be condensed later
         if (requiredWood == 0)
@@ -81,6 +89,7 @@ public class CraftingTable : MonoBehaviour
         playerElectronics = player.electronicsAmount;
         if (playerWood >= requiredWood && playerSteel >= requiredSteel && playerElectronics >= requiredElectronics)
         {
+            Debug.Log("Can Craft");
             canCraft = true;
         }
     }
@@ -93,6 +102,7 @@ public class CraftingTable : MonoBehaviour
             player.woodAmount -= requiredWood;
             player.steelAmount -= requiredSteel;
             player.electronicsAmount -= requiredElectronics;
+            Debug.Log("Crafted!");
 
             // Giving Player new item
             canCraft = false;
