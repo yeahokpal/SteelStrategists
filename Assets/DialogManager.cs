@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
+    public void StartDialog(string characterName, string text)
+    {
+
+    }
+    public void StartDialog(string characterName, string text, Sprite characterPortrait)
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
