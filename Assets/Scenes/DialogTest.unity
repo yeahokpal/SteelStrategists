@@ -25833,12 +25833,12 @@ GameObject:
   - component: {fileID: 1184470369}
   - component: {fileID: 1184470372}
   m_Layer: 5
-  m_Name: DialogManager
+  m_Name: DialogCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1184470369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25920,6 +25920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3f043165873644ba3fbf6865749413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogCanvas: {fileID: 0}
 --- !u!1 &1219962261
 GameObject:
   m_ObjectHideFlags: 0
@@ -26395,7 +26396,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   interactionRadius: 2.75
   ct: {fileID: 0}
-  child: {fileID: 823409798}
+  InteractScript: {fileID: 0}
 --- !u!58 &1394601118
 CircleCollider2D:
   m_ObjectHideFlags: 0
