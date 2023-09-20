@@ -7,13 +7,12 @@ public class CharacterDialogController : MonoBehaviour
     [SerializeField] private GameObject self;
     [SerializeField] private GameObject DialogManager;
     // Start is called before the first frame update
-    void Start()
+    public void SelectDialog()
     {
-        //MonoBehaviour DialogScript = GetComponent<DialogManager>();
         switch (self.name)
         {
             case ("DialogTester"):
-                //DialogScript.StartDialog("Test", "This test works");
+                DialogManager.GetComponent<DialogManager>().StartDialog("Test Name", "Test Dialog");
                 break;
         }
     }

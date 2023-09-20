@@ -18,8 +18,9 @@ public class Interactables : MonoBehaviour
     [SerializeField] private CircleCollider2D interactionArea;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float interactionRadius;
-    [SerializeField] public CraftingTable ct;
-    [SerializeField] GameObject child;
+    [SerializeField] private CraftingTable ct;
+    [SerializeField] private GameObject InteractScript;//should be whatever you want to do as a result of interacting
+    private SpriteRenderer childRenderer;
     private bool canInteract;
     private bool playerInteracted;
 
@@ -27,21 +28,20 @@ public class Interactables : MonoBehaviour
     {
         interactionArea.radius = interactionRadius;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        child.SetActive(false);
+        childRenderer = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         canInteract = true;
-        child.SetActive(true);
+        childRenderer.enabled = true;
         spriteRenderer.color = new Color(0.5f, 0.75f, 1f);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         canInteract = false;
-        child = gameObject.transform.GetChild(0).gameObject;
-        child.SetActive(false);
+        childRenderer.enabled = false;
         spriteRenderer.color = Color.white;
     }
 
@@ -60,6 +60,7 @@ public class Interactables : MonoBehaviour
         if ((canInteract == true) && (playerInteracted))
         {
             Debug.Log("Player Interacted");
+            this.GetComponent<CharacterDialogController>().SelectDialog();
             playerInteracted = false;
         }
     }
