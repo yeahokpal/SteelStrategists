@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterDialogController : MonoBehaviour
-{
-    [SerializeField] private GameObject self;
-    [SerializeField] private GameObject DialogManager;
+{ 
+    [SerializeField] private GameObject DialogCanvas;
     // Start is called before the first frame update
     public void SelectDialog()
     {
-        switch (self.name)
+        switch (this.name)
         {
             case ("DialogTester"):
-                DialogManager.GetComponent<DialogManager>().StartDialog("Test Name", "Test Dialog");
+                DialogCanvas.GetComponent<DialogManager>().StartDialog("Test Name", "Test Dialog");
                 break;
         }
     }
