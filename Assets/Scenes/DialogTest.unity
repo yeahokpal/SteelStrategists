@@ -1542,11 +1542,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &850315475 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8808424079463821905, guid: 61e349861f1df9b4faf90b3e7f62775f, type: 3}
-  m_PrefabInstance: {fileID: 1010794590}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &850315486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5671906062125187723, guid: 61e349861f1df9b4faf90b3e7f62775f, type: 3}
@@ -25569,6 +25564,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2422905243231232729, guid: 61e349861f1df9b4faf90b3e7f62775f, type: 3}
+      propertyPath: InteractScript
+      value: 
+      objectReference: {fileID: 1184470368}
     - target: {fileID: 2597159097549105690, guid: 61e349861f1df9b4faf90b3e7f62775f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -26956,7 +26955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529d48cbd9bd9b042a321e8f1eb60ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  self: {fileID: 850315475}
   DialogCanvas: {fileID: 1184470368}
 --- !u!1 &1772992387
 GameObject:
