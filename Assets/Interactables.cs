@@ -60,7 +60,13 @@ public class Interactables : MonoBehaviour
         if ((canInteract == true) && (playerInteracted))
         {
             Debug.Log("Player Interacted");
-            this.GetComponent<CharacterDialogController>().SelectDialog();
+            if (this.transform.GetChild(1) == null)
+            {
+
+            } else if (this.transform.GetChild(1).tag == "Dialog Object") {
+                Debug.Log("Dialog Object Interacted");
+                InteractScript.GetComponent<DialogManager>().StartDialog("Test Name", "Test Dialog");
+            }
             playerInteracted = false;
         }
     }

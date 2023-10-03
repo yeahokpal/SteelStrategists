@@ -18,10 +18,10 @@ public class PlayerMovement : MonoBehaviour
     public int steelAmount;
     public int electronicsAmount;
 
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] PlayerControls playerControls;
-    [SerializeField] CameraManager cameraManager;
-    [SerializeField] SaveManager saveManager;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private PlayerControls playerControls;
+    [SerializeField] private CameraManager cameraManager;
+    [SerializeField] private SaveManager saveManager;
     private GameObject[] interactables;
 
     Vector2 moveInput;
