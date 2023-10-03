@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
@@ -23,11 +24,11 @@ public class DialogManager : MonoBehaviour
 
             foreach (Transform child in transform) child.gameObject.SetActive(true);
             
-            GameObject.Find("DialogText").GetComponent<TextMesh>().text = text;
-            GameObject.Find("DialogName").GetComponent<TextMesh>().text = characterName;
+            GameObject.Find("DialogText").GetComponent<TMP_Text>().text = text;
+            GameObject.Find("DialogName").GetComponent<TMP_Text>().text = characterName;
 
-            this.transform.GetChild(2).GetComponent<TextMesh>().text = text;
-            this.transform.GetChild(3).GetComponent<TextMesh>().text = characterName;
+            this.transform.GetChild(2).GetComponent<TMP_Text>().text = text;
+            this.transform.GetChild(3).GetComponent<TMP_Text>().text = characterName;
         }
     }
     public void StartDialog(string characterName, string text, Sprite characterPortrait)
