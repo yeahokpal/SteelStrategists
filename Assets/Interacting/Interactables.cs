@@ -19,55 +19,54 @@ public class Interactables : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float interactionRadius;
     [SerializeField] private CraftingTable ct;
-    [SerializeField] private GameObject InteractScript;//should be whatever you want to do as a result of interacting
-    private SpriteRenderer childRenderer;
+    [SerializeField] private GameObject InteractScript; //should be whatever you want to do as a result of interacting
+    [SerializeField] GameObject child;
     private bool canInteract;
-    private bool playerInteracted;
 
     private void Awake()
     {
         interactionArea.radius = interactionRadius;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        childRenderer = this.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         canInteract = true;
-        childRenderer.enabled = true;
+        if (child != null) { child.SetActive(true); }
         spriteRenderer.color = new Color(0.5f, 0.75f, 1f);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         canInteract = false;
-        childRenderer.enabled = false;
+        if (child != null) { child.SetActive(false); }
         spriteRenderer.color = Color.white;
     }
 
     public void PlayerInteracted()
     {
-        playerInteracted = true;
         if (ct != null)
         {
             ct.Craft();
+        }
+        if (canInteract == true)
+        {
+            Debug.Log("Player Interacted");
+            if (this.transform.GetChild(0) == null)
+            {
+
+            }
+            else if (this.transform.GetChild(0).tag == "Dialog Object")
+            {
+                Debug.Log("Dialog Object Interacted");
+                InteractScript.GetComponent<DialogManager>().StartDialog("Test Name", "Test Dialog");
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((canInteract == true) && (playerInteracted))
-        {
-            Debug.Log("Player Interacted");
-            if (this.transform.GetChild(1) == null)
-            {
-
-            } else if (this.transform.GetChild(1).tag == "Dialog Object") {
-                Debug.Log("Dialog Object Interacted");
-                InteractScript.GetComponent<DialogManager>().StartDialog("Test Name", "Test Dialog");
-            }
-            playerInteracted = false;
-        }
+        
     }
 }
