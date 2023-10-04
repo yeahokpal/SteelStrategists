@@ -48,10 +48,19 @@ public class Interactables : MonoBehaviour
     public void PlayerInteracted()
     {
         playerInteracted = true;
+        Debug.Log("Interact True");
         if (ct != null)
         {
             ct.Craft();
         }
+        StartCoroutine(DisableInteract());
+    }
+
+    IEnumerator DisableInteract()
+    {
+        yield return new WaitForSeconds(0.2f);
+        playerInteracted = false;
+        Debug.Log("Interact False");
     }
 
     // Update is called once per frame

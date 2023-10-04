@@ -53,9 +53,12 @@ public class PlayerMovement : MonoBehaviour
     //When player presses interact key, run interact script on all GameObjects with Interactable tag
     public void OnInteract()
     {
-        for (int i = 0; i < interactables.Length; ++i)
+        if (true)
         {
-            interactables[i].GetComponent<Interactables>().PlayerInteracted();
+            for (int i = 0; i < interactables.Length; ++i)
+            {
+                interactables[i].GetComponent<Interactables>().PlayerInteracted();
+            }
         }
     }
 
