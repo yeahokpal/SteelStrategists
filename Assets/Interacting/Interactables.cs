@@ -45,23 +45,20 @@ public class Interactables : MonoBehaviour
 
     public void PlayerInteracted()
     {
+        playerInteracted = true;
+        Debug.Log("Interact True");
         if (ct != null)
         {
             ct.Craft();
         }
-        if (canInteract == true)
-        {
-            Debug.Log("Player Interacted");
-            if (this.transform.GetChild(0) == null)
-            {
+        StartCoroutine(DisableInteract());
+    }
 
-            }
-            else if (this.transform.GetChild(0).tag == "Dialog Object")
-            {
-                Debug.Log("Dialog Object Interacted");
-                InteractScript.GetComponent<DialogManager>().StartDialog("Test Name", "Test Dialog");
-            }
-        }
+    IEnumerator DisableInteract()
+    {
+        yield return new WaitForSeconds(0.2f);
+        playerInteracted = false;
+        Debug.Log("Interact False");
     }
 
     // Update is called once per frame
