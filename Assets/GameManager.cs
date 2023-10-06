@@ -8,7 +8,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     float timerDelay;
-    float timerLengthSeconds = 5;
+    float timerLengthSeconds = 120;
     int timerMinutesLeft;
     int timerSecondsLeft;
     bool startSpawning = true;

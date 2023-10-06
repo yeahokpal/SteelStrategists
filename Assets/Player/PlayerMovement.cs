@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerControls playerControls;
     [SerializeField] private CameraManager cameraManager;
     [SerializeField] private SaveManager saveManager;
+    int moveDir = 3;
+    [SerializeField] private Animator animator;
     private GameObject[] interactables;
 
     Vector2 moveInput;
@@ -42,6 +44,21 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement Calculation
         rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+
+        // Finding the current facing direction
+        // North = 1, East = 2, South = 3, West = 4
+        if (moveInput.x > .25 && moveInput.y < .25)
+            moveDir = 2;
+        else if (moveInput.x < -.25 && moveInput.y < .25)
+            moveDir = 4;
+        else if (moveInput.x < .25 && moveInput.y > .25)
+            moveDir = 1;
+        else if (moveInput.x < .25 && moveInput.y < -.25)
+            moveDir = 3;
+
+        animator.SetFloat("SpeedX", moveInput.x);
+        animator.SetFloat("SpeedY", moveInput.y);
+        animator.SetInteger("MoveDir", moveDir);
     }
 
     // Getting Movement as a Vector2 from the Input Device
