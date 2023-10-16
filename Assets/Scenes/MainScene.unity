@@ -28278,7 +28278,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e9d720fa45498e54f9fc911be373904d, type: 3}
     - target: {fileID: 1271883971214678120, guid: e544a3d23ffd0424f9805c80747d7267, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2160643389003598531, guid: e544a3d23ffd0424f9805c80747d7267, type: 3}
       propertyPath: m_NotificationBehavior

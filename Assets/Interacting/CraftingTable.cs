@@ -15,23 +15,25 @@ using TMPro;
 
 public class CraftingTable : MonoBehaviour
 {
+    // Lots of UI elements and materials needed for crafting
     [SerializeField] Sprite craftableItem;
-    [SerializeField] int requiredWood;
-    [SerializeField] int requiredSteel;
-    [SerializeField] int requiredElectronics;
+    [SerializeField] Sprite materialSprite1;
+    [SerializeField] Sprite materialSprite2;
     [SerializeField] TextMeshProUGUI requiredText1;
     [SerializeField] TextMeshProUGUI requiredText2;
     [SerializeField] GameObject material1;
     [SerializeField] GameObject material2;
+    [SerializeField] int requiredWood;
+    [SerializeField] int requiredSteel;
+    [SerializeField] int requiredElectronics;
 
-    bool canCraft = false;
-    public PlayerMovement player;
-    [SerializeField] Sprite materialSprite1;
-    [SerializeField] Sprite materialSprite2;
-
+    // Tplayer's current resources
     int playerWood;
     int playerSteel;
     int playerElectronics;
+
+    bool canCraft = false;
+    public PlayerMovement player;
 
     private void Awake()
     {
@@ -39,7 +41,7 @@ public class CraftingTable : MonoBehaviour
         material2.GetComponent<Image>().sprite = materialSprite2;
 
         player = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        // Deciding what integers to put in the text fields - Can be condensed later
+        // These If-Else statements decide what integers to put in the text fields - Can be condensed later
         if (requiredWood == 0)
         {
             if (requiredSteel == 0)
@@ -82,6 +84,7 @@ public class CraftingTable : MonoBehaviour
         CheckResources();
     }
 
+    // Checking to see if the player has enough resources to craft the item
     private void CheckResources()
     {
         playerWood = player.woodAmount;
@@ -94,6 +97,7 @@ public class CraftingTable : MonoBehaviour
         }
     }
 
+    // Gaining the item and removing the required materials from the player's inventory
     public void Craft()
     {
         if (canCraft)
