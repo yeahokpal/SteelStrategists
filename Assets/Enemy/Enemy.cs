@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     // Raycast for detecting a wall in front of it
     RaycastHit2D ray;
     bool attacking = false;
+    public int Health = 5;
 
     void Start()
     {
@@ -24,6 +25,11 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
 
         // Checking the Raycast to try to detect a wall
         Debug.DrawRay(new Vector3(transform.position.x - .5f, transform.position.y, transform.position.z), -Vector3.right, Color.red, .25f, false);
