@@ -16,6 +16,8 @@ using TMPro;
 public class CraftingTable : MonoBehaviour
 {
     // Lots of UI elements and materials needed for crafting
+    [SerializeField] Sprite canCraftSprite;
+    [SerializeField] Sprite cannotCraftSprite;
     [SerializeField] Sprite craftableItem;
     [SerializeField] Sprite materialSprite1;
     [SerializeField] Sprite materialSprite2;
@@ -23,6 +25,8 @@ public class CraftingTable : MonoBehaviour
     [SerializeField] TextMeshProUGUI requiredText2;
     [SerializeField] GameObject material1;
     [SerializeField] GameObject material2;
+    [SerializeField] GameObject craftableObjectPrefab;
+    [SerializeField] GameObject craftableObjectUI;
     [SerializeField] int requiredWood;
     [SerializeField] int requiredSteel;
     [SerializeField] int requiredElectronics;
@@ -39,6 +43,7 @@ public class CraftingTable : MonoBehaviour
     {
         material1.GetComponent<Image>().sprite = materialSprite1;
         material2.GetComponent<Image>().sprite = materialSprite2;
+        craftableObjectUI.GetComponent<SpriteRenderer>().sprite = craftableObjectPrefab.GetComponent<SpriteRenderer>().sprite;
 
         player = GameObject.Find("Player").GetComponent<PlayerMovement>();
         // These If-Else statements decide what integers to put in the text fields - Can be condensed later
@@ -84,23 +89,33 @@ public class CraftingTable : MonoBehaviour
         CheckResources();
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = canCraftSprite;
+    }
+
     // Checking to see if the player has enough resources to craft the item
     private void CheckResources()
     {
         playerWood = player.woodAmount;
         playerSteel = player.steelAmount;
         playerElectronics = player.electronicsAmount;
-        if (playerWood >= requiredWood && playerSteel >= requiredSteel && playerElectronics >= requiredElectronics)
+        if (playerWood >= requiredWood && playerSteel >= requiredSteel && playerElectronics >= requiredElectronics && player.currentBuilding == null)
         {
             Debug.Log("Can Craft");
             canCraft = true;
+        }
+        else if (player.currentBuilding != null)
+        {
+            // Enable UI to tell player that they cannot craft while already holding an object
+            gameObject.GetComponent<SpriteRenderer>().sprite = cannotCraftSprite;
         }
     }
 
     // Gaining the item and removing the required materials from the player's inventory
     public void Craft()
     {
-        if (canCraft)
+        if (canCraft && player.currentBuilding == null)
         {
             // Removing used materials
             player.woodAmount -= requiredWood;
@@ -110,6 +125,8 @@ public class CraftingTable : MonoBehaviour
 
             // Giving Player new item
             canCraft = false;
+            player.currentBuilding = craftableObjectPrefab;
+            gameObject.GetComponent<SpriteRenderer>().sprite = canCraftSprite;
             CheckResources();
         }
     }

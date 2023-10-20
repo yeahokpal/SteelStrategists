@@ -108,6 +108,9 @@ MonoBehaviour:
   rb: {fileID: 5179988634951547878}
   cameraManager: {fileID: 2938153124239025030}
   saveManager: {fileID: 0}
+  animator: {fileID: 0}
+  placeOverlay: {fileID: 0}
+  currentBuilding: {fileID: 0}
 --- !u!61 &8697416860725197099
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,3 +227,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcam1: {fileID: 0}
   vcam2: {fileID: 0}
+  vcam3: {fileID: 0}
+  vcam4: {fileID: 0}

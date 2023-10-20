@@ -45,7 +45,7 @@ public class Interactables : MonoBehaviour
 
     public void PlayerInteracted()
     {
-        Debug.Log("Interact True");
+        //Debug.Log("Interact True");
         if (ct != null)
         {
             ct.Craft();
@@ -56,7 +56,7 @@ public class Interactables : MonoBehaviour
     IEnumerator DisableInteract()
     {
         yield return new WaitForSeconds(0.2f);
-        Debug.Log("Interact False");
+        //Debug.Log("Interact False");
     }
 
     // Update is called once per frame

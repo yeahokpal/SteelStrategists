@@ -18,13 +18,16 @@ public class PlayerMovement : MonoBehaviour
     public int steelAmount;
     public int electronicsAmount;
 
+    int moveDir = 3;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private PlayerControls playerControls;
     [SerializeField] private CameraManager cameraManager;
     [SerializeField] private SaveManager saveManager;
-    int moveDir = 3;
     [SerializeField] private Animator animator;
+    [SerializeField] GameObject placeOverlay;
     private GameObject[] interactables;
+    public GameObject currentBuilding;
 
     Vector2 moveInput;
 
@@ -59,6 +62,27 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("SpeedX", moveInput.x);
         animator.SetFloat("SpeedY", moveInput.y);
         animator.SetInteger("MoveDir", moveDir);
+
+        // Showing the building that the player is holding
+        if (currentBuilding != null)
+        {
+            placeOverlay.SetActive(true);
+            switch (moveDir)
+            {
+                case 1:
+                    placeOverlay.transform.position = gameObject.transform.position + new Vector3(0f, 2f, 0f);
+                    break;
+                case 2:
+                    placeOverlay.transform.position = gameObject.transform.position + new Vector3(1f, 0f, 0f);
+                    break;
+                case 3:
+                    placeOverlay.transform.position = gameObject.transform.position + new Vector3(0f, -2f, 0f);
+                    break;
+                case 4:
+                    placeOverlay.transform.position = gameObject.transform.position + new Vector3(-1f, 0f, 0f);
+                    break;
+            }
+        }
     }
 
     // Getting Movement as a Vector2 from the Input Device
@@ -76,6 +100,31 @@ public class PlayerMovement : MonoBehaviour
             {
                 interactables[i].GetComponent<Interactables>().PlayerInteracted();
             }
+        }
+    }
+
+    public void OnPlaceBuilding()
+    {
+        if (currentBuilding != null)
+        {
+            placeOverlay.SetActive(false);
+            switch (moveDir)
+            {
+                case 1:
+                    Instantiate(currentBuilding, gameObject.transform.position + new Vector3(0f, 2f, 0f), Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(currentBuilding, gameObject.transform.position + new Vector3(1f, 0f, 0f), Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(currentBuilding, gameObject.transform.position + new Vector3(0f, -2f, 0f), Quaternion.identity);
+                    break;
+                case 4:
+                    Instantiate(currentBuilding, gameObject.transform.position + new Vector3(-1f, 0f, 0f), Quaternion.identity);
+                    break;
+            }
+
+            currentBuilding = null;
         }
     }
 
