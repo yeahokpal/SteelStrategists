@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnPlaceBuilding()
     {
-        if (currentBuilding != null)
+        if (currentBuilding != null && cameraManager.vcam4.Priority == 1)
         {
             placeOverlay.SetActive(false);
             switch (moveDir)
