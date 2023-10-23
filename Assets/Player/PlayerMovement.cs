@@ -38,11 +38,6 @@ public class PlayerMovement : MonoBehaviour
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         // Movement Calculation

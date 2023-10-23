@@ -41,7 +41,15 @@ public class GameManager : MonoBehaviour
             timerMinutesLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) / 60;
             timerSecondsLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) % 60;
             // Update the Timer UI
-            timerTxt.text = timerMinutesLeft + ":" + timerSecondsLeft;
+            
+            if (timerSecondsLeft <= 9) // If the remaining seconds is <= 9, add another 0 so that "1:6" is actually "1:06"
+            {
+                timerTxt.text = timerMinutesLeft + ":0" + timerSecondsLeft;
+            }
+            else
+            {
+                timerTxt.text = timerMinutesLeft + ":" + timerSecondsLeft;
+            }
 
             // When the timer is donw, start spawning enemies
             if (timerMinutesLeft == 0 && timerSecondsLeft == 0 && startSpawning)
