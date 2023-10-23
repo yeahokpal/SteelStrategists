@@ -1,6 +1,10 @@
 /*
  * Programmers: Jack Gill
- * Purpose: Manage systems that dont need individual scripts and that multiple classes might need to use
+ * 
+ * This script is to manage individual game elements that arent enough for their own scripts
+ * 
+ * Purposes: - Manage Game Timer
+ *           - Catch Exceptions and Send Emails
  */
 
 using System.Collections;
@@ -12,7 +16,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    // Timer Related Variables
+    #region Timer Variables
+
     float timerDelay;
     float timerLengthSeconds = 120;
     int timerMinutesLeft;
@@ -24,6 +29,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider volumeSlider;
     public GameObject enemySpawner;
 
+    #endregion
+
+    #region CrashReport Variables
+    bool hasNewLog;
+
+    #endregion
+
     void Start()
     {
         enemySpawner = GameObject.Find("EnemySpawner");
@@ -31,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        #region Timer Stuff
+
         // Put in a method later
         AudioListener.volume = volumeSlider.value;
 
@@ -41,7 +55,7 @@ public class GameManager : MonoBehaviour
             timerMinutesLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) / 60;
             timerSecondsLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) % 60;
             // Update the Timer UI
-            
+
             if (timerSecondsLeft <= 9) // If the remaining seconds is <= 9, add another 0 so that "1:6" is actually "1:06"
             {
                 timerTxt.text = timerMinutesLeft + ":0" + timerSecondsLeft;
@@ -58,5 +72,13 @@ public class GameManager : MonoBehaviour
                 startSpawning = false;
             }
         }
+        #endregion
+
+        Application.logMessageReceived += HandleException;
+
+    }
+    void HandleException(string logString, string stackTrace, LogType type)
+    {
+
     }
 }
