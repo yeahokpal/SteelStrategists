@@ -21,12 +21,14 @@ public class Interactables : MonoBehaviour
     [SerializeField] private CraftingTable ct;
     [SerializeField] private GameObject InteractScript; //should be whatever you want to do as a result of interacting
     [SerializeField] GameObject child;
+    private GameObject[] dialogObjects;
     private bool canInteract;
 
     private void Awake()
     {
         interactionArea.radius = interactionRadius;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        dialogObjects = GameObject.FindGameObjectsWithTag("Dialog Object");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,7 +47,16 @@ public class Interactables : MonoBehaviour
 
     public void PlayerInteracted()
     {
-        //Debug.Log("Interact True");
+        GameObject child = FindChildWithTag(gameObject, "Dialog Object");
+        if (child != null)
+        {
+            child.GetComponent<CharacterDialogController>().SelectDialog();
+        } else
+        {
+            Debug.Log("not a dialog object");
+        }
+        
+        Debug.Log("Player Interacted");
         if (ct != null)
         {
             ct.Craft();
@@ -56,7 +67,6 @@ public class Interactables : MonoBehaviour
     IEnumerator DisableInteract()
     {
         yield return new WaitForSeconds(0.2f);
-        //Debug.Log("Interact False");
     }
 
     // Update is called once per frame
@@ -64,4 +74,20 @@ public class Interactables : MonoBehaviour
     {
         
     }
+
+    GameObject FindChildWithTag(GameObject parent, string tag)
+    {
+        GameObject child = null;
+
+        foreach (Transform transform in parent.transform)
+        {
+            if (transform.CompareTag(tag))
+            {
+                child = transform.gameObject;
+                break;
+            }
+        }
+        return child;
+    }
+
 }
