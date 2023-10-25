@@ -32,21 +32,30 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region CrashReport Variables
-    bool hasNewLog;
+
+    public bool handleExceptions = true;
+    public Log mostRecentLog = new Log();
+    string bug;
 
     #endregion
-
+    private void Awake()
+    {
+        // Calls Method whenever something is logged to the console
+        Application.logMessageReceived += HandleException;
+    }
     void Start()
     {
         enemySpawner = GameObject.Find("EnemySpawner");
-    }
 
+        // Me purposefully causing errors to cause Exceptions
+        int[] test = new int[1];
+        int haha = test[2]; // Out of array bounds
+    }
     void Update()
     {
-        #region Timer Stuff
+        AudioListener.volume = volumeSlider.value; // Put in a method later
 
-        // Put in a method later
-        AudioListener.volume = volumeSlider.value;
+        #region Timer Stuff
 
         // When the game starts...
         if (startTimer)
@@ -73,12 +82,63 @@ public class GameManager : MonoBehaviour
             }
         }
         #endregion
-
-        Application.logMessageReceived += HandleException;
-
     }
+
+    public class Log
+    {
+        public string logString{get; set;}
+        public string stackTrace{get; set; }
+    }
+
+
     void HandleException(string logString, string stackTrace, LogType type)
     {
+        // If the log is an error 
+        if (type == LogType.Exception && handleExceptions)
+        {
+            LogToFile.Log("Crash at " + Time.realtimeSinceStartup.ToString());
 
+            mostRecentLog.logString = logString;
+            mostRecentLog.stackTrace = stackTrace;
+
+            // the string we use for crashinfo
+            bug = "An exception has occured!\nLocation:\n" + mostRecentLog.stackTrace + "Issue:\n" + mostRecentLog.logString;
+            LogToFile.Log(bug);
+
+            // This line just helps to differentiate Exceptions
+            LogToFile.Log("--------------------------");
+            LogToFile.DumpLogs(); // Dump new log
+        }
+    }
+
+    public void UserDump()
+    {
+        LogToFile.Log("Dump at " + Time.realtimeSinceStartup.ToString());
+        LogToFile.DumpLogs();
+    }
+
+    public void SendBugReport()
+    {
+        // the string we use for the actual email body
+        string emailBug = "#### An exception has occured! ####\n\n\n#### Location ####\n" + mostRecentLog.stackTrace + "\n\n#### Issue ####\n" + mostRecentLog.logString;
+
+        // should be sent like:
+        /*
+         * #### an exception has occurred! ####
+         * 
+         * 
+         * #### location ####
+         * assets/scripts/badFile.cs
+         * 
+         * 
+         * #### issue ####
+         * stack overflow something something
+         * 
+         * 
+         * #### user input ####
+         * i was just "jaunting with the boys" officer
+         */
+
+        Email.SendEmail(emailBug + "\n\n\n#### User Input ####\n" + bug);
     }
 }
