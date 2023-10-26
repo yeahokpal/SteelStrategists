@@ -9,10 +9,13 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using System.Web;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region CrashReport Variables
+    #region Crash Report Variables
 
     public bool handleExceptions = true;
     public Log mostRecentLog = new Log();
@@ -40,7 +43,7 @@ public class GameManager : MonoBehaviour
     #endregion
     private void Awake()
     {
-        // Calls Method whenever something is logged to the console
+        // Calls Method whenever something is logged to the console (for crash reporting)
         Application.logMessageReceived += HandleException;
     }
     void Start()
@@ -84,61 +87,73 @@ public class GameManager : MonoBehaviour
         #endregion
     }
 
+    #region Crash Reporting
+
     public class Log
     {
         public string logString{get; set;}
-        public string stackTrace{get; set; }
+        public string stackTrace{get; set;}
     }
-
 
     void HandleException(string logString, string stackTrace, LogType type)
     {
         // If the log is an error 
         if (type == LogType.Exception && handleExceptions)
         {
-            LogToFile.Log("Crash at " + Time.realtimeSinceStartup.ToString());
-
             mostRecentLog.logString = logString;
             mostRecentLog.stackTrace = stackTrace;
 
             // the string we use for crashinfo
-            bug = "An exception has occured!\nLocation:\n" + mostRecentLog.stackTrace + "Issue:\n" + mostRecentLog.logString;
-            LogToFile.Log(bug);
+            bug = "An exception has occurred!\nLocation:\n" + mostRecentLog.stackTrace + "Issue:\n" + mostRecentLog.logString;
+            AddLog(bug);
 
             // This line just helps to differentiate Exceptions
-            LogToFile.Log("--------------------------");
-            LogToFile.DumpLogs(); // Dump new log
+            AddLog("--------------------------");
+            DumpLogs(); // Dump new logs
+            
+            // PLEASE REMEMBER TO UNCOMMENT THIS LINE OH MY GOD!!!!!
+            //SendBugReport(bug);
         }
     }
 
-    public void UserDump()
+    public static List<string> logFile = new List<string>();
+
+    public static void AddLog(string logString)
     {
-        LogToFile.Log("Dump at " + Time.realtimeSinceStartup.ToString());
-        LogToFile.DumpLogs();
+        logFile.Add(logString);
     }
 
-    public void SendBugReport()
+    public static void DumpLogs()
     {
-        // the string we use for the actual email body
-        string emailBug = "#### An exception has occured! ####\n\n\n#### Location ####\n" + mostRecentLog.stackTrace + "\n\n#### Issue ####\n" + mostRecentLog.logString;
+        // If the Debug folder doesn't exist, create it
+        if (!Directory.Exists(Application.dataPath + "/Debug/"))
+        {
+            AddLog("Debug directory did not exist");
+            Directory.CreateDirectory(Application.dataPath + "/Debug/");
+        }
 
-        // should be sent like:
-        /*
-         * #### an exception has occurred! ####
-         * 
-         * 
-         * #### location ####
-         * assets/scripts/badFile.cs
-         * 
-         * 
-         * #### issue ####
-         * stack overflow something something
-         * 
-         * 
-         * #### user input ####
-         * i was just "jaunting with the boys" officer
-         */
+        StreamWriter writer = new StreamWriter(Application.dataPath + "/Debug/log.txt", true);
 
-        Email.SendEmail(emailBug + "\n\n\n#### User Input ####\n" + bug);
+        foreach (string logString in logFile)
+        {
+            writer.WriteLine(logString);
+        }
+
+        writer.Close();
     }
+
+    // Sending email of the bug report
+    public void SendBugReport(string bug)
+    {
+        // Inform player that an error has occurred
+        Process.Start(Application.dataPath + "/Debug/CrashDialogBox.exe");
+
+        //Open Mailto link
+        System.Diagnostics.Process.Start("mailto:ps24jgill@efcts.us?subject=Steel%20Strategists%20Report&" +
+            "body=Hello,%20I%20have%20experienced%20a%20crash%20while%20playing%20Steel%20Strategists.%20Here%20is%20my%20crash%20report:%0A" + bug.Replace("\n", "%0A"));
+
+        Application.Quit();
+    }
+
+    #endregion
 }

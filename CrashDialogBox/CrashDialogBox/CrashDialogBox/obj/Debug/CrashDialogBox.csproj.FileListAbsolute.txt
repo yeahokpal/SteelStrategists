@@ -1,0 +1,9 @@
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\bin\Debug\CrashDialogBox.exe.config
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\bin\Debug\CrashDialogBox.exe
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\bin\Debug\CrashDialogBox.pdb
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\obj\Debug\CrashDialogBox.Form1.resources
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\obj\Debug\CrashDialogBox.Properties.Resources.resources
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\obj\Debug\CrashDialogBox.csproj.GenerateResource.cache
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\obj\Debug\CrashDialogBox.csproj.CoreCompileInputs.cache
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\obj\Debug\CrashDialogBox.exe
+C:\Users\ps24jgill\GitHubRepos\SteelStrategists\CrashDialogBox\CrashDialogBox\CrashDialogBox\obj\Debug\CrashDialogBox.pdb
