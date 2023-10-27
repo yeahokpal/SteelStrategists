@@ -23,6 +23,7 @@ public class Interactables : MonoBehaviour
     [SerializeField] GameObject child;
     private GameObject[] dialogObjects;
     private bool canInteract;
+    private bool playerInteracted;
 
     private void Awake()
     {
@@ -47,10 +48,14 @@ public class Interactables : MonoBehaviour
 
     public void PlayerInteracted()
     {
+        playerInteracted = true;
+        if (canInteract && playerInteracted)
+        {
         GameObject child = FindChildWithTag(gameObject, "Dialog Object");
         if (child != null)
         {
-            child.GetComponent<CharacterDialogController>().SelectDialog();
+            child.GetComponent<DialogSelector>().SelectDialog();
+            Debug.Log("interacted with dialog object");
         } else
         {
             Debug.Log("not a dialog object");
@@ -62,11 +67,13 @@ public class Interactables : MonoBehaviour
             ct.Craft();
         }
         StartCoroutine(DisableInteract());
+        }
     }
 
     IEnumerator DisableInteract()
     {
         yield return new WaitForSeconds(0.2f);
+        playerInteracted = false;
     }
 
     // Update is called once per frame
