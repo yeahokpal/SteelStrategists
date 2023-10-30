@@ -12,6 +12,17 @@ public class Door : MonoBehaviour
 {
     [SerializeField] Animator anim;
 
+    public int Health = 10;
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+        if (Health <= 0)
+        {
+            Debug.Log("Game Over");
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

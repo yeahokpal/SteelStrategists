@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 412311855}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1062,7 +1062,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 6d26c8048f1c5d84b811cfe24585d284, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1158,6 +1158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 412311855}
+  Health: 10
 --- !u!212 &419202664 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8401247345476676383, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
@@ -27179,6 +27180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3990631569666718698, guid: 3e948ece2c7fbf041bfccf652d904dac, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7743565045746718545, guid: 3e948ece2c7fbf041bfccf652d904dac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.208822
@@ -27218,6 +27223,10 @@ PrefabInstance:
     - target: {fileID: 7743565045746718545, guid: 3e948ece2c7fbf041bfccf652d904dac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097598170837978643, guid: 3e948ece2c7fbf041bfccf652d904dac, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27410,6 +27419,7 @@ MonoBehaviour:
   timerTxt: {fileID: 523414019}
   volumeSlider: {fileID: 177345987}
   enemySpawner: {fileID: 0}
+  handleExceptions: 1
 --- !u!4 &1844321910
 Transform:
   m_ObjectHideFlags: 0

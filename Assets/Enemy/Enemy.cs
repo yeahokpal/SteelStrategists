@@ -13,13 +13,12 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     // Raycast for detecting a wall in front of it
-    RaycastHit2D ray;
-    bool attacking = false;
     public int Health = 5;
+
+    [SerializeField] int damage;
 
     void Start()
     {
-        ray = Physics2D.Raycast(new Vector3(transform.position.x - .5f, transform.position.y, transform.position.z), -Vector3.right, .25f);
         rb.velocity = new Vector2(-2f, 0f);
     }
 
@@ -29,25 +28,30 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
-        // Checking the Raycast to try to detect a wall
-        Debug.DrawRay(new Vector3(transform.position.x - .5f, transform.position.y, transform.position.z), -Vector3.right, Color.red, .25f, false);
-
-        // If it finds a wall, start attacking
-        if (ray.collider.tag == "Building" && !attacking)
-        {
-            rb.velocity = new Vector2(0f, 0f);
-            StartCoroutine(AttackBuildings());
-        }
     }
 
-    IEnumerator AttackBuildings()
+    public void TakeDamage(int damage)
     {
-        attacking = true;
-        // Add attacking code once buildings are made
+        Health -= damage;
+    }
 
-        yield return new WaitForSeconds(1f);
-        attacking = false;
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Door" && collision.gameObject.GetComponent<Door>().Health > 0)
+        {
+            rb.velocity = new Vector2(0f, 0f);
+            StartCoroutine(StartAttackingBase(collision));
+        } 
+    }
+
+    // Code that executes when the enemy is attacking the base
+    IEnumerator StartAttackingBase(Collider2D collision)
+    {
+        collision.gameObject.GetComponent<Door>().TakeDamage(damage);
+        if (collision.gameObject.tag == "Door" && collision.gameObject.GetComponent<Door>().Health > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(StartAttackingBase(collision));
+        }
     }
 }

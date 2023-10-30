@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     int timerSecondsLeft;
     bool startSpawning = true;
     bool startTimer = true;
+    bool hasStartedTimer = false;
     // Timer UI Elements
     [SerializeField] TextMeshProUGUI timerTxt;
     [SerializeField] Slider volumeSlider;
@@ -40,23 +41,47 @@ public class GameManager : MonoBehaviour
     public Log mostRecentLog = new Log();
     string bug;
 
+    public static List<string> logFile = new List<string>();
+    public static StreamWriter writer = new StreamWriter(Application.dataPath + "/ErrorLog/log.txt", true);
+
     #endregion
+
     private void Awake()
     {
-        // Calls Method whenever something is logged to the console (for crash reporting)
+        // Calls HandleException Method whenever something is logged to the console (for crash reporting)
         Application.logMessageReceived += HandleException;
+
+        // For closing the writer when the player quits
+        Application.quitting += Quit;
+    }
+    // For closing the writer when the player quits
+    private void Quit()
+    {
+        writer.Close();
     }
     void Start()
     {
+        if (!Directory.Exists(Application.dataPath + "/ErrorLog/"))
+        {
+            Directory.CreateDirectory(Application.dataPath + "/ErrorLog/");
+        }
+
         enemySpawner = GameObject.Find("EnemySpawner");
 
         // Me purposefully causing errors to cause Exceptions
-        int[] test = new int[1];
-        int haha = test[2]; // Out of array bounds
+        //int[] test = new int[1];
+        //int haha = test[2]; // Out of array bounds
     }
     void Update()
     {
         AudioListener.volume = volumeSlider.value; // Put in a method later
+
+        // Adds timer delay for whenever the player presses a button
+        if (Input.anyKey && !hasStartedTimer)
+        {
+            timerDelay = Time.realtimeSinceStartup;
+            hasStartedTimer = true;
+        }
 
         #region Timer Stuff
 
@@ -95,20 +120,26 @@ public class GameManager : MonoBehaviour
         public string stackTrace{get; set;}
     }
 
+    // Gets called whenever something is logged to console, error or intentional
     void HandleException(string logString, string stackTrace, LogType type)
     {
-        // If the log is an error 
-        if (type == LogType.Exception && handleExceptions)
+        // Handling generic logs
+        if (type == LogType.Log)
+        {
+            writer.WriteLine(logString);
+        }
+        // Handling Errors
+        else if (type == LogType.Exception && handleExceptions)
         {
             mostRecentLog.logString = logString;
             mostRecentLog.stackTrace = stackTrace;
 
             // the string we use for crashinfo
             bug = "An exception has occurred!\nLocation:\n" + mostRecentLog.stackTrace + "Issue:\n" + mostRecentLog.logString;
-            AddLog(bug);
+            logFile.Add(bug);
 
             // This line just helps to differentiate Exceptions
-            AddLog("--------------------------");
+            logFile.Add("--------------------------");
             DumpLogs(); // Dump new logs
             
             // PLEASE REMEMBER TO UNCOMMENT THIS LINE OH MY GOD!!!!!
@@ -116,29 +147,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static List<string> logFile = new List<string>();
-
-    public static void AddLog(string logString)
-    {
-        logFile.Add(logString);
-    }
-
+    // Write all logs to log.txt if there is an error
     public static void DumpLogs()
     {
-        // If the Debug folder doesn't exist, create it
-        if (!Directory.Exists(Application.dataPath + "/Debug/"))
-        {
-            AddLog("Debug directory did not exist");
-            Directory.CreateDirectory(Application.dataPath + "/Debug/");
-        }
-
-        StreamWriter writer = new StreamWriter(Application.dataPath + "/Debug/log.txt", true);
-
         foreach (string logString in logFile)
         {
             writer.WriteLine(logString);
         }
 
+        // For closing the writer when the game crashes, because this method only gets called on crash
         writer.Close();
     }
 
