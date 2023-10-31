@@ -8,8 +8,16 @@ public class Building : MonoBehaviour
 
     [SerializeField] int Damage;
     [SerializeField] float AttackInterval;
+
+    public LineRenderer lr;
+
     bool canAttack = true;
-    
+
+    private void Start()
+    {
+        lr = gameObject.GetComponent<LineRenderer>();
+    }
+
     void Update()
     {
         if (enemies.Count > 0 && canAttack)
@@ -24,6 +32,17 @@ public class Building : MonoBehaviour
         if (enemy.Health > 0)
         {
             enemy.Health -= Damage;
+
+            lr.enabled = true;
+
+            lr.SetWidth(0.05f, 0.05f);
+            lr.SetPosition(0, gameObject.transform.position);
+            lr.SetPosition(1, enemy.gameObject.transform.position);
+
+            yield return new WaitForSeconds(.1f);
+            
+            lr.enabled = false;
+
             yield return new WaitForSeconds(AttackInterval);
         }
         if (enemy.Health <= 0)
