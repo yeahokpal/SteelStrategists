@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5324400860708091824}
   Health: 5
+  damage: 1
 --- !u!50 &5324400860708091824
 Rigidbody2D:
   serializedVersion: 4

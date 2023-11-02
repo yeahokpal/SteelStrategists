@@ -7,16 +7,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
     [SerializeField] Animator anim;
 
-    public int Health = 10;
+    [SerializeField] Slider slider;
+
+    public float Health = 100;
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        slider.value = Health / 100;
         if (Health <= 0)
         {
             Debug.Log("Game Over");

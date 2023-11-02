@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
             {
                 enemySpawner.GetComponent<EnemySpawner>().StartCoroutine(enemySpawner.GetComponent<EnemySpawner>().StartSpawning());
                 startSpawning = false;
+                startTimer = false;
             }
         }
         #endregion

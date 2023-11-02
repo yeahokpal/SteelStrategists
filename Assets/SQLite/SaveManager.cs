@@ -81,7 +81,11 @@ public class SaveManager : MonoBehaviour
             SqliteCommand cmd = new SqliteCommand("SELECT " + column + " FROM " + table + " WHERE SaveNum = " + saveNum.ToString(), Connection);
             SqliteDataReader reader = cmd.ExecuteReader();
 
-            return reader.GetValue(0).ToString();
+            // Making a string that we return instead so that we can close the Connection
+            string returnValue = reader.GetValue(0).ToString();
+            Connection.Close();
+
+            return returnValue;
         }
     }
 

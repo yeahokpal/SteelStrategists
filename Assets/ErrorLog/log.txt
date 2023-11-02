@@ -94,3 +94,9 @@ Spawn an enemy
 Spawn an enemy
 Spawn an enemy
 Spawn an enemy
+Game Over
+Game Over
+Can Craft
+not a dialog object
+Player Interacted
+Crafted!
