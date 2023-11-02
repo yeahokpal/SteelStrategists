@@ -54,14 +54,8 @@ public class Interactables : MonoBehaviour
         GameObject child = FindChildWithTag(gameObject, "Dialog Object");
         if (child != null)
         {
-            child.GetComponent<DialogSelector>().SelectDialog();
-            Debug.Log("interacted with dialog object");
-        } else
-        {
-            Debug.Log("not a dialog object");
+            child.GetComponent<DialogManager>().SelectDialog();
         }
-        
-        Debug.Log("Player Interacted");
         if (ct != null)
         {
             ct.Craft();
