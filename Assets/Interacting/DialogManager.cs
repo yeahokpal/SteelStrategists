@@ -42,9 +42,9 @@ public class DialogManager : MonoBehaviour
         }
         else
         {
-            foreach (Transform child in GameObject.Find("DialogCanvas").transform) child.gameObject.SetActive(true);
-            this.transform.GetChild(2).GetComponent<TMP_Text>().text = text;
-            this.transform.GetChild(3).GetComponent<TMP_Text>().text = characterName;
+            foreach (Transform child in DialogCanvas.transform) child.gameObject.SetActive(true);
+            DialogCanvas.transform.GetChild(2).GetComponent<TMP_Text>().text = text;
+            DialogCanvas.transform.GetChild(3).GetComponent<TMP_Text>().text = characterName;
             if (Player == null) Debug.Log("player not found");
             else
             {
@@ -63,9 +63,9 @@ public class DialogManager : MonoBehaviour
         {
             foreach (Transform child in transform) child.gameObject.SetActive(true);
 
-            this.transform.GetChild(2).GetComponent<TMP_Text>().text = text;
-            this.transform.GetChild(3).GetComponent<TMP_Text>().text = characterName;
-            this.transform.GetChild(0).GetComponent<Image>().sprite = characterPortrait;
+            transform.GetChild(2).GetComponent<TMP_Text>().text = text;
+            transform.GetChild(3).GetComponent<TMP_Text>().text = characterName;
+            transform.GetChild(0).GetComponent<Image>().sprite = characterPortrait;
         }
     }
 }
