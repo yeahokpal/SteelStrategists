@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7574938251202954470}
   - component: {fileID: 2791901029910520370}
   m_Layer: 0
-  m_Name: TemplateBuilding
+  m_Name: Tower_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80652825070658748b79f937110efe7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 3
-  AttackInterval: 1
+  Damage: 5
+  AttackInterval: 0.25
   lr: {fileID: 7574938251202954470}
 --- !u!212 &-586645098145760693
 SpriteRenderer:
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 94fdafa3694e8d2418adaff6e73b2534, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35c6d3ff8cf74d34e889b279396bfd6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -274,7 +274,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.90153635}
+  m_Offset: {x: 0, y: -0.9058445}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -285,5 +285,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.19692731}
+  m_Size: {x: 1, y: 0.18831098}
   m_EdgeRadius: 0

@@ -100,3 +100,7 @@ Can Craft
 not a dialog object
 Player Interacted
 Crafted!
+Can Craft
+Crafted!
+Can Craft
+Crafted!
