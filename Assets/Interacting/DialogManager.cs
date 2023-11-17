@@ -61,11 +61,16 @@ public class DialogManager : MonoBehaviour
         }
         else
         {
-            foreach (Transform child in transform) child.gameObject.SetActive(true);
+            foreach (Transform child in DialogCanvas.transform) child.gameObject.SetActive(true);
 
             transform.GetChild(2).GetComponent<TMP_Text>().text = text;
             transform.GetChild(3).GetComponent<TMP_Text>().text = characterName;
             transform.GetChild(0).GetComponent<Image>().sprite = characterPortrait;
         }
+    }
+    public void CloseDialog()
+    {
+        foreach (Transform child in DialogCanvas.transform) child.gameObject.SetActive(false);
+        Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
     }
 }

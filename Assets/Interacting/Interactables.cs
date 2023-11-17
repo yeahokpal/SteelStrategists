@@ -21,7 +21,6 @@ public class Interactables : MonoBehaviour
     [SerializeField] private CraftingTable ct;
     [SerializeField] private GameObject InteractScript; //should be whatever you want to do as a result of interacting
     [SerializeField] GameObject child;
-    private GameObject[] dialogObjects;
     private bool canInteract;
     private bool playerInteracted;
 
@@ -29,7 +28,6 @@ public class Interactables : MonoBehaviour
     {
         interactionArea.radius = interactionRadius;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        dialogObjects = GameObject.FindGameObjectsWithTag("Dialog Object");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -90,5 +88,4 @@ public class Interactables : MonoBehaviour
         }
         return child;
     }
-
 }
