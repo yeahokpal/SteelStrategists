@@ -1,8 +1,8 @@
 /*
  * Programmers: Jack Gill, Caden Mesina
  * Purpose: Manage and contain
- * Inputs:
- * Outputs:
+ * Input:
+ * Output:
  */
 
 using System.Collections;
@@ -11,7 +11,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public int woodAmount;

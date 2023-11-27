@@ -1,4 +1,3 @@
-
 /*  
  *  Programmer: Jack Gill
  *  Purpose: Manage crafting tables to trade resources for items that can be used
@@ -38,7 +37,7 @@ public class CraftingTable : MonoBehaviour
     int playerElectronics;
 
     bool canCraft = false;
-    public PlayerMovement player;
+    public PlayerManager player;
 
     private void Awake()
     {
@@ -46,7 +45,7 @@ public class CraftingTable : MonoBehaviour
         material2.GetComponent<Image>().sprite = materialSprite2;
         craftableObjectUI.GetComponent<SpriteRenderer>().sprite = craftableObjectPrefab.GetComponent<SpriteRenderer>().sprite;
 
-        player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        player = GameObject.Find("Player").GetComponent<PlayerManager>();
         // These If-Else statements decide what integers to put in the text fields - Can be condensed later
         if (requiredWood == 0)
         {

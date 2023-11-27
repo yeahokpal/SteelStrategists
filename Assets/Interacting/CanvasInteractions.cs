@@ -1,9 +1,16 @@
+/*
+ * Programmers: Caden Mesina
+ * Purpose: Closes dialog boxes when they're clicked
+ * Input: Player clicks on canvas
+ * Output: N/A
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CanvasInteractions : MonoBehaviour, IPointerDownHandler
+public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private GameObject DialogBox;
     private GameObject[] dialogObjects;
@@ -12,7 +19,7 @@ public class CanvasInteractions : MonoBehaviour, IPointerDownHandler
         dialogObjects = GameObject.FindGameObjectsWithTag("Dialog Object");
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Player Clicked Dialog Box");
         foreach (GameObject dialogItem in dialogObjects)

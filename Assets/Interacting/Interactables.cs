@@ -1,11 +1,11 @@
 /*
  * Programmer: Caden Mesina
  * Purpose: Make objects this script is attached to execute an action when the player is within a certain distance and presses interact
- * Inputs:
+ * Input:
  *  - When a player enters and exits the interaction area
  *  - The radius of the interaction area
  *  - The player interaction key
- * Outputs: Whatever function is needed by the object
+ * Output: Whatever function is needed by the object
  */
 
 using System.Collections;

@@ -1,7 +1,7 @@
 /*
  * Programmers: Caden Mesina
  * Purpose: Take input from DialogSelector.cs to display the dialog box on screen
- * Input: Nothing from players, StartDialog is just called by DialogSelector.cs and is given a name and dialog text and maybe a portrait
+ * Input: Nothing from players, StartDialog is just called and is given a name and dialog text and maybe a portrait
  * Output: Displays dialog box
  */
 

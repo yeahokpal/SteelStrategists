@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: ddef0aadca2b00c49b915b8022748227, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5503147352680009801}
   - component: {fileID: 1271883971214678120}
-  - component: {fileID: 2266141531371775432}
+  - component: {fileID: 9059362521754613762}
   - component: {fileID: 8697416860725197099}
   - component: {fileID: 5179988634951547878}
   - component: {fileID: 2160643389003598531}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 806766158488728015}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,7 +175,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2266141531371775432
+--- !u!114 &9059362521754613762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,14 +188,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  woodAmount: 1
+  woodAmount: 0
   steelAmount: 0
   electronicsAmount: 0
   rb: {fileID: 5179988634951547878}
   cameraManager: {fileID: 2938153124239025030}
   saveManager: {fileID: 0}
   animator: {fileID: 806766158488728015}
-  placeOverlay: {fileID: 222617921613689144}
+  placeOverlay: {fileID: 9154186035497790977}
   currentBuilding: {fileID: 0}
 --- !u!61 &8697416860725197099
 BoxCollider2D:
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2266141531371775432}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 1
