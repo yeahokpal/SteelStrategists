@@ -24,7 +24,7 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
         Debug.Log("Player Clicked Dialog Box");
         foreach (GameObject dialogItem in dialogObjects)
         {
-            dialogItem.GetComponentInChildren<DialogManager>().CloseDialog();
+            dialogItem.GetComponentInChildren<CanvasManager>().CloseCanvas();
         }
     }
 

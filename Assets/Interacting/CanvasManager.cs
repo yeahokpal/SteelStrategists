@@ -12,24 +12,27 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 
-public class DialogManager : MonoBehaviour
+public class CanvasManager : MonoBehaviour
 {
     [SerializeField] private GameObject DialogCanvas;
     [SerializeField] private GameObject Player;
     [SerializeField] private Sprite Portrait;
 
+    #region Default Methods
     private void Awake()
     {
         DialogCanvas = GameObject.Find("DialogCanvas");
         Player = GameObject.Find("Player");
     }
+    #endregion
+
+    #region Dialog Methods
     public void SelectDialog()
     {
         switch (name)
         {
             //add the portrait variable as the third parameter to add a portrait to the dialog box
-            //this case shouldn't appear in actual gameplay, just for testing
-            case ("[InsertCharacterName]Dialog"):
+            case ("[InsertCharacterName]Dialog")://this case shouldn't appear in actual gameplay, just for testing
                 StartDialog("Test Name", "Test Dialog");
                 break;
         }
@@ -68,7 +71,15 @@ public class DialogManager : MonoBehaviour
             transform.GetChild(0).GetComponent<Image>().sprite = characterPortrait;
         }
     }
-    public void CloseDialog()
+    #endregion
+
+    #region Menu Methods
+    public void OpenMapMenu()
+    {
+        
+    }
+    #endregion
+    public void CloseCanvas()
     {
         foreach (Transform child in DialogCanvas.transform) child.gameObject.SetActive(false);
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");

@@ -52,12 +52,17 @@ public class Interactables : MonoBehaviour
         GameObject child = FindChildWithTag(gameObject, "Dialog Object");
         if (child != null)
         {
-            child.GetComponent<DialogManager>().SelectDialog();
+            child.GetComponent<CanvasManager>().SelectDialog();
         }
         if (ct != null)
         {
             ct.Craft();
         }
+        if (this.name == "Map")
+            {
+                this.GetComponent<CanvasManager>().OpenMapMenu();
+                Debug.Log("Player Opened Map");
+            }
         StartCoroutine(DisableInteract());
         }
     }
