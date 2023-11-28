@@ -7,15 +7,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] GameObject deathScreen;
+
+    [SerializeField] GameObject Player;
+
     [SerializeField] Animator anim;
 
     [SerializeField] Slider slider;
 
     public float Health = 100;
+
+    private void Awake()
+    {
+        Player = GameObject.Find("Player");
+    }
 
     public void TakeDamage(int damage)
     {
@@ -24,6 +34,8 @@ public class Door : MonoBehaviour
         if (Health <= 0)
         {
             Debug.Log("Game Over");
+            deathScreen.SetActive(true);
+            Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
         }
     }
 
