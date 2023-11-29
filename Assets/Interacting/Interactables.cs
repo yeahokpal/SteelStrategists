@@ -16,6 +16,7 @@ using UnityEngine.InputSystem;
 public class Interactables : MonoBehaviour
 {
     [SerializeField] private CircleCollider2D interactionArea;
+    [SerializeField] private GameObject MapCanvas;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float interactionRadius;
     [SerializeField] private CraftingTable ct;
@@ -52,12 +53,17 @@ public class Interactables : MonoBehaviour
         GameObject child = FindChildWithTag(gameObject, "Dialog Object");
         if (child != null)
         {
-            child.GetComponent<DialogManager>().SelectDialog();
+            child.GetComponent<CanvasManager>().SelectDialog();
         }
         if (ct != null)
         {
             ct.Craft();
         }
+        if (this.name == "Map")
+            {
+                this.GetComponent<CanvasManager>().OpenMapMenu();
+                Debug.Log("Player Opened Map");
+            }
         StartCoroutine(DisableInteract());
         }
     }

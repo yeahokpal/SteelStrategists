@@ -26993,7 +26993,7 @@ GameObject:
   - component: {fileID: 1394601117}
   - component: {fileID: 1394601118}
   m_Layer: 0
-  m_Name: tempMap
+  m_Name: Map
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
