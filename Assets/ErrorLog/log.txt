@@ -152,3 +152,29 @@ Spawn an enemy
 Spawn an enemy
 Spawn an enemy
 Spawn an enemy
+An exception has occurred!
+Location:
+Interactables.PlayerInteracted () (at Assets/Interacting/Interactables.cs:63)
+PlayerManager.OnInteract () (at Assets/Player/PlayerManager.cs:96)
+UnityEngine.InputSystem.LowLevel.<>c__DisplayClass7_0:<set_onUpdate>b__0(NativeInputUpdateType, NativeInputEventBuffer*)
+UnityEngineInternal.Input.NativeInputSystem:NotifyUpdate(NativeInputUpdateType, IntPtr)
+Issue:
+NullReferenceException: Object reference not set to an instance of an object
+--------------------------
+Player Opened Map
+An exception has occurred!
+Location:
+Interactables.PlayerInteracted () (at Assets/Interacting/Interactables.cs:66)
+PlayerManager.OnInteract () (at Assets/Player/PlayerManager.cs:96)
+UnityEngine.InputSystem.LowLevel.<>c__DisplayClass7_0:<set_onUpdate>b__0(NativeInputUpdateType, NativeInputEventBuffer*)
+UnityEngineInternal.Input.NativeInputSystem:NotifyUpdate(NativeInputUpdateType, IntPtr)
+Issue:
+NullReferenceException: Object reference not set to an instance of an object
+--------------------------
+Player Opened Map
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map

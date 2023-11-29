@@ -15,6 +15,7 @@ using UnityEngine.InputSystem;
 public class CanvasManager : MonoBehaviour
 {
     [SerializeField] private GameObject DialogCanvas;
+    [SerializeField] private GameObject MapCanvas;
     [SerializeField] private GameObject Player;
     [SerializeField] private Sprite Portrait;
 
@@ -76,7 +77,13 @@ public class CanvasManager : MonoBehaviour
     #region Menu Methods
     public void OpenMapMenu()
     {
-        
+        if (MapCanvas == null) Debug.Log("Map Canvas not found");
+        else
+        {
+            foreach (Transform child in MapCanvas.transform) child.gameObject.SetActive(true);
+            Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+            Debug.Log("Switching map");
+        }
     }
     #endregion
     public void CloseCanvas()

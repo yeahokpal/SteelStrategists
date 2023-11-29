@@ -16,6 +16,7 @@ using UnityEngine.InputSystem;
 public class Interactables : MonoBehaviour
 {
     [SerializeField] private CircleCollider2D interactionArea;
+    [SerializeField] private GameObject MapCanvas;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float interactionRadius;
     [SerializeField] private CraftingTable ct;
