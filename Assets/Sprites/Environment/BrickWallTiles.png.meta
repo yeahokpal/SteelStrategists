@@ -449,8 +449,8 @@ TextureImporter:
       name: BrickWallTiles_16
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 288
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -470,8 +470,8 @@ TextureImporter:
       name: BrickWallTiles_17
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 320
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -491,7 +491,7 @@ TextureImporter:
       name: BrickWallTiles_18
       rect:
         serializedVersion: 2
-        x: 96
+        x: 32
         y: 0
         width: 32
         height: 32
@@ -512,7 +512,7 @@ TextureImporter:
       name: BrickWallTiles_19
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -533,7 +533,7 @@ TextureImporter:
       name: BrickWallTiles_20
       rect:
         serializedVersion: 2
-        x: 160
+        x: 96
         y: 0
         width: 32
         height: 32
@@ -554,7 +554,7 @@ TextureImporter:
       name: BrickWallTiles_21
       rect:
         serializedVersion: 2
-        x: 192
+        x: 128
         y: 0
         width: 32
         height: 32
@@ -575,7 +575,7 @@ TextureImporter:
       name: BrickWallTiles_22
       rect:
         serializedVersion: 2
-        x: 224
+        x: 160
         y: 0
         width: 32
         height: 32
@@ -596,7 +596,7 @@ TextureImporter:
       name: BrickWallTiles_23
       rect:
         serializedVersion: 2
-        x: 256
+        x: 192
         y: 0
         width: 32
         height: 32
@@ -617,7 +617,7 @@ TextureImporter:
       name: BrickWallTiles_24
       rect:
         serializedVersion: 2
-        x: 288
+        x: 224
         y: 0
         width: 32
         height: 32
@@ -638,7 +638,7 @@ TextureImporter:
       name: BrickWallTiles_25
       rect:
         serializedVersion: 2
-        x: 320
+        x: 256
         y: 0
         width: 32
         height: 32
@@ -651,6 +651,48 @@ TextureImporter:
       bones: []
       spriteID: 25c5c7c980b0f8845936b160163120a8
       internalID: -240123774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrickWallTiles_26
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf16b3f484b9ce4d8b53d105a82b320
+      internalID: -1518412940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrickWallTiles_27
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865b29c0e471fd04e8e331348647d327
+      internalID: -507987544
       vertices: []
       indices: 
       edges: []
@@ -685,6 +727,8 @@ TextureImporter:
       BrickWallTiles_23: 1984072362
       BrickWallTiles_24: -684095268
       BrickWallTiles_25: -240123774
+      BrickWallTiles_26: -1518412940
+      BrickWallTiles_27: -507987544
       BrickWallTiles_3: -1899241079
       BrickWallTiles_4: -1320481488
       BrickWallTiles_5: 1120973531
