@@ -215,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161321680}
   m_Layer: 0
-  m_Name: CameraStuff
+  m_Name: CameraTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1761,7 +1761,7 @@ GameObject:
   - component: {fileID: 731804170}
   - component: {fileID: 731804169}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: TilesetGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27125,6 +27125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionArea: {fileID: 1394601118}
+  MapCanvas: {fileID: 0}
   spriteRenderer: {fileID: 0}
   interactionRadius: 2.75
   ct: {fileID: 0}
