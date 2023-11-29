@@ -61,10 +61,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        if (!Directory.Exists(Application.dataPath + "/ErrorLog/"))
-        {
-            Directory.CreateDirectory(Application.dataPath + "/ErrorLog/");
-        }
+        Directory.Delete(Application.dataPath + "/ErrorLog/");
+        Directory.CreateDirectory(Application.dataPath + "/ErrorLog/");
 
         enemySpawner = GameObject.Find("EnemySpawner");
 
