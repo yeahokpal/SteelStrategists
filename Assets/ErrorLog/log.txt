@@ -196,3 +196,93 @@ GameManager.Start () (at Assets/GameManager.cs:64)
 Issue:
 IOException: The directory is not empty : 'C:\Users\ps24jgill\GitHubRepos\SteelStrategists\Assets\ErrorLog\'
 --------------------------
+An exception has occurred!
+Location:
+System.IO.FileSystem.RemoveDirectoryInternal (System.String fullPath, System.Boolean topLevel, System.Boolean allowDirectoryNotEmpty) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileSystem.RemoveDirectory (System.String fullPath, System.Boolean recursive) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.Directory.Delete (System.String path) (at <b89873cb176e44a995a4781c7487d410>:0)
+GameManager.Start () (at Assets/GameManager.cs:64)
+Issue:
+IOException: The directory is not empty : 'C:\Users\PS24CMesina\Documents\SteelStrategists\Assets\ErrorLog\'
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileSystem.RemoveDirectoryInternal (System.String fullPath, System.Boolean topLevel, System.Boolean allowDirectoryNotEmpty) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileSystem.RemoveDirectory (System.String fullPath, System.Boolean recursive) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.Directory.Delete (System.String path) (at <b89873cb176e44a995a4781c7487d410>:0)
+GameManager.Start () (at Assets/GameManager.cs:64)
+Issue:
+IOException: The directory is not empty : 'C:\Users\PS24CMesina\Documents\SteelStrategists\Assets\ErrorLog\'
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileSystem.RemoveDirectoryInternal (System.String fullPath, System.Boolean topLevel, System.Boolean allowDirectoryNotEmpty) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileSystem.RemoveDirectory (System.String fullPath, System.Boolean recursive) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.Directory.Delete (System.String path) (at <b89873cb176e44a995a4781c7487d410>:0)
+GameManager.Start () (at Assets/GameManager.cs:64)
+Issue:
+IOException: The directory is not empty : 'C:\Users\PS24CMesina\Documents\SteelStrategists\Assets\ErrorLog\'
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileSystem.RemoveDirectoryInternal (System.String fullPath, System.Boolean topLevel, System.Boolean allowDirectoryNotEmpty) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileSystem.RemoveDirectory (System.String fullPath, System.Boolean recursive) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.Directory.Delete (System.String path) (at <b89873cb176e44a995a4781c7487d410>:0)
+GameManager.Start () (at Assets/GameManager.cs:64)
+Issue:
+IOException: The directory is not empty : 'C:\Users\PS24CMesina\Documents\SteelStrategists\Assets\ErrorLog\'
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileSystem.RemoveDirectoryInternal (System.String fullPath, System.Boolean topLevel, System.Boolean allowDirectoryNotEmpty) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileSystem.RemoveDirectory (System.String fullPath, System.Boolean recursive) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.Directory.Delete (System.String path) (at <b89873cb176e44a995a4781c7487d410>:0)
+GameManager.Start () (at Assets/GameManager.cs:64)
+Issue:
+IOException: The directory is not empty : 'C:\Users\PS24CMesina\Documents\SteelStrategists\Assets\ErrorLog\'
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileSystem.RemoveDirectoryInternal (System.String fullPath, System.Boolean topLevel, System.Boolean allowDirectoryNotEmpty) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileSystem.RemoveDirectory (System.String fullPath, System.Boolean recursive) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.Directory.Delete (System.String path) (at <b89873cb176e44a995a4781c7487d410>:0)
+GameManager.Start () (at Assets/GameManager.cs:64)
+Issue:
+IOException: The directory is not empty : 'C:\Users\PS24CMesina\Documents\SteelStrategists\Assets\ErrorLog\'
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileSystem.RemoveDirectoryInternal (System.String fullPath, System.Boolean topLevel, System.Boolean allowDirectoryNotEmpty) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileSystem.RemoveDirectory (System.String fullPath, System.Boolean recursive) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.Directory.Delete (System.String path) (at <b89873cb176e44a995a4781c7487d410>:0)
+GameManager.Start () (at Assets/GameManager.cs:64)
+Issue:
+IOException: The directory is not empty : 'C:\Users\PS24CMesina\Documents\SteelStrategists\Assets\ErrorLog\'
+--------------------------
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map
+An exception has occurred!
+Location:
+System.IO.FileSystem.RemoveDirectoryInternal (System.String fullPath, System.Boolean topLevel, System.Boolean allowDirectoryNotEmpty) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileSystem.RemoveDirectory (System.String fullPath, System.Boolean recursive) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.Directory.Delete (System.String path) (at <b89873cb176e44a995a4781c7487d410>:0)
+GameManager.Start () (at Assets/GameManager.cs:66)
+Issue:
+IOException: The directory is not empty : 'C:\Users\PS24CMesina\Documents\SteelStrategists\Assets\ErrorLog\'
+--------------------------
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map
+Switching map
+Player Opened Map

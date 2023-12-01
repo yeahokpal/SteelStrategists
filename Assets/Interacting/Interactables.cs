@@ -21,7 +21,7 @@ public class Interactables : MonoBehaviour
     [SerializeField] private float interactionRadius;
     [SerializeField] private CraftingTable ct;
     [SerializeField] private GameObject InteractScript; //should be whatever you want to do as a result of interacting
-    [SerializeField] GameObject child;
+    private GameObject child;
     private bool canInteract;
     private bool playerInteracted;
 
