@@ -122,28 +122,28 @@ public class GameManager : MonoBehaviour
     // Gets called whenever something is logged to console, error or intentional
     void HandleException(string logString, string stackTrace, LogType type)
     {
-        // Handling generic logs
-        if (type == LogType.Log)
-        {
-            writer.WriteLine(logString);
-        }
-        // Handling Errors
-        else if (type == LogType.Exception && handleExceptions)
-        {
-            mostRecentLog.logString = logString;
-            mostRecentLog.stackTrace = stackTrace;
+        //// Handling generic logs
+        //if (type == LogType.Log)
+        //{
+        //    writer.WriteLine(logString);
+        //}
+        //// Handling Errors
+        //else if (type == LogType.Exception && handleExceptions)
+        //{
+        //    mostRecentLog.logString = logString;
+        //    mostRecentLog.stackTrace = stackTrace;
 
-            // the string we use for crashinfo
-            bug = "An exception has occurred!\nLocation:\n" + mostRecentLog.stackTrace + "Issue:\n" + mostRecentLog.logString;
-            logFile.Add(bug);
+        //    // the string we use for crashinfo
+        //    bug = "An exception has occurred!\nLocation:\n" + mostRecentLog.stackTrace + "Issue:\n" + mostRecentLog.logString;
+        //    logFile.Add(bug);
 
-            // This line just helps to differentiate Exceptions
-            logFile.Add("--------------------------");
-            DumpLogs(); // Dump new logs
+        //    // This line just helps to differentiate Exceptions
+        //    logFile.Add("--------------------------");
+        //    DumpLogs(); // Dump new logs
             
-            // PLEASE REMEMBER TO UNCOMMENT THIS LINE OH MY GOD!!!!!
-            //SendBugReport(bug);
-        }
+        //    // PLEASE REMEMBER TO UNCOMMENT THIS LINE OH MY GOD!!!!!
+        //    //SendBugReport(bug);
+        //}
     }
 
     // Write all logs to log.txt if there is an error
