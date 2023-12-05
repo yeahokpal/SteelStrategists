@@ -86,7 +86,7 @@ public class CanvasManager : MonoBehaviour
         }
     }
     #endregion
-    public void CloseCanvas()
+    public void CloseDialog()
     {
         foreach (Transform child in DialogCanvas.transform) child.gameObject.SetActive(false);
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
