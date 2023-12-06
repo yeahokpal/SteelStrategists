@@ -1483,7 +1483,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 25
-      m_TileSpriteIndex: 16
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1906,16 +1906,16 @@ Tilemap:
     m_Data: {fileID: 384184004, guid: 95d7656fae8a09a4e8da7eb58cc78a55, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1084552073, guid: 95d7656fae8a09a4e8da7eb58cc78a55, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 8
     m_Data: {fileID: 1120973531, guid: 95d7656fae8a09a4e8da7eb58cc78a55, type: 3}
   - m_RefCount: 34
     m_Data: {fileID: -698164841, guid: 95d7656fae8a09a4e8da7eb58cc78a55, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1320481488, guid: 95d7656fae8a09a4e8da7eb58cc78a55, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1084552073, guid: 95d7656fae8a09a4e8da7eb58cc78a55, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1166270181, guid: 95d7656fae8a09a4e8da7eb58cc78a55, type: 3}
   - m_RefCount: 2
@@ -26682,7 +26682,6 @@ MonoBehaviour:
   interactionRadius: 2.75
   ct: {fileID: 0}
   InteractScript: {fileID: 0}
-  child: {fileID: 0}
 --- !u!58 &1394601118
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27218,7 +27217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerTxt: {fileID: 523414019}
   volumeSlider: {fileID: 177345987}
-  enemySpawner: {fileID: 0}
+  enemySpawner: {fileID: 1164999536}
   handleExceptions: 1
 --- !u!4 &1844321910
 Transform:
