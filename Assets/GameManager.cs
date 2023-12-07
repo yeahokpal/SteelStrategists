@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     int timerMinutesLeft;
     int timerSecondsLeft;
     bool startSpawning = true;
-    bool startTimer = true;
+    bool startTimer = false;
     bool hasStartedTimer = false;
     // Timer UI Elements
     [SerializeField] TextMeshProUGUI timerTxt;
@@ -61,7 +61,10 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        Directory.Delete(Application.dataPath + "/ErrorLog/");
+        if (File.Exists(Application.dataPath + "/ErrorLog/"))
+        {
+            Directory.Delete(Application.dataPath + "/ErrorLog/");
+        }
         Directory.CreateDirectory(Application.dataPath + "/ErrorLog/");
 
         enemySpawner = GameObject.Find("EnemySpawner");
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
         {
             timerDelay = Time.realtimeSinceStartup;
             hasStartedTimer = true;
+            startTimer = true;
         }
 
         #region Timer Stuff
@@ -101,7 +105,7 @@ public class GameManager : MonoBehaviour
             }
 
             // When the timer is donw, start spawning enemies
-            if (timerMinutesLeft == 0 && timerSecondsLeft == 0 && startSpawning)
+            if (timerMinutesLeft <= 0 && timerSecondsLeft <= 0 && startSpawning)
             {
                 enemySpawner.GetComponent<EnemySpawner>().StartCoroutine(enemySpawner.GetComponent<EnemySpawner>().StartSpawning());
                 startSpawning = false;
