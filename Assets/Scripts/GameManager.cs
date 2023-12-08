@@ -19,6 +19,10 @@ using System.Web;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] Camera cam;
+    [SerializeField] Slider volumeSlider;
+    public GameObject enemySpawner;
+
     #region Timer Variables
 
     float timerDelay;
@@ -28,10 +32,7 @@ public class GameManager : MonoBehaviour
     bool startSpawning = true;
     bool startTimer = false;
     bool hasStartedTimer = false;
-    // Timer UI Elements
     [SerializeField] TextMeshProUGUI timerTxt;
-    [SerializeField] Slider volumeSlider;
-    public GameObject enemySpawner;
 
     #endregion
 
@@ -56,11 +57,13 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
+
     // For closing the writer when the player quits
     private void Quit()
     {
         writer.Close();
     }
+
     void Start()
     {
         if (File.Exists(Application.dataPath + "/ErrorLog/"))
@@ -77,13 +80,13 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        AudioListener.volume = volumeSlider.value; // Put in a method later
-
         // If the timer exists in the current scene, when do the timer stuff
         if (GameObject.Find("txtTimer"))
         {
             timerTxt = GameObject.Find("txtTimer").GetComponent<TextMeshProUGUI>();
         }
+
+        #region Timer Stuff
 
         if (timerTxt != null)
         {
@@ -95,7 +98,6 @@ public class GameManager : MonoBehaviour
                 startTimer = true;
             }
 
-            #region Timer Stuff
 
             // When the game starts...
             if (startTimer)
@@ -123,17 +125,22 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
-
         #endregion
+
     }
 
     #region Volume and Settings
     public void ChangeVolume(float volume)
     {
+        GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
 
+        foreach (GameObject go in allObjects){
+            if (go.GetComponent<AudioSource>())
+            {
+                go.GetComponent<AudioSource>().volume = volume;
+            }
+        }
     }
-
 
     #endregion
 

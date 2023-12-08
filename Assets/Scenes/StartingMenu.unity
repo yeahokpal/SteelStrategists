@@ -2025,9 +2025,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e33eb50deb3ee45981e89d73a24f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerTxt: {fileID: 0}
+  cam: {fileID: 0}
   volumeSlider: {fileID: 0}
   enemySpawner: {fileID: 0}
+  timerTxt: {fileID: 0}
   handleExceptions: 1
 --- !u!4 &1752944109
 Transform:
