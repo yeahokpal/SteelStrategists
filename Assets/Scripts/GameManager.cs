@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 
         // For closing the writer when the player quits
         Application.quitting += Quit;
+
+        DontDestroyOnLoad(this);
     }
     // For closing the writer when the player quits
     private void Quit()
@@ -77,43 +79,64 @@ public class GameManager : MonoBehaviour
     {
         AudioListener.volume = volumeSlider.value; // Put in a method later
 
-        // Adds timer delay for whenever the player presses a button
-        if (Input.anyKey && !hasStartedTimer)
+        // If the timer exists in the current scene, when do the timer stuff
+        if (GameObject.Find("txtTimer"))
         {
-            timerDelay = Time.realtimeSinceStartup;
-            hasStartedTimer = true;
-            startTimer = true;
+            timerTxt = GameObject.Find("txtTimer").GetComponent<TextMeshProUGUI>();
         }
 
-        #region Timer Stuff
-
-        // When the game starts...
-        if (startTimer)
+        if (timerTxt != null)
         {
-            // Calculate the remaining time on the timer and put it into minute:second format
-            timerMinutesLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) / 60;
-            timerSecondsLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) % 60;
-            // Update the Timer UI
-
-            if (timerSecondsLeft <= 9) // If the remaining seconds is <= 9, add another 0 so that "1:6" is actually "1:06"
+            // Adds timer delay for whenever the player presses a button
+            if (Input.anyKey && !hasStartedTimer)
             {
-                timerTxt.text = timerMinutesLeft + ":0" + timerSecondsLeft;
-            }
-            else
-            {
-                timerTxt.text = timerMinutesLeft + ":" + timerSecondsLeft;
+                timerDelay = Time.realtimeSinceStartup;
+                hasStartedTimer = true;
+                startTimer = true;
             }
 
-            // When the timer is donw, start spawning enemies
-            if (timerMinutesLeft <= 0 && timerSecondsLeft <= 0 && startSpawning)
+            #region Timer Stuff
+
+            // When the game starts...
+            if (startTimer)
             {
-                enemySpawner.GetComponent<EnemySpawner>().StartCoroutine(enemySpawner.GetComponent<EnemySpawner>().StartSpawning());
-                startSpawning = false;
-                startTimer = false;
+                // Calculate the remaining time on the timer and put it into minute:second format
+                timerMinutesLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) / 60;
+                timerSecondsLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) % 60;
+                // Update the Timer UI
+
+                if (timerSecondsLeft <= 9) // If the remaining seconds is <= 9, add another 0 so that "1:6" is actually "1:06"
+                {
+                    timerTxt.text = timerMinutesLeft + ":0" + timerSecondsLeft;
+                }
+                else
+                {
+                    timerTxt.text = timerMinutesLeft + ":" + timerSecondsLeft;
+                }
+
+                // When the timer is donw, start spawning enemies
+                if (timerMinutesLeft <= 0 && timerSecondsLeft <= 0 && startSpawning)
+                {
+                    enemySpawner.GetComponent<EnemySpawner>().StartCoroutine(enemySpawner.GetComponent<EnemySpawner>().StartSpawning());
+                    startSpawning = false;
+                    startTimer = false;
+                }
             }
         }
+
+
         #endregion
     }
+
+    #region Volume and Settings
+    public void ChangeVolume(float volume)
+    {
+
+    }
+
+
+    #endregion
+
 
     #region Crash Reporting
 
