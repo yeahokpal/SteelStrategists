@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 195c4df067d48204db396c46872bf0a2
+guid: a5eb00a47a1a0ad4e86820e9e4bd5d64
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MapIcons_0
+      name: Numbers_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a53a70d58b953be46b90591c210c36af
-      internalID: -956814698
+      spriteID: 8fdaf04bb614f3a4ca5c4c77460317da
+      internalID: -1536774181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MapIcons_1
+      name: Numbers_1
       rect:
         serializedVersion: 2
         x: 16
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb9427138bb0239408a6a1fa668f1fa0
-      internalID: 779859240
+      spriteID: aa9f55a12ad5a0745a962319b0407f1e
+      internalID: 610879466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MapIcons_2
+      name: Numbers_2
       rect:
         serializedVersion: 2
         x: 32
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5975ba8418ceb14e88fff31f0b37769
-      internalID: -1301885617
+      spriteID: 0501bdb4341bba642a2c32d225a3c926
+      internalID: -1966488125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MapIcons_3
+      name: Numbers_3
       rect:
         serializedVersion: 2
         x: 48
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1026a29c47541174c87888aacccc4d03
-      internalID: 1866245593
+      spriteID: bbc2aec4010f45d4e8da58d7f6c61fcc
+      internalID: -906096730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MapIcons_4
+      name: Numbers_4
       rect:
         serializedVersion: 2
         x: 64
@@ -208,8 +208,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7d652d5738abd544bda52d5ec4dcea3
-      internalID: 239078337
+      spriteID: b22526e5f332cdd4b8e6ff61f94fd41a
+      internalID: -929621248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Numbers_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1852ec2f01f4eb42b0550140a0cb042
+      internalID: 1189579153
       vertices: []
       indices: 
       edges: []
@@ -225,11 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MapIcons_0: -956814698
-      MapIcons_1: 779859240
-      MapIcons_2: -1301885617
-      MapIcons_3: 1866245593
-      MapIcons_4: 239078337
+      Numbers_0: -1536774181
+      Numbers_1: 610879466
+      Numbers_2: -1966488125
+      Numbers_3: -906096730
+      Numbers_4: -929621248
+      Numbers_5: 1189579153
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
