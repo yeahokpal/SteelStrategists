@@ -12,6 +12,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] GameManager gm;
     // Raycast for detecting a wall in front of it
     public int Health = 5;
 
@@ -20,19 +21,18 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb.velocity = new Vector2(-2f, 0f);
-    }
-
-    void Update()
-    {
-        if (Health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+            gm.score += 100;
+            gm.UpdateScoreTxt();
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

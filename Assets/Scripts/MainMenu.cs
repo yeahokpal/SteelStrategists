@@ -16,6 +16,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameManager gm;
     [SerializeField] Slider slider;
 
+
+    private void Start()
+    {
+        
+    }
+
     // Start Button
     public void StartGame ()
     {
