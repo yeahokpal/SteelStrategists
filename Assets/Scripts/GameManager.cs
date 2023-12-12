@@ -5,6 +5,7 @@
  * 
  * Purposes: - Manage Game Timer
  *           - Catch Exceptions and Send Emails
+ *           - Control the score of the current game
  */
 
 using System.Collections;
@@ -21,7 +22,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] Camera cam;
     [SerializeField] Slider volumeSlider;
+    [SerializeField] TextMeshProUGUI scoreTxt;
     public GameObject enemySpawner;
+    public int score;
 
     #region Timer Variables
 
@@ -80,6 +83,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        UpdateScoreTxt();
+
         // If the timer exists in the current scene, when do the timer stuff
         if (GameObject.Find("txtTimer"))
         {
@@ -144,6 +149,15 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    // Updating Score Text UI
+    public void UpdateScoreTxt()
+    {
+        if (scoreTxt == null)
+        {
+            scoreTxt = GameObject.Find("txtScore").GetComponent<TextMeshProUGUI>();
+        }
+        scoreTxt.text = string.Format("{0:0000000000}", score);
+    }
 
     #region Crash Reporting
 

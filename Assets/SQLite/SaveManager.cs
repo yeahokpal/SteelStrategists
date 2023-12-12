@@ -24,8 +24,13 @@ public class SaveManager : MonoBehaviour
     }
     void Start()
     {
+        DontDestroyOnLoad(this);
         if (!File.Exists("Database.db"))
+        {
             CreateDB();
+        }
+
+        List<string> scores = ReadScores();
     }
     public void CreateDB()
     {
@@ -42,54 +47,48 @@ public class SaveManager : MonoBehaviour
                 Command.CommandText = cmd;
                 Command.ExecuteNonQuery();
             }
+            
+            // Creating the Scores Table
+            SendCommand("CREATE TABLE IF NOT EXISTS Scores (PlayerInitials TEXT, Score INTEGER);");
 
-            // Creating the Saves Table
-            SendCommand("CREATE TABLE IF NOT EXISTS Saves (SaveNum INTEGER, HasStarted INTEGER, PlayerName TEXT, PlayerSkin INTEGER);");
-            // Creating the Items Table
-            SendCommand("CREATE TABLE IF NOT EXISTS Items (SaveNum INTEGER, WoodAmount INTEGER, SteelAmount INTEGER, ElectronicsAmount INTEGER, FOREIGN KEY(SaveNum) REFERENCES Saves(SaveNum));");
-            // Creating the Settings Table
-            SendCommand("CREATE TABLE IF NOT EXISTS Settings (SaveNum INTEGER,  Volume FLOAT, PlayerSpeed INTEGER, EnemyDamage INTEGER, FOREIGN KEY(SaveNum) REFERENCES Saves(SaveNum));");
-
-            #region Initial Writes to Tables
-
-            // Initial Write for Save Table
-            SendCommand("INSERT OR REPLACE INTO Saves ('SaveNum', 'HasStarted', 'PlayerName', 'PlayerSkin') VALUES (1, '0', '', 0);");
-            SendCommand("INSERT OR REPLACE INTO Saves ('SaveNum', 'HasStarted', 'PlayerName', 'PlayerSkin') VALUES (2, '0', '', 0);");
-            SendCommand("INSERT OR REPLACE INTO Saves ('SaveNum', 'HasStarted', 'PlayerName', 'PlayerSkin') VALUES (3, '0', '', 0);");
-
-            // Initial Writes for Items Table
-            SendCommand("INSERT OR REPLACE INTO Items ('SaveNum', 'WoodAmount', 'SteelAmount', 'ElectronicsAmount') VALUES (1, 0, 0, 0);");
-            SendCommand("INSERT OR REPLACE INTO Items ('SaveNum', 'WoodAmount', 'SteelAmount', 'ElectronicsAmount') VALUES (2, 0, 0, 0);");
-            SendCommand("INSERT OR REPLACE INTO Items ('SaveNum', 'WoodAmount', 'SteelAmount', 'ElectronicsAmount') VALUES (3, 0, 0, 0);");
-
-            // Initial Writes for Settings Table
-            SendCommand("INSERT OR REPLACE INTO Settings ('SaveNum', 'Volume', 'PlayerSpeed', 'EnemyDamage') VALUES (1, 1.0, 1, 1);");
-            SendCommand("INSERT OR REPLACE INTO Settings ('SaveNum', 'Volume', 'PlayerSpeed', 'EnemyDamage') VALUES (2, 1.0, 1, 1);");
-            SendCommand("INSERT OR REPLACE INTO Settings ('SaveNum', 'Volume', 'PlayerSpeed', 'EnemyDamage') VALUES (3, 1.0, 1, 1);");
-
-            #endregion
+            // Initial Writes to Tables
+            for (int i = 0; i < 10; i++)
+            {
+                SendCommand("INSERT OR REPLACE INTO Scores ('PlayerInitials', 'Score') VALUES ('   ', 0);");
+            }
 
             Connection.Close();
         }
     }
 
-    public string Read(string table, string column, int saveNum)
+    // Return string list of all scores in the database
+    public List<string> ReadScores()
     {
         using (SqliteConnection Connection = new SqliteConnection(dbName))
         {
             Connection.Open();
-            SqliteCommand cmd = new SqliteCommand("SELECT " + column + " FROM " + table + " WHERE SaveNum = " + saveNum.ToString(), Connection);
+            SqliteCommand cmd = new SqliteCommand("SELECT COUNT(*) FROM Scores", Connection);
             SqliteDataReader reader = cmd.ExecuteReader();
 
             // Making a string that we return instead so that we can close the Connection
-            string returnValue = reader.GetValue(0).ToString();
+            List<string> scores = new List<string>();
+            
+            cmd = new SqliteCommand("SELECT * FROM Scores", Connection);
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                scores.Add(reader.GetValue(1).ToString() + "," + reader.GetValue(0).ToString());
+                print(reader.GetValue(1).ToString() + "," + reader.GetValue(0).ToString());
+            }
+
             Connection.Close();
 
-            return returnValue;
+            return scores;
         }
     }
 
-    public void Write(string table, string column, int saveNum, string variableToUse)
+    // Add a new score and initials to the database
+    public void Write(string PlayerInitials, int Score)
     {
         using (var Connection = new SqliteConnection(dbName))
         {
@@ -98,29 +97,16 @@ public class SaveManager : MonoBehaviour
             //Setting up an object command to allow db control
             using (var command = Connection.CreateCommand())
             {
-                // Selecting the relevant cell
-                command.CommandText = "SELECT DISTINCT " + column + " FROM " + table + " WHERE SaveNum = " + saveNum.ToString() + " ORDER BY SaveNum;";
-                command.ExecuteNonQuery();
-                // Updating the relevant cell
-                command.CommandText = "UPDATE " + table + " SET " + column + " = " + variableToUse + " WHERE SaveNum = " + saveNum.ToString();
+                command.CommandText = "INSERT INTO Scores VALUES ('" + PlayerInitials + "', '" + Score.ToString() + "')";
                 command.ExecuteNonQuery();
             }
             Connection.Close();
         }
     }
 
-    public void DeleteSaveFile(int saveNum)
+    public void DeleteDatabase()
     {
-        Write("Saves", "HasStarted", saveNum, "0");
-        Write("Saves", "PlayerName", saveNum, "''");
-        Write("Saves", "PlayerSkin", saveNum, "0");
-
-        Write("Items", "WoodAmount", saveNum, "0");
-        Write("Items", "SteelAmount", saveNum, "0");
-        Write("Items", "ElectronicsAmount", saveNum, "0");
-
-        Write("Settings", "Volume", saveNum, "1");
-        Write("Settings", "PlayerSpeed", saveNum, "1");
-        Write("Settings", "EnemyDamage", saveNum, "1");
+        File.Delete("Database.db");
+        CreateDB();
     }
 }
