@@ -33,7 +33,7 @@ public class MapManager : MonoBehaviour
             }
         }
         mapGrid[7, 7].setSprite(mapSprites[0]);
-        Debug.Log("Center Tile: " + mapGrid[7, 7].getSpriteName() + " Index: " + mapGrid[7, 7].getIndex());
+        mapTiles.transform.GetChild(mapGrid[7, 7].getIndex()).GetComponent<SpriteRenderer>().sprite = mapGrid[7, 7].getSprite();
     }
     public Sprite GetSpriteByName(string name)
     {
