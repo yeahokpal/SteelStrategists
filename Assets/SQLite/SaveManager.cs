@@ -78,7 +78,6 @@ public class SaveManager : MonoBehaviour
             while (reader.Read())
             {
                 scores.Add(reader.GetValue(1).ToString() + "," + reader.GetValue(0).ToString());
-                print(reader.GetValue(1).ToString() + "," + reader.GetValue(0).ToString());
             }
 
             Connection.Close();

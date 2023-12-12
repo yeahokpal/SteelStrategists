@@ -152,11 +152,14 @@ public class GameManager : MonoBehaviour
     // Updating Score Text UI
     public void UpdateScoreTxt()
     {
-        if (scoreTxt == null)
+        if (GameObject.Find("txtScore"))
         {
-            scoreTxt = GameObject.Find("txtScore").GetComponent<TextMeshProUGUI>();
+            if (scoreTxt == null)
+            {
+                scoreTxt = GameObject.Find("txtScore").GetComponent<TextMeshProUGUI>();
+            }
+            scoreTxt.text = string.Format("{0:0000000000}", score);
         }
-        scoreTxt.text = string.Format("{0:0000000000}", score);
     }
 
     #region Crash Reporting
