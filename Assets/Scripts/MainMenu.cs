@@ -22,20 +22,24 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         List<string> scores = sm.ReadScores();
+        scores.Sort();
+        scores.Reverse();
         for (int i = 0; i < 10; i++)
         {
             string[] text = new string[2];
             text = scores[i].Split(',');
-            scoretxts[i].text = text[1] + " - " + text[0];
+            if (scores[i] != "0,___")
+            {
+                scoretxts[i].text = text[1] + " - " + text[0];
+            }
         }
-        scores.Sort();
     }
 
     // Start Button
     public void StartGame ()
     {
         // goes to the main play scenes
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("MainScene");
     }
     
     // Quit Button
@@ -44,6 +48,11 @@ public class MainMenu : MonoBehaviour
         // Quits the scene 
         Debug.Log("Quitting Game...");
         Application.Quit();
+    }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 
     // Change the volume

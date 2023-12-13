@@ -8,6 +8,7 @@ public class Building : MonoBehaviour
 
     [SerializeField] int Damage;
     [SerializeField] float AttackInterval;
+    [SerializeField] AudioSource audio;
 
     public LineRenderer lr;
 
@@ -31,6 +32,7 @@ public class Building : MonoBehaviour
     {
         if (enemy.Health > 0)
         {
+            audio.Play();
             enemy.Health -= Damage;
 
             lr.enabled = true;

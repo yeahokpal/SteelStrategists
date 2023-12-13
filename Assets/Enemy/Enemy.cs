@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameManager gm;
+    [SerializeField] AudioSource audio;
     // Raycast for detecting a wall in front of it
     public int Health = 5;
 
@@ -47,9 +48,10 @@ public class Enemy : MonoBehaviour
     // Code that executes when the enemy is attacking the base
     IEnumerator StartAttackingBase(Collider2D collision)
     {
-        collision.gameObject.GetComponent<Door>().TakeDamage(damage);
         if (collision.gameObject.tag == "Door" && collision.gameObject.GetComponent<Door>().Health > 0)
         {
+            collision.gameObject.GetComponent<Door>().TakeDamage(damage);
+            audio.Play();
             yield return new WaitForSeconds(1f);
             StartCoroutine(StartAttackingBase(collision));
         }

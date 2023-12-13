@@ -42,6 +42,7 @@ public class SaveManager : MonoBehaviour
             // Set up an object command to control database
             IDbCommand Command = Connection.CreateCommand();
 
+            // Making a function for sending a command for easier readability
             void SendCommand(string cmd)
             {
                 Command.CommandText = cmd;
@@ -54,7 +55,7 @@ public class SaveManager : MonoBehaviour
             // Initial Writes to Tables
             for (int i = 0; i < 10; i++)
             {
-                SendCommand("INSERT OR REPLACE INTO Scores ('PlayerInitials', 'Score') VALUES ('', 0);");
+                SendCommand("INSERT OR REPLACE INTO Scores ('PlayerInitials', 'Score') VALUES ('___', 0);");
             }
 
             Connection.Close();
