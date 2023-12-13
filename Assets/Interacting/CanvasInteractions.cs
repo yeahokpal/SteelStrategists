@@ -16,9 +16,11 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject MapScreen;
     [SerializeField] private GameObject Player;
     private GameObject[] dialogObjects;
+    private GameObject mapCamera;
     private void Awake()
     {
         dialogObjects = GameObject.FindGameObjectsWithTag("Dialog Object");
+        mapCamera = GameObject.Find("MapCamera");
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -36,6 +38,10 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     public void MapPreviewClicked()
     {
         Debug.Log("Map Preview Clicked");
+        if (mapCamera != null)
+        {
+            mapCamera.SetActive(true);
+        }
     }
     public void MapScreenClose()
     {

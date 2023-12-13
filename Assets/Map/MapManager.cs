@@ -6,9 +6,13 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     [SerializeField] private GameObject mapTiles;
-    private MapTile[,] mapGrid = new MapTile[15,15];
+    private MapTile[,] mapGrid = new MapTile[15, 15];
     private System.Random random = new System.Random();
-    private int[] mapChances = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,4,4,4,4,3,3,3,3,2,2};
+    private int[] mapChance = 
+        {4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7,
+        8,8,9,9,10,10,11,11,
+        12,13,14,15,
+        16,16,17,17,18,18,19,19};
     private Sprite[] mapSprites;
 
     private void Awake()
@@ -27,7 +31,7 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < mapGrid.GetLength(1); j++)
             {
-                mapGrid[i, j] = new MapTile(i, j, count, mapSprites[mapChances[random.Next(0, mapChances.Length)]]);
+                mapGrid[i, j] = new MapTile(i, j, count, mapSprites[mapChance[random.Next(0, mapChance.Length)]]);
                 mapTiles.transform.GetChild(count).GetComponent<SpriteRenderer>().sprite = mapGrid[i, j].getSprite();
                 count++;
             }
@@ -44,5 +48,9 @@ public class MapManager : MonoBehaviour
             else Debug.Log("Map Sprite not Found");
         }
         return output;
+    }
+    public void TileClicked()
+    {
+        Debug.Log("Player Clicked Map Tile");
     }
 }

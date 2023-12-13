@@ -53,7 +53,6 @@ public class CanvasManager : MonoBehaviour
             else
             {
                 Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
-                Debug.Log("Switching map");
             }
         }
     }
@@ -82,7 +81,6 @@ public class CanvasManager : MonoBehaviour
         {
             foreach (Transform child in MapCanvas.transform) child.gameObject.SetActive(true);
             Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
-            Debug.Log("Switching map");
         }
     }
     #endregion
