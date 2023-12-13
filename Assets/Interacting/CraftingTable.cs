@@ -30,6 +30,7 @@ public class CraftingTable : MonoBehaviour
     [SerializeField] int requiredWood;
     [SerializeField] int requiredSteel;
     [SerializeField] int requiredElectronics;
+    [SerializeField] AudioSource audio;
 
     // Tplayer's current resources
     int playerWood;
@@ -117,6 +118,9 @@ public class CraftingTable : MonoBehaviour
     {
         if (canCraft && player.currentBuilding == null)
         {
+            // Play crafting sound effect
+            audio.Play();
+
             // Removing used materials
             player.woodAmount -= requiredWood;
             player.steelAmount -= requiredSteel;
@@ -125,7 +129,7 @@ public class CraftingTable : MonoBehaviour
 
             // Giving Player new item
             canCraft = false;
-            player.currentBuilding = craftableObjectPrefab;
+            player.currentBuilding = craftableObjectPrefab.gameObject;
             gameObject.GetComponent<SpriteRenderer>().sprite = canCraftSprite;
             CheckResources();
         }
