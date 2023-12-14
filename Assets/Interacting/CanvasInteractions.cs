@@ -35,13 +35,21 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     {
         Debug.Log("Select Button Clicked");
     }
-    public void MapPreviewClicked()
+    public void NorthButtonClicked()
     {
-        Debug.Log("Map Preview Clicked");
-        if (mapCamera != null)
-        {
-            mapCamera.SetActive(true);
-        }
+        GameObject.Find("Map").GetComponent<MapManager>().MoveSelector(0, 1);
+    }
+    public void EastButtonClicked()
+    {
+        GameObject.Find("Map").GetComponent<MapManager>().MoveSelector(1, 0);
+    }
+    public void SouthButtonClicked()
+    {
+        GameObject.Find("Map").GetComponent<MapManager>().MoveSelector(0, -1);
+    }
+    public void WestButtonClicked()
+    {
+        GameObject.Find("Map").GetComponent<MapManager>().MoveSelector(-1, 0);
     }
     public void MapScreenClose()
     {

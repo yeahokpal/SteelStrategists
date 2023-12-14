@@ -6,6 +6,9 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     [SerializeField] private GameObject mapTiles;
+    [SerializeField] private GameObject mapSelector;
+    [NonSerialized] public int selectedX = 7;
+    [NonSerialized] public int selectedY = 7;
     private MapTile[,] mapGrid = new MapTile[15, 15];
     private System.Random random = new System.Random();
     private int[] mapChance = 
@@ -49,8 +52,10 @@ public class MapManager : MonoBehaviour
         }
         return output;
     }
-    public void TileClicked()
+    public void MoveSelector(int xDistance, int yDistance)
     {
-        Debug.Log("Player Clicked Map Tile");
+        selectedX = selectedX + xDistance;
+        selectedY = selectedY - yDistance;
+        mapSelector.GetComponentInChildren<Transform>().position = mapTiles.transform.GetChild(mapGrid[selectedY, selectedX].getIndex()).GetComponent<Transform>().position;
     }
 }
