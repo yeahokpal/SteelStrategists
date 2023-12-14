@@ -1,8 +1,8 @@
 /*
  * Programmers: Jack Gill, Caden Mesina
- * Purpose: Manage and contain
- * Input:
- * Output:
+ * Purpose: Manage and contain player information and controls
+ * Input: Player inputs
+ * Output: Player movements and actions to preform
  */
 
 using System.Collections;
@@ -89,20 +89,19 @@ public class PlayerManager : MonoBehaviour
     //When player presses interact key, run interact script on all GameObjects with Interactable tag
     public void OnInteract()
     {
-        if (true)
+        for (int i = 0; i < interactables.Length; ++i)
         {
-            for (int i = 0; i < interactables.Length; ++i)
-            {
-                interactables[i].GetComponent<Interactables>().PlayerInteracted();
-            }
+            interactables[i].GetComponent<Interactables>().PlayerInteracted();
         }
     }
 
     public void OnPlaceBuilding()
     {
+        // Only let player place buildings outside
         if (currentBuilding != null && cameraManager.vcam4.Priority == 1)
         {
             placeOverlay.SetActive(false);
+            // Looking at where to render the building overlay
             switch (moveDir)
             {
                 case 1:
