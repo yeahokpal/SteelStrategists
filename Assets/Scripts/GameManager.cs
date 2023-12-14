@@ -1,8 +1,5 @@
-/*
- * Programmers: Jack Gill
- * 
+/* Programmers: Jack Gill
  * This script is to manage individual game elements that arent enough for their own scripts
- * 
  * Purposes: - Manage Game Timer
  *           - Catch Exceptions and Send Emails
  *           - Control the score of the current game
@@ -20,14 +17,17 @@ using System.Web;
 
 public class GameManager : MonoBehaviour
 {
+    // Misc Variables
     [SerializeField] Camera cam;
     [SerializeField] Slider volumeSlider;
     [SerializeField] TextMeshProUGUI scoreTxt;
     public GameObject enemySpawner;
     public int score;
 
-    #region Timer Variables
+    // Bot Variables
+    public Bot bot1, bot2, bot3;
 
+    // Timer Variables
     float timerDelay;
     float timerLengthSeconds = 120;
     int timerMinutesLeft;
@@ -37,18 +37,12 @@ public class GameManager : MonoBehaviour
     bool hasStartedTimer = false;
     [SerializeField] TextMeshProUGUI timerTxt;
 
-    #endregion
-
-    #region Crash Report Variables
-
+    // Crash Report Variables
     public bool handleExceptions = true;
     public Log mostRecentLog = new Log();
-    string bug;
-
     public static List<string> logFile = new List<string>();
     public static StreamWriter writer = new StreamWriter(Application.dataPath + "/ErrorLog/log.txt", true);
-
-    #endregion
+    string bug;
 
     private void Awake()
     {
