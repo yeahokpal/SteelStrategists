@@ -52,7 +52,7 @@ public class SaveManager : MonoBehaviour
             // Creating the Scores Table
             SendCommand("CREATE TABLE IF NOT EXISTS Scores (PlayerInitials TEXT, Score INTEGER);");
 
-            // Initial Writes to Tables
+            // Initial Writes to Tables so that MainMenu.cs.Start() has something to parse
             for (int i = 0; i < 10; i++)
             {
                 SendCommand("INSERT OR REPLACE INTO Scores ('PlayerInitials', 'Score') VALUES ('___', 0);");

@@ -35,14 +35,14 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    // Start Button
+    // Load Main Level
     public void StartGame ()
     {
         // goes to the main play scenes
         SceneManager.LoadScene("MainScene");
     }
     
-    // Quit Button
+    // Quit Application
     public void QuitGame ()
     {
         // Quits the scene 
@@ -50,6 +50,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // Load Tutorial Stage
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");

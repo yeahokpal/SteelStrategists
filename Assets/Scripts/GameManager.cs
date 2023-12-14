@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
         // Me purposefully causing errors to cause Exceptions
         //int[] test = new int[1];
-        //int haha = test[2]; // Out of array bounds
+        //int haha = test[2]; // array out of bounds
     }
     void Update()
     {
@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    #region Volume and Settings
+    // Volume changing
     public void ChangeVolume(float volume)
     {
         GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
@@ -140,8 +140,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    #endregion
 
     // Updating Score Text UI
     public void UpdateScoreTxt()
