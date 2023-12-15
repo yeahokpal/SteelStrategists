@@ -9,13 +9,11 @@
  */
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using System;
 
 public class Interactables : MonoBehaviour
 {
+    #region Global Variables
     [SerializeField] private CircleCollider2D interactionArea;
     [SerializeField] private GameObject MapCanvas;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -29,7 +27,9 @@ public class Interactables : MonoBehaviour
     GameManager gameManager;
     private bool canInteract;
     private bool playerInteracted;
+    #endregion
 
+    #region Default Methods
     private void Awake()
     {
         interactionArea.radius = interactionRadius;
@@ -50,7 +50,9 @@ public class Interactables : MonoBehaviour
         if (child != null && botNum == 0) { child.SetActive(false); }
         spriteRenderer.color = Color.white;
     }
+    #endregion
 
+    #region Custom Methods
     public void PlayerInteracted()
     {
         playerInteracted = true;
@@ -110,12 +112,6 @@ public class Interactables : MonoBehaviour
         playerInteracted = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     GameObject FindChildWithTag(GameObject parent, string tag)
     {
         GameObject child = null;
@@ -165,5 +161,5 @@ public class Interactables : MonoBehaviour
             }
         }
     }
-
+    #endregion
 }

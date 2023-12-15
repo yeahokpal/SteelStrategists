@@ -12,10 +12,12 @@ using UnityEngine.InputSystem;
 
 public class CanvasManager : MonoBehaviour
 {
+    #region Global Variables
     [SerializeField] private GameObject DialogCanvas;
     [SerializeField] private GameObject MapCanvas;
     [SerializeField] private GameObject Player;
     [SerializeField] private Sprite Portrait;
+    #endregion
 
     #region Default Methods
     private void Awake()
@@ -25,7 +27,8 @@ public class CanvasManager : MonoBehaviour
     }
     #endregion
 
-    #region Dialog Methods
+    #region Custom Methods
+        #region Dialog Methods
     public void SelectDialog()
     {
         switch (name)
@@ -70,8 +73,7 @@ public class CanvasManager : MonoBehaviour
         }
     }
     #endregion
-
-    #region Menu Methods
+        #region Map Methods
     public void OpenMapMenu()
     {
         if (MapCanvas == null) Debug.Log("Map Canvas not found");
@@ -81,10 +83,11 @@ public class CanvasManager : MonoBehaviour
             Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
         }
     }
-    #endregion
     public void CloseDialog()
     {
         foreach (Transform child in DialogCanvas.transform) child.gameObject.SetActive(false);
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
     }
+    #endregion
+    #endregion
 }

@@ -5,14 +5,12 @@
  * Output: Player movements and actions to preform
  */
 
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+    #region Global Variables
     public float moveSpeed = 5f;
     public int woodAmount;
     public int steelAmount;
@@ -30,7 +28,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject currentBuilding;
 
     Vector2 moveInput;
+    #endregion
 
+    #region Default Methods
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -79,7 +79,28 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Changing the camera and which room that it is focused on
+        switch (collision.name)
+        {
+            case "CameraTrigger1":
+                cameraManager.SwitchPriority(1);
+                break;
+            case "CameraTrigger2":
+                cameraManager.SwitchPriority(2);
+                break;
+            case "CameraTrigger3":
+                cameraManager.SwitchPriority(3);
+                break;
+            case "CameraTrigger4":
+                cameraManager.SwitchPriority(4);
+                break;
+        }
+    }
+    #endregion
 
+    #region Custom Methods
     // Getting Movement as a Vector2 from the Input Device
     public void OnMove(InputValue value)
     {
@@ -121,24 +142,6 @@ public class PlayerManager : MonoBehaviour
             currentBuilding = null;
         }
     }
+    #endregion
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Changing the camera and which room that it is focused on
-        switch (collision.name)
-        {
-            case "CameraTrigger1":
-                cameraManager.SwitchPriority(1);
-                break;
-            case "CameraTrigger2":
-                cameraManager.SwitchPriority(2);
-                break;
-            case "CameraTrigger3":
-                cameraManager.SwitchPriority(3);
-                break;
-            case "CameraTrigger4":
-                cameraManager.SwitchPriority(4);
-                break;
-        }
-    }
 }
