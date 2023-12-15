@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public int score;
 
     // Bot Variables
-    public Bot bot1, bot2, bot3;
+    public Bot[] bots = new Bot[3];
 
     // Timer Variables
     float timerDelay;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     bool startSpawning = true;
     bool startTimer = false;
     bool hasStartedTimer = false;
-    [SerializeField] TextMeshProUGUI timerTxt;
+    TextMeshProUGUI timerTxt;
 
     // Crash Report Variables
     public bool handleExceptions = true;
