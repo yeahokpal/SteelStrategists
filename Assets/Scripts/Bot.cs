@@ -3,7 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum BotStatus { Idle, Gathering }
+public enum BotStatus { Idle, Gathering, WaitingToGather }
 public enum Material { Wood, Steel, Electronics, None}
 public class Bot : MonoBehaviour
 {
