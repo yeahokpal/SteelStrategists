@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -39,7 +37,7 @@ public class MapManager : MonoBehaviour
                 count++;
             }
         }
-        mapGrid[7, 7].setSprite(mapSprites[0]);
+        mapGrid[7, 7].setSprite(mapSprites[random.Next(0,3)]);
         mapTiles.transform.GetChild(mapGrid[7, 7].getIndex()).GetComponent<SpriteRenderer>().sprite = mapGrid[7, 7].getSprite();
     }
     public Sprite GetSpriteByName(string name)
@@ -54,8 +52,11 @@ public class MapManager : MonoBehaviour
     }
     public void MoveSelector(int xDistance, int yDistance)
     {
-        selectedX = selectedX + xDistance;
-        selectedY = selectedY - yDistance;
+        if (selectedX > 0 && xDistance < 0) selectedX = selectedX + xDistance;
+        if (selectedX < 14 && xDistance > 0) selectedX = selectedX + xDistance;
+        if (selectedY > 0 && yDistance > 0) selectedY = selectedY - yDistance;
+        if (selectedY < 14 && yDistance < 0) selectedY = selectedY - yDistance;
+        Debug.Log("Map Coordinates: Selected X = " + selectedX + ".  Selected Y = " + selectedY + ".");
         mapSelector.GetComponentInChildren<Transform>().position = mapTiles.transform.GetChild(mapGrid[selectedY, selectedX].getIndex()).GetComponent<Transform>().position;
     }
 }
