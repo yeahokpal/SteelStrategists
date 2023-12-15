@@ -5002,7 +5002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select a map tile to sucess rate
+  m_text: Base
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -48853,6 +48853,11 @@ MonoBehaviour:
   interactionRadius: 2.75
   ct: {fileID: 0}
   InteractScript: {fileID: 0}
+  botNum: 0
+  materialSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   child: {fileID: 0}
 --- !u!58 &1394601118
 CircleCollider2D:
@@ -50000,7 +50005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1485405978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57287,10 +57292,10 @@ MonoBehaviour:
   scoreTxt: {fileID: 0}
   enemySpawner: {fileID: 0}
   score: 0
-  bot1: {fileID: 0}
-  bot2: {fileID: 0}
-  bot3: {fileID: 0}
-  timerTxt: {fileID: 523414019}
+  bots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   handleExceptions: 1
 --- !u!4 &1844321910
 Transform:

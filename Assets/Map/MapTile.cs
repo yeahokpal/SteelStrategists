@@ -1,9 +1,15 @@
+/*
+ * Programmer: Caden Mesina
+ * Purpose: a single location 
+ * Input: none
+ * Output: MapManager.cs
+ */
 using UnityEngine;
 
 public class MapTile
 {
-    private int xPos;
-    private int yPos;
+    public int xPos;
+    public int yPos;
     private int num;
     private Sprite img;
     public MapTile(int xPosition, int yPosition, int index, Sprite image)
