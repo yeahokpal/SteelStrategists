@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider volumeSlider;
     [SerializeField] TextMeshProUGUI scoreTxt;
     public GameObject enemySpawner;
+    [SerializeField] Texture2D cursorPoint;
     public int score;
 
     // Bot Variables
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.SetCursor(cursorPoint, Vector2.zero, CursorMode.ForceSoftware);
+
         // Calls HandleException Method whenever something is logged to the console (for crash reporting)
         Application.logMessageReceived += HandleException;
 
@@ -80,7 +84,7 @@ public class GameManager : MonoBehaviour
         UpdateScoreTxt();
 
         // If the timer exists in the current scene, when do the timer stuff
-        if (GameObject.Find("txtTimer"))
+        if (GameObject.Find("txtTimer") && timerTxt == null)
         {
             timerTxt = GameObject.Find("txtTimer").GetComponent<TextMeshProUGUI>();
         }

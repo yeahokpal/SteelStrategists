@@ -29139,6 +29139,7 @@ MonoBehaviour:
   volumeSlider: {fileID: 177345987}
   scoreTxt: {fileID: 0}
   enemySpawner: {fileID: 1164999536}
+  cursorPoint: {fileID: 2800000, guid: 528f3b4cddfdc624f876402c713ee3b7, type: 3}
   score: 0
   bots:
   - {fileID: 0}

@@ -8,6 +8,7 @@ TagManager:
   - Dialog Object
   - Enemy
   - Door
+  - Button
   layers:
   - Default
   - TransparentFX
