@@ -27,7 +27,7 @@ public class Door : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         Health -= damage;
         // Changing the health bar UI
@@ -42,8 +42,8 @@ public class Door : MonoBehaviour
     void GameOver()
     {
         Debug.Log("Game Over");
-        deathScreen.SetActive(true);
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+        deathScreen.SetActive(true);
     }
     public void AddToDatabase()
     {

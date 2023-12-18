@@ -8,7 +8,7 @@ public class Building : MonoBehaviour
 
     [SerializeField] int Damage;
     [SerializeField] float AttackInterval;
-    [SerializeField] AudioSource audio;
+    [SerializeField] new AudioSource audio;
 
     public LineRenderer lr;
 
@@ -19,6 +19,7 @@ public class Building : MonoBehaviour
         lr = gameObject.GetComponent<LineRenderer>();
     }
 
+    [System.Obsolete]
     void Update()
     {
         if (enemies.Count > 0 && canAttack)
@@ -28,6 +29,7 @@ public class Building : MonoBehaviour
         }
     }
 
+    [System.Obsolete]
     private IEnumerator Attack(Enemy enemy)
     {
         if (enemy.Health > 0)

@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     public int steelAmount;
     public int electronicsAmount;
 
+    bool isPaused = false;
     int moveDir = 3;
 
     [SerializeField] private Rigidbody2D rb;
@@ -24,8 +26,12 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private SaveManager saveManager;
     [SerializeField] private Animator animator;
     [SerializeField] GameObject placeOverlay;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameManager gm;
     private GameObject[] interactables;
     public GameObject currentBuilding;
+
+    float pauseTimer;
 
     Vector2 moveInput;
     #endregion
@@ -33,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     #region Default Methods
     private void Awake()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerControls = new PlayerControls();
         saveManager = GameObject.Find("SaveManager").GetComponent<SaveManager>();
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
@@ -58,7 +65,7 @@ public class PlayerManager : MonoBehaviour
         animator.SetFloat("SpeedY", moveInput.y);
         animator.SetInteger("MoveDir", moveDir);
 
-        // Showing the building that the player is holding
+        // Showing the overlay of the current Building
         if (currentBuilding != null)
         {
             placeOverlay.SetActive(true);
@@ -79,6 +86,8 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
+    // Changing the current Camera Position
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Changing the camera and which room that it is focused on
@@ -107,7 +116,7 @@ public class PlayerManager : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
-    //When player presses interact key, run interact script on all GameObjects with Interactable tag
+    // When player presses interact key, run interact script on all GameObjects with Interactable tag
     public void OnInteract()
     {
         for (int i = 0; i < interactables.Length; ++i)
@@ -116,6 +125,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Place a Building
     public void OnPlaceBuilding()
     {
         // Only let player place buildings outside
@@ -142,6 +152,42 @@ public class PlayerManager : MonoBehaviour
             currentBuilding = null;
         }
     }
-    #endregion
 
+    // Handling the pause menu
+    public void OnPause()
+    {
+        // Unpause
+        if (isPaused)
+        {
+            isPaused = false;
+            // Continue timer progression
+            gm.timerDelay += (Time.realtimeSinceStartup - pauseTimer);
+
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+            // Continue updating timer UI
+            gm.startTimer = true;
+        }
+        // Pause
+        else
+        {
+            isPaused = true;
+            // Stop timer from progressing
+            pauseTimer = Time.realtimeSinceStartup;
+
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+            // Stop updating timer UI
+            gm.startTimer = false;
+        }
+        Debug.Log("Paused Status: " + isPaused);
+    }
+
+    // Quit to Main Menu
+    public void QuitToMenu()
+    {
+        SceneManager.LoadScene("StartingMenu");
+    }
+
+    #endregion
 }

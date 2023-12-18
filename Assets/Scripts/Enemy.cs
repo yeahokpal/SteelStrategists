@@ -13,16 +13,25 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameManager gm;
-    [SerializeField] AudioSource audio;
+    [SerializeField] new AudioSource audio;
     // Raycast for detecting a wall in front of it
-    public int Health = 5;
+    public float Health = 5;
 
-    [SerializeField] int damage;
-
+    [SerializeField] float damage = 1;
     void Start()
     {
         rb.velocity = new Vector2(-2f, 0f);
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+    // Increasing damage and health for every enemy spawned
+    public void SetDamage(float modifier)
+    {
+        // Increasing Damage
+        damage = (damage + modifier) * damage;
+
+        // Increasing Health
+        Health += (modifier * 5);
     }
 
     public void TakeDamage(int damage)

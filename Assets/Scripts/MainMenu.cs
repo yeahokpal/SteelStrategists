@@ -1,5 +1,4 @@
-/*
- * Programmer: Dalton Bartholomew
+/* Programmer: Dalton Bartholomew
  * Purpose: Control Main Menu Buttons
  * Input: Player Presses buttons
  * Output: Change settings and open scenes and quit games
@@ -21,6 +20,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        // Reading the high scores and filling them into the text boxes
         List<string> scores = sm.ReadScores();
         scores.Sort();
         scores.Reverse();
