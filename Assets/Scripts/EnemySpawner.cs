@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(spawnDelay);
         Enemy enemy = Instantiate(enemyPrefab, gameObject.transform).GetComponent<Enemy>();
         enemy.SetDamage(modifier);
-        modifier += .1f;
+        modifier *= 1.05f;
         StartCoroutine(StartSpawning());
     }
 }

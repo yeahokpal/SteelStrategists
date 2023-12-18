@@ -42,8 +42,8 @@ public class Door : MonoBehaviour
     void GameOver()
     {
         Debug.Log("Game Over");
-        deathScreen.SetActive(true);
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+        deathScreen.SetActive(true);
     }
     public void AddToDatabase()
     {

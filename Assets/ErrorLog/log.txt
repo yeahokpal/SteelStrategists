@@ -1,0 +1,34 @@
+An exception has occurred!
+Location:
+UnityEditor.SerializedObject.FindProperty (System.String propertyPath) (at <97436df440ca462884c5332c1d8ebbe7>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindPropertyRelative (UnityEngine.UIElements.IBindable field, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindTree (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.ContinueBinding (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.DefaultSerializedObjectBindingImplementation+BindingRequest.Bind (UnityEngine.UIElements.VisualElement element) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEngine.UIElements.VisualTreeBindingsUpdater.Update () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.VisualTreeUpdater.UpdateVisualTreePhase (UnityEngine.UIElements.VisualTreeUpdatePhase phase) (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.Panel.UpdateBindings () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.UIElementsUtility.UnityEngine.UIElements.IUIElementsUtility.UpdateSchedulers () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.UIEventRegistration.UpdateSchedulers () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEditor.RetainedMode.UpdateSchedulers () (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+Issue:
+ArgumentNullException: Value cannot be null.
+Parameter name: _unity_self
+--------------------------
+An exception has occurred!
+Location:
+UnityEditor.SerializedObject.FindProperty (System.String propertyPath) (at <97436df440ca462884c5332c1d8ebbe7>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindPropertyRelative (UnityEngine.UIElements.IBindable field, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindTree (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.ContinueBinding (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.DefaultSerializedObjectBindingImplementation+BindingRequest.Bind (UnityEngine.UIElements.VisualElement element) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEngine.UIElements.VisualTreeBindingsUpdater.Update () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.VisualTreeUpdater.UpdateVisualTreePhase (UnityEngine.UIElements.VisualTreeUpdatePhase phase) (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.Panel.UpdateBindings () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.UIElementsUtility.UnityEngine.UIElements.IUIElementsUtility.UpdateSchedulers () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.UIEventRegistration.UpdateSchedulers () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEditor.RetainedMode.UpdateSchedulers () (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+Issue:
+ArgumentNullException: Value cannot be null.
+Parameter name: _unity_self
+--------------------------

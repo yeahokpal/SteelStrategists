@@ -34,12 +34,12 @@ public class GameManager : MonoBehaviour
     public Bot[] bots = new Bot[3];
 
     // Timer Variables
-    float timerDelay;
+    public float timerDelay;
     float timerLengthSeconds = 60;
     int timerMinutesLeft;
     int timerSecondsLeft;
     bool startSpawning = true;
-    bool startTimer = false;
+    public bool startTimer = false;
     bool hasStartedTimer = false;
     TextMeshProUGUI timerTxt;
 
@@ -106,7 +106,6 @@ public class GameManager : MonoBehaviour
                 hasStartedTimer = true;
                 startTimer = true;
             }
-
 
             // When the game starts...
             if (startTimer)
@@ -192,6 +191,7 @@ public class GameManager : MonoBehaviour
     // Gets called whenever something is logged to console, error or intentional
     void HandleException(string logString, string stackTrace, LogType type)
     {
+        /*
         // Handling generic logs
         if (type == LogType.Log)
         {
@@ -213,7 +213,7 @@ public class GameManager : MonoBehaviour
 
             // PLEASE REMEMBER TO UNCOMMENT THIS LINE OH MY GOD!!!!!
             //SendBugReport(bug);
-        }
+        }*/
     }
 
     // Write all logs to log.txt if there is an error
