@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -26,12 +27,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] Texture2D cursorPoint;
     public int score;
 
+    // Volume
+    public float Volume = 1f;
+
     // Bot Variables
     public Bot[] bots = new Bot[3];
 
     // Timer Variables
     float timerDelay;
-    float timerLengthSeconds = 120;
+    float timerLengthSeconds = 60;
     int timerMinutesLeft;
     int timerSecondsLeft;
     bool startSpawning = true;
@@ -49,6 +53,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Cursor.SetCursor(cursorPoint, Vector2.zero, CursorMode.ForceSoftware);
+        SceneManager.activeSceneChanged += ChangeVolume;
 
         // Calls HandleException Method whenever something is logged to the console (for crash reporting)
         Application.logMessageReceived += HandleException;
@@ -67,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // Creating the database file and directory
         if (File.Exists(Application.dataPath + "/ErrorLog/"))
         {
             Directory.Delete(Application.dataPath + "/ErrorLog/");
@@ -132,18 +138,35 @@ public class GameManager : MonoBehaviour
 
     }
 
-    // Volume changing
-    public void ChangeVolume(float volume)
+    #region Volume changing
+    // - Used to update the volume whenever the slider value changes
+    public void ChangeVolume(float newVolume)
     {
+        Volume = newVolume;
         GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
 
         foreach (GameObject go in allObjects){
             if (go.GetComponent<AudioSource>())
             {
-                go.GetComponent<AudioSource>().volume = volume;
+                go.GetComponent<AudioSource>().volume = newVolume;
             }
         }
     }
+
+    // - Used to update the volume of each GameObject whenever the scene changes
+    public void ChangeVolume(Scene current, Scene next)
+    {
+        GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
+
+        foreach (GameObject go in allObjects)
+        {
+            if (go.GetComponent<AudioSource>())
+            {
+                go.GetComponent<AudioSource>().volume = Volume;
+            }
+        }
+    }
+    #endregion
 
     // Updating Score Text UI
     public void UpdateScoreTxt()
@@ -169,28 +192,28 @@ public class GameManager : MonoBehaviour
     // Gets called whenever something is logged to console, error or intentional
     void HandleException(string logString, string stackTrace, LogType type)
     {
-        //// Handling generic logs
-        //if (type == LogType.Log)
-        //{
-        //    writer.WriteLine(logString);
-        //}
-        //// Handling Errors
-        //else if (type == LogType.Exception && handleExceptions)
-        //{
-        //    mostRecentLog.logString = logString;
-        //    mostRecentLog.stackTrace = stackTrace;
+        // Handling generic logs
+        if (type == LogType.Log)
+        {
+            writer.WriteLine(logString);
+        }
+        // Handling Errors
+        else if (type == LogType.Exception && handleExceptions)
+        {
+            mostRecentLog.logString = logString;
+            mostRecentLog.stackTrace = stackTrace;
 
-        //    // the string we use for crashinfo
-        //    bug = "An exception has occurred!\nLocation:\n" + mostRecentLog.stackTrace + "Issue:\n" + mostRecentLog.logString;
-        //    logFile.Add(bug);
+            // the string we use for crashinfo
+            bug = "An exception has occurred!\nLocation:\n" + mostRecentLog.stackTrace + "Issue:\n" + mostRecentLog.logString;
+            logFile.Add(bug);
 
-        //    // This line just helps to differentiate Exceptions
-        //    logFile.Add("--------------------------");
-        //    DumpLogs(); // Dump new logs
-            
-        //    // PLEASE REMEMBER TO UNCOMMENT THIS LINE OH MY GOD!!!!!
-        //    //SendBugReport(bug);
-        //}
+            // This line just helps to differentiate Exceptions
+            logFile.Add("--------------------------");
+            DumpLogs(); // Dump new logs
+
+            // PLEASE REMEMBER TO UNCOMMENT THIS LINE OH MY GOD!!!!!
+            //SendBugReport(bug);
+        }
     }
 
     // Write all logs to log.txt if there is an error

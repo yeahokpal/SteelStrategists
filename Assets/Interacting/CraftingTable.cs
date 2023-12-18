@@ -30,7 +30,7 @@ public class CraftingTable : MonoBehaviour
     [SerializeField] int requiredWood;
     [SerializeField] int requiredSteel;
     [SerializeField] int requiredElectronics;
-    [SerializeField] AudioSource audio;
+    [SerializeField] new AudioSource audio;
 
     // Tplayer's current resources
     int playerWood;

@@ -11,7 +11,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] float modifier = 0f;
 
     // Interval between spawning enemies
     float spawnDelay = 3f;
@@ -21,7 +22,9 @@ public class EnemySpawner : MonoBehaviour
     {
         Debug.Log("Spawn an enemy");
         yield return new WaitForSeconds(spawnDelay);
-        Instantiate(enemy, gameObject.transform);
+        Enemy enemy = Instantiate(enemyPrefab, gameObject.transform).GetComponent<Enemy>();
+        enemy.SetDamage(modifier);
+        modifier += .1f;
         StartCoroutine(StartSpawning());
     }
 }
