@@ -9,16 +9,20 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class MapManager : MonoBehaviour
 {
     #region Global Variables
     [SerializeField] private GameObject mapTiles;
     [SerializeField] private GameObject mapSelector;
+    [SerializeField] TextMeshProUGUI selectedTypeText;
     [NonSerialized] public int selectedX = 7;
     [NonSerialized] public int selectedY = 7;
     private MapTile[,] mapGrid = new MapTile[15, 15];
     private System.Random random = new System.Random();
+    public GameObject startButton;
     //this controls the odds of each tile being generated
     private int[] mapChance = 
         {4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7, //4-7 are grass tiles.  Most likely to be generated
@@ -31,6 +35,7 @@ public class MapManager : MonoBehaviour
     #region Default Methods
     private void Awake()
     {
+        startButton.GetComponent<Button>().interactable = false;
         mapSprites = Resources.LoadAll<Sprite>("Sprites/MapIcons"); //loads all of the sprites from Assets/Resources/Sprites/MapIcons" into mapSprites
         if (mapSprites == null)
         {
@@ -51,6 +56,44 @@ public class MapManager : MonoBehaviour
                 //assigns the sprite that the MapTile object has to its corresponding GameObject in scene
                 mapTiles.transform.GetChild(count).GetComponent<SpriteRenderer>().sprite = mapGrid[i, j].getSprite();
                 count++;
+
+                //finding the correct material to assign to the space
+                if (!(i == 7 && j == 7)) //ignoring the house
+                {
+                    switch (mapGrid[i, j].getSprite().name)
+                    {
+                        //stacking cases like this acts like OR
+                    
+                        case "MapIcons_4":
+                        case "MapIcons_5":
+                        case "MapIcons_6":
+                        case "MapIcons_7":
+                            Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Grass");
+                            mapGrid[i, j].setTileType(TileType.Grass);
+                            break;
+                        case "MapIcons_8":
+                        case "MapIcons_9":
+                        case "MapIcons_10":
+                        case "MapIcons_11":
+                            Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Rock");
+                            mapGrid[i, j].setTileType(TileType.Rock);
+                            break;
+                        case "MapIcons_12":
+                        case "MapIcons_13":
+                        case "MapIcons_14":
+                        case "MapIcons_15":
+                            Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Water");
+                            mapGrid[i, j].setTileType(TileType.Water);
+                            break;
+                        case "MapIcons_16":
+                        case "MapIcons_17":
+                        case "MapIcons_18":
+                        case "MapIcons_19":
+                            Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Desert");
+                            mapGrid[i, j].setTileType(TileType.Desert);
+                            break;
+                    }
+                }
             }
         }
         //makes the center tile MapTile one of the 4 available base sprites
@@ -77,6 +120,36 @@ public class MapManager : MonoBehaviour
         Debug.Log("Map Coordinates: Selected X = " + selectedX + ".  Selected Y = " + selectedY + ".");
         //updates the selected tile to the tile that is specified by selectedX and selectedY
         mapSelector.GetComponentInChildren<Transform>().position = mapTiles.transform.GetChild(mapGrid[selectedY, selectedX].getIndex()).GetComponent<Transform>().position;
+
+        //finding the currently selected tile's typing
+        switch (mapGrid[selectedY, selectedX].getTileType())
+        {
+            case TileType.Grass:
+                startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.Grass;
+                selectedTypeText.text = "Grass";
+                if (startButton.GetComponent<CanvasInteractions>().selectedBotNum != 0) startButton.GetComponent<Button>().interactable = true;
+                break;
+            case TileType.Rock:
+                startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.Rock;
+                selectedTypeText.text = "Rock";
+                if (startButton.GetComponent<CanvasInteractions>().selectedBotNum != 0) startButton.GetComponent<Button>().interactable = true;
+                break;
+            case TileType.Water:
+                startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.Water;
+                selectedTypeText.text = "Water";
+                if (startButton.GetComponent<CanvasInteractions>().selectedBotNum != 0) startButton.GetComponent<Button>().interactable = true;
+                break;
+            case TileType.Desert:
+                startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.Desert;
+                selectedTypeText.text = "Desert";
+                if (startButton.GetComponent<CanvasInteractions>().selectedBotNum != 0) startButton.GetComponent<Button>().interactable = true;
+                break;
+            case TileType.None:
+                startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.None;
+                selectedTypeText.text = "Home";
+                startButton.GetComponent<Button>().interactable = false;
+                break;
+        }
     }
     #endregion
 }

@@ -14,8 +14,11 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     #region Global Variables
     [SerializeField] private GameObject MapScreen;
     [SerializeField] private GameObject Player;
+    [SerializeField] GameManager gm;
     private GameObject[] dialogObjects;
     private GameObject mapCamera;
+    public int selectedBotNum;
+    public TileType selectedTileType = TileType.None;
     #endregion
 
     #region Default Methods
@@ -23,6 +26,7 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     {
         dialogObjects = GameObject.FindGameObjectsWithTag("Dialog Object");
         mapCamera = GameObject.Find("MapCamera");
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -72,11 +76,22 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     }
     public void StartButtonClicked()
     {
-        /*
-         * button should be disabled/unclickable when no bots are selected
-         * when button is clicked update the robot(s) enums to be busy and the
-         * tile's enum to be occupied and harvested when it is finished
-         */
+        //gm.UpdateBot(selectedBotNum, selectedTileType); -----UNCOMMENT
+    }
+    public void UpdateSelectedBot(int botNum)
+    {
+        selectedBotNum = botNum;
+
+        //visually show which bot is selected (do later)
+        /*switch (botNum)
+        {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }*/
     }
     #endregion
 }

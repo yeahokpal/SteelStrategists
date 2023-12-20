@@ -87,6 +87,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        #region Timer Stuff
+        
         UpdateScoreTxt();
 
         // If the timer exists in the current scene, when do the timer stuff
@@ -94,8 +96,6 @@ public class GameManager : MonoBehaviour
         {
             timerTxt = GameObject.Find("txtTimer").GetComponent<TextMeshProUGUI>();
         }
-
-        #region Timer Stuff
 
         if (timerTxt != null)
         {
@@ -134,7 +134,6 @@ public class GameManager : MonoBehaviour
             }
         }
         #endregion
-
     }
 
     #region Volume changing
@@ -167,7 +166,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    // Updating Score Text UI
+    #region Scores
     public void UpdateScoreTxt()
     {
         if (GameObject.Find("txtScore"))
@@ -179,6 +178,7 @@ public class GameManager : MonoBehaviour
             scoreTxt.text = string.Format("{0:0000000000}", score);
         }
     }
+    #endregion
 
     #region Crash Reporting
 
@@ -240,6 +240,16 @@ public class GameManager : MonoBehaviour
 
         Application.Quit();
     }
+
+    #endregion
+
+    #region Bot Handling
+
+    public void UpdateBot(int botNum, TileType tiletype)
+    {
+        // CONTINUE HERE!!!
+    }
+
 
     #endregion
 }

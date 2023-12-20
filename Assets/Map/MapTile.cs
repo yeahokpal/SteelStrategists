@@ -6,6 +6,8 @@
  * Output: none
  */
 using UnityEngine;
+public enum TileStatus { Unharvested, Occupied, Harvested };
+public enum TileType { Grass, Rock, Water, Desert, None };
 
 public class MapTile
 {
@@ -13,8 +15,8 @@ public class MapTile
     public int yPos;
     private int num;
     private Sprite img;
-    public enum TileStatus { Unharvested, Occupied, Harvested };
-    public enum TileType { Grass, Rock, Water, Desert };
+    private TileStatus tileStatus = TileStatus.Unharvested;
+    private TileType tileType = TileType.None;
     public MapTile(int xPosition, int yPosition, int index, Sprite image)
     {
         xPos = xPosition;
@@ -37,5 +39,21 @@ public class MapTile
     public void setSprite(Sprite image)
     {
         img = image;
+    }
+    public void setTileType(TileType type)
+    {
+        tileType = type;
+    }
+    public void setTileStatus(TileStatus status)
+    {
+        tileStatus = status;
+    }
+    public TileType getTileType()
+    {
+        return tileType;
+    }
+    public TileStatus getTileStatus()
+    {
+        return tileStatus;
     }
 }

@@ -1193,6 +1193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapScreen: {fileID: 0}
   Player: {fileID: 0}
+  selectedBotNum: 0
 --- !u!1 &100392385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapScreen: {fileID: 0}
   Player: {fileID: 0}
+  selectedBotNum: 0
 --- !u!212 &126769042 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5131769790118548464, guid: 90e7a971c377bdf4f9328df70c88c6e8, type: 3}
@@ -4693,7 +4695,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4712,7 +4714,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 305522649}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698555053}
+        m_TargetAssemblyTypeName: CanvasInteractions, Assembly-CSharp
+        m_MethodName: UpdateSelectedBot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &316136795
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,8 +5006,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1c78caa2d5600d4b884eeb7a28f00d4, type: 2}
+  m_sharedMaterial: {fileID: 1054102907638737736, guid: e1c78caa2d5600d4b884eeb7a28f00d4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5017,13 +5031,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 53.95
+  m_fontSizeBase: 53.95
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -11037,6 +11051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapScreen: {fileID: 0}
   Player: {fileID: 0}
+  selectedBotNum: 0
 --- !u!1 &636768959
 GameObject:
   m_ObjectHideFlags: 0
@@ -11980,7 +11995,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 698555053}
         m_TargetAssemblyTypeName: CanvasInteractions, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: StartButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12012,6 +12027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapScreen: {fileID: 0}
   Player: {fileID: 0}
+  selectedBotNum: 0
 --- !u!114 &698555054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12142,7 +12158,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12158,10 +12174,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 709452228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698555053}
+        m_TargetAssemblyTypeName: CanvasInteractions, Assembly-CSharp
+        m_MethodName: UpdateSelectedBot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &710351465
 GameObject:
   m_ObjectHideFlags: 0
@@ -40939,6 +40967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapScreen: {fileID: 0}
   Player: {fileID: 0}
+  selectedBotNum: 0
 --- !u!114 &1033901668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43111,7 +43140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bd8ea70ca132844aec4bccc534ff63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3945825626522630806, guid: 3e948ece2c7fbf041bfccf652d904dac, type: 3}
+  enemyPrefab: {fileID: 0}
+  modifier: 0
 --- !u!1 &1173608948
 GameObject:
   m_ObjectHideFlags: 0
@@ -44823,6 +44853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapScreen: {fileID: 1485405977}
   Player: {fileID: 2059336506}
+  selectedBotNum: 0
 --- !u!1 &1253028379
 GameObject:
   m_ObjectHideFlags: 0
@@ -49032,6 +49063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapTiles: {fileID: 1507653715}
   mapSelector: {fileID: 1672297698}
+  selectedTypeText: {fileID: 325101114}
+  startButton: {fileID: 698555048}
 --- !u!1 &1398001073
 GameObject:
   m_ObjectHideFlags: 0
@@ -52266,8 +52299,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1c78caa2d5600d4b884eeb7a28f00d4, type: 2}
+  m_sharedMaterial: {fileID: 1054102907638737736, guid: e1c78caa2d5600d4b884eeb7a28f00d4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -52291,13 +52324,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 53.95
+  m_fontSizeBase: 53.95
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -55875,6 +55908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapScreen: {fileID: 0}
   Player: {fileID: 0}
+  selectedBotNum: 0
 --- !u!1 &1777155548
 GameObject:
   m_ObjectHideFlags: 0
@@ -57538,10 +57572,9 @@ MonoBehaviour:
   enemySpawner: {fileID: 0}
   cursorPoint: {fileID: 0}
   score: 0
-  bots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Volume: 1
+  timerDelay: 0
+  startTimer: 0
   handleExceptions: 1
 --- !u!4 &1844321910
 Transform:
@@ -61362,7 +61395,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -61381,7 +61414,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2087520444}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698555053}
+        m_TargetAssemblyTypeName: CanvasInteractions, Assembly-CSharp
+        m_MethodName: UpdateSelectedBot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2088278211
 GameObject:
   m_ObjectHideFlags: 0
