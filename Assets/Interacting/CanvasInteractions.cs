@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 
 public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
 {
-    #region Global Variables
+    #region Variables
     [SerializeField] private GameObject MapScreen;
     [SerializeField] private GameObject Player;
     [SerializeField] GameManager gm;
@@ -19,6 +19,8 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     private GameObject mapCamera;
     public int selectedBotNum;
     public TileType selectedTileType = TileType.None;
+    public GameObject overlay;
+    public GameObject[] RobotSprites;
     #endregion
 
     #region Default Methods
@@ -74,24 +76,18 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
         MapScreen.SetActive(false);
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
     }
+    // Called when the start button on the Map Screen UI is clicked
     public void StartButtonClicked()
     {
-        //gm.UpdateBot(selectedBotNum, selectedTileType); -----UNCOMMENT
+        gm.UpdateBot(selectedBotNum, selectedTileType);
     }
+    // Called whenever a bot is clicked on the Map Screen UI
     public void UpdateSelectedBot(int botNum)
     {
         selectedBotNum = botNum;
-
         //visually show which bot is selected (do later)
-        /*switch (botNum)
-        {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-        }*/
+        overlay.transform.position = RobotSprites[botNum - 1].transform.position;
+
     }
     #endregion
 }

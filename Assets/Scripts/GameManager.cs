@@ -6,6 +6,7 @@
  */
 
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     // Bot Variables
     public Bot[] bots = new Bot[3];
+    CanvasInteractions ci;
 
     // Timer Variables
     public float timerDelay;
@@ -52,6 +54,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        // Initializing Bots
+        bots[0] = new Bot();
+        bots[1] = new Bot();
+        bots[2] = new Bot();
+
+        if (GameObject.Find("StartBotButton"))
+        {
+            ci = GameObject.Find("StartBotButton").GetComponent<CanvasInteractions>();
+        }
+
         Cursor.SetCursor(cursorPoint, Vector2.zero, CursorMode.ForceSoftware);
         SceneManager.activeSceneChanged += ChangeVolume;
 
@@ -141,7 +153,7 @@ public class GameManager : MonoBehaviour
     public void ChangeVolume(float newVolume)
     {
         Volume = newVolume;
-        GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
+        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 
         foreach (GameObject go in allObjects){
             if (go.GetComponent<AudioSource>())
@@ -154,7 +166,13 @@ public class GameManager : MonoBehaviour
     // - Used to update the volume of each GameObject whenever the scene changes
     public void ChangeVolume(Scene current, Scene next)
     {
-        GameObject[] allObjects = Object.FindObjectsOfType<GameObject>();
+        // Put here because it is called on scene changes
+        if (GameObject.Find("StartBotButton"))
+        {
+            ci = GameObject.Find("StartBotButton").GetComponent<CanvasInteractions>();
+        }
+
+        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 
         foreach (GameObject go in allObjects)
         {
@@ -245,11 +263,38 @@ public class GameManager : MonoBehaviour
 
     #region Bot Handling
 
-    public void UpdateBot(int botNum, TileType tiletype)
+    // Called whenever a bot is sent to do a task
+    public void UpdateBot(int botNum, TileType tileType)
     {
-        // CONTINUE HERE!!!
-    }
+        botNum--;
+        switch (tileType)
+        {
+            // Grass gives wood
+            case TileType.Grass:
+                bots[botNum].currentMaterial = Material.Wood;
+                break;
+            // Rock gives steel
+            case TileType.Rock:
+                bots[botNum].currentMaterial = Material.Steel;
+                break;
+            // Water gives wood or steel
+            case TileType.Water:
+                System.Random rand = new System.Random();
+                if (rand.Next() > .5f) { bots[botNum].currentMaterial = Material.Wood; }
+                else { bots[botNum].currentMaterial = Material.Steel; }
+                bots[botNum].currentMaterial = Material.Wood;
+                break;
+            // Desert gives electronics
+            case TileType.Desert:
+                bots[botNum].currentMaterial = Material.Electronics;
+                break;
+        }
+        bots[botNum].currentStatus = BotStatus.Gathering;
 
+        UnityEngine.Debug.Log("Bot #" + (botNum + 1) + " | Status: " + bots[botNum].currentStatus.ToString());
+        // This line will give an error when not in MainScene, don't worry it will still work hopefully
+        GameObject.Find("Bot" + botNum).GetComponent<SpriteRenderer>().enabled = false;
+    }
 
     #endregion
 }

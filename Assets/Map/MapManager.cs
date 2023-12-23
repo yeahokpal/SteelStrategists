@@ -150,6 +150,7 @@ public class MapManager : MonoBehaviour
                 startButton.GetComponent<Button>().interactable = false;
                 break;
         }
+        Debug.Log("Current Selected Tile: " + mapGrid[selectedY, selectedX].getTileType().ToString());
     }
     #endregion
 }
