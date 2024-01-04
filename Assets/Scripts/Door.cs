@@ -47,7 +47,7 @@ public class Door : MonoBehaviour
     }
     public void AddToDatabase()
     {
-        string Initials = GameObject.Find("InitialsTextField").GetComponent<Text>().text;
+        string Initials = GameObject.Find("InitialsTextBox").GetComponent<Text>().text;
         if (Initials.Length >= 3)
         {
             Initials = Initials.Substring(0, 3);

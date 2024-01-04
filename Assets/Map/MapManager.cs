@@ -68,28 +68,28 @@ public class MapManager : MonoBehaviour
                         case "MapIcons_5":
                         case "MapIcons_6":
                         case "MapIcons_7":
-                            Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Grass");
+                            //Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Grass");
                             mapGrid[i, j].setTileType(TileType.Grass);
                             break;
                         case "MapIcons_8":
                         case "MapIcons_9":
                         case "MapIcons_10":
                         case "MapIcons_11":
-                            Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Rock");
+                            //Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Rock");
                             mapGrid[i, j].setTileType(TileType.Rock);
                             break;
                         case "MapIcons_12":
                         case "MapIcons_13":
                         case "MapIcons_14":
                         case "MapIcons_15":
-                            Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Water");
+                            //Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Water");
                             mapGrid[i, j].setTileType(TileType.Water);
                             break;
                         case "MapIcons_16":
                         case "MapIcons_17":
                         case "MapIcons_18":
                         case "MapIcons_19":
-                            Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Desert");
+                            //Debug.Log("Map Tile: (" + i + ", " + j + ") Set to Desert");
                             mapGrid[i, j].setTileType(TileType.Desert);
                             break;
                     }

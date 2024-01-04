@@ -189,5 +189,11 @@ public class PlayerManager : MonoBehaviour
         SceneManager.LoadScene("StartingMenu");
     }
 
+    public void OnCancel()
+    {
+        GameObject.Find("MapScreen").SetActive(false);
+        this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+    }
+
     #endregion
 }

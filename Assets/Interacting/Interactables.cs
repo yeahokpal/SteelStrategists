@@ -59,6 +59,7 @@ public class Interactables : MonoBehaviour
         playerInteracted = true;
         if (canInteract && playerInteracted)
         {
+            Debug.Log("Interacted");
             GameObject childCanvas = FindChildWithTag(gameObject, "Dialog Object");
 
             if (childCanvas != null)
@@ -86,6 +87,7 @@ public class Interactables : MonoBehaviour
 
                 if (bot.currentStatus == BotStatus.WaitingToGather)
                 {
+                    Debug.Log("Colleting Materials from: " + this.name);
                     System.Random random = new System.Random();
                     switch (bot.currentMaterial)
                     {

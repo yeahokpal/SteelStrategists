@@ -13,7 +13,7 @@ using UnityEngine.InputSystem;
 public class CanvasManager : MonoBehaviour
 {
     #region Global Variables
-    [SerializeField] private GameObject DialogCanvas;
+    public GameObject DialogCanvas;
     [SerializeField] private GameObject MapCanvas;
     [SerializeField] private GameObject Player;
     [SerializeField] private Sprite Portrait;

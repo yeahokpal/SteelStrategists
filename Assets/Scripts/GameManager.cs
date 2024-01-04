@@ -270,32 +270,32 @@ public class GameManager : MonoBehaviour
     // Called whenever a bot is sent to do a task
     public void UpdateBot(int botNum, TileType tileType)
     {
-        botNum--;
+        UnityEngine.Debug.Log("Updating bot...");
+        bots[botNum - 1].currentStatus = BotStatus.Gathering;
         switch (tileType)
         {
             // Grass gives wood
             case TileType.Grass:
-                bots[botNum].currentMaterial = Material.Wood;
+                bots[botNum - 1].currentMaterial = Material.Wood;
                 break;
             // Rock gives steel
             case TileType.Rock:
-                bots[botNum].currentMaterial = Material.Steel;
+                bots[botNum - 1].currentMaterial = Material.Steel;
                 break;
             // Water gives wood or steel
             case TileType.Water:
                 System.Random rand = new System.Random();
-                if (rand.Next() > .5f) { bots[botNum].currentMaterial = Material.Wood; }
-                else { bots[botNum].currentMaterial = Material.Steel; }
-                bots[botNum].currentMaterial = Material.Wood;
+                if (rand.Next() > .5f) { bots[botNum - 1].currentMaterial = Material.Wood; }
+                else { bots[botNum - 1].currentMaterial = Material.Steel; }
+                bots[botNum - 1].currentMaterial = Material.Wood;
                 break;
             // Desert gives electronics
             case TileType.Desert:
-                bots[botNum].currentMaterial = Material.Electronics;
+                bots[botNum - 1].currentMaterial = Material.Electronics;
                 break;
         }
-        bots[botNum].currentStatus = BotStatus.Gathering;
 
-        UnityEngine.Debug.Log("Bot #" + (botNum + 1) + " | Status: " + bots[botNum].currentStatus.ToString());
+        UnityEngine.Debug.Log("Bot #" + (botNum) + " | Status: " + bots[botNum - 1].currentStatus.ToString());
         StartCoroutine(GatherMaterial(botNum));
 
     }
@@ -314,13 +314,13 @@ public class GameManager : MonoBehaviour
         currentBot.GetComponent<SpriteRenderer>().enabled = true;
 
         // Updating bot variables
-        bots[botNum].currentStatus = BotStatus.WaitingToGather;
-        currentBot.GetComponent<Interactables>().heldMaterial = bots[botNum].currentMaterial;
+        bots[botNum - 1].currentStatus = BotStatus.WaitingToGather;
+        currentBot.GetComponent<Interactables>().heldMaterial = bots[botNum - 1].currentMaterial;
 
         // Finding which sprite to have the bot be holding
         SpriteRenderer childSprite = currentBot.GetComponent<Interactables>().child.GetComponent<SpriteRenderer>();
 
-        switch (bots[botNum].currentMaterial)
+        switch (bots[botNum - 1].currentMaterial)
         {
             case Material.Wood:
                 childSprite.sprite = currentBot.GetComponent<Interactables>().materialSprites[0];
