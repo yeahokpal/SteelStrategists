@@ -73,7 +73,11 @@ public class GameManager : MonoBehaviour
         // For closing the writer when the player quits
         Application.quitting += Quit;
 
-        DontDestroyOnLoad(this);
+        if (!GameObject.Find("GameManager"))
+        {
+            DontDestroyOnLoad(this);
+        }
+
     }
 
     // For closing the writer when the player quits
@@ -292,8 +296,30 @@ public class GameManager : MonoBehaviour
         bots[botNum].currentStatus = BotStatus.Gathering;
 
         UnityEngine.Debug.Log("Bot #" + (botNum + 1) + " | Status: " + bots[botNum].currentStatus.ToString());
+        StartCoroutine(GatherMaterial(botNum));
+
+    }
+
+    IEnumerator GatherMaterial(int botNum)
+    {
         // This line will give an error when not in MainScene, don't worry it will still work hopefully
+        // Updates the physical sprite in the game world
         GameObject.Find("Bot" + botNum).GetComponent<SpriteRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(30f);
+
+        GameObject.Find("Bot" + botNum).GetComponent<SpriteRenderer>().enabled = true;
+
+        bots[botNum].currentStatus = BotStatus.WaitingToGather;
+
+        switch(bots[botNum].currentMaterial) 
+        {
+            case Material.Wood:
+                break;
+
+
+
+        }
     }
 
     #endregion

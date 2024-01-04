@@ -13,7 +13,7 @@ using UnityEngine;
 
 public class Interactables : MonoBehaviour
 {
-    #region Global Variables
+    #region Variables
     [SerializeField] private CircleCollider2D interactionArea;
     [SerializeField] private GameObject MapCanvas;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -27,6 +27,7 @@ public class Interactables : MonoBehaviour
     GameManager gameManager;
     private bool canInteract;
     private bool playerInteracted;
+    public Material heldMaterial = Material.None;
     #endregion
 
     #region Default Methods
