@@ -21,8 +21,8 @@ public class Interactables : MonoBehaviour
     [SerializeField] private CraftingTable ct;
     [SerializeField] private GameObject InteractScript; //should be whatever you want to do as a result of interacting
     [SerializeField] byte botNum;
-    [SerializeField] Sprite[] materialSprites = new Sprite[3];
-    [SerializeField] GameObject child;
+    public Sprite[] materialSprites = new Sprite[3];
+    public GameObject child;
     PlayerManager player;
     GameManager gameManager;
     private bool canInteract;
@@ -59,11 +59,11 @@ public class Interactables : MonoBehaviour
         playerInteracted = true;
         if (canInteract && playerInteracted)
         {
-            GameObject child = FindChildWithTag(gameObject, "Dialog Object");
+            GameObject childCanvas = FindChildWithTag(gameObject, "Dialog Object");
 
-            if (child != null)
+            if (childCanvas != null)
             {
-                child.GetComponent<CanvasManager>().SelectDialog();
+                childCanvas.GetComponent<CanvasManager>().SelectDialog();
             }
 
             if (ct != null)
@@ -102,6 +102,8 @@ public class Interactables : MonoBehaviour
                     bot.currentMaterial = Material.None;
                     bot.currentStatus = BotStatus.Idle;
                     UpdateBot();
+
+                    child.GetComponent<SpriteRenderer>().enabled = false;
                 }
             }
         }

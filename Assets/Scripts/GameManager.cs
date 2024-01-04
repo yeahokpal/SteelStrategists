@@ -302,23 +302,35 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GatherMaterial(int botNum)
     {
+        GameObject currentBot = GameObject.Find("Bot" + botNum);
+
         // This line will give an error when not in MainScene, don't worry it will still work hopefully
         // Updates the physical sprite in the game world
-        GameObject.Find("Bot" + botNum).GetComponent<SpriteRenderer>().enabled = false;
+        currentBot.GetComponent<SpriteRenderer>().enabled = false;
 
+        // It takes 30 seconds for a bot to gather materials
         yield return new WaitForSeconds(30f);
 
-        GameObject.Find("Bot" + botNum).GetComponent<SpriteRenderer>().enabled = true;
+        currentBot.GetComponent<SpriteRenderer>().enabled = true;
 
+        // Updating bot variables
         bots[botNum].currentStatus = BotStatus.WaitingToGather;
+        currentBot.GetComponent<Interactables>().heldMaterial = bots[botNum].currentMaterial;
 
-        switch(bots[botNum].currentMaterial) 
+        // Finding which sprite to have the bot be holding
+        SpriteRenderer childSprite = currentBot.GetComponent<Interactables>().child.GetComponent<SpriteRenderer>();
+
+        switch (bots[botNum].currentMaterial)
         {
             case Material.Wood:
+                childSprite.sprite = currentBot.GetComponent<Interactables>().materialSprites[0];
                 break;
-
-
-
+            case Material.Steel:
+                childSprite.sprite = currentBot.GetComponent<Interactables>().materialSprites[1];
+                break;
+            case Material.Electronics:
+                childSprite.sprite = currentBot.GetComponent<Interactables>().materialSprites[2];
+                break;
         }
     }
 
