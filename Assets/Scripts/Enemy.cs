@@ -7,7 +7,10 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Scene = UnityEngine.SceneManagement.Scene;
 
 public class Enemy : MonoBehaviour
 {
@@ -37,11 +40,17 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        // Death
         if (Health <= 0)
         {
-            Destroy(gameObject);
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                SceneManager.LoadScene("MainScene");
+            }
+
             gm.score += 100;
             gm.UpdateScoreTxt();
+            Destroy(gameObject);
         }
     }
 
