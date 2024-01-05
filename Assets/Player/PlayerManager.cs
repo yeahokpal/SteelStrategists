@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameManager gm;
     private GameObject[] interactables;
     public GameObject currentBuilding;
+    TextMeshProUGUI woodTxt, steelTxt, electronicsTxt;
 
     float pauseTimer;
 
@@ -63,6 +65,7 @@ public class PlayerManager : MonoBehaviour
         else if (moveInput.x < .25 && moveInput.y < -.25)
             moveDir = 3;
 
+        // Updating animator parameters
         animator.SetFloat("SpeedX", moveInput.x);
         animator.SetFloat("SpeedY", moveInput.y);
         animator.SetInteger("MoveDir", moveDir);
@@ -87,11 +90,29 @@ public class PlayerManager : MonoBehaviour
                     break;
             }
         }
+
+        if (woodTxt != null)
+        {
+            woodTxt.text = "Wood: " + woodAmount;
+            steelTxt.text = "Steel: " + steelAmount;
+            electronicsTxt.text = "Electronics: " + electronicsAmount;
+        }
     }
 
-    private void DefineMaterialUIElements(Scene x, Scene y)
+    private void DefineMaterialUIElements(Scene currentScene, Scene nextScene)
     {
-
+        if (nextScene.name == "Tutorial" || nextScene.name == "MainScene")
+        {
+            woodTxt = GameObject.Find("WoodAmountTxt").GetComponent<TextMeshProUGUI>();
+            steelTxt = GameObject.Find("SteelAmountTxt").GetComponent<TextMeshProUGUI>();
+            electronicsTxt = GameObject.Find("ElectronicsAmountTxt").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            woodTxt = null;
+            steelTxt = null;
+            electronicsTxt = null;
+        }
     }
 
 

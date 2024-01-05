@@ -21,10 +21,14 @@ public class SaveManager : MonoBehaviour
         {
             Directory.CreateDirectory(Application.streamingAssetsPath + "/Saves/");
         }
+
+        if (!GameObject.Find("SaveManager"))
+        {
+            DontDestroyOnLoad(this);
+        }
     }
     void Start()
     {
-        DontDestroyOnLoad(this);
         if (!File.Exists("Database.db"))
         {
             CreateDB();

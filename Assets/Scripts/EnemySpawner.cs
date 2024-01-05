@@ -20,7 +20,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartSpawning());
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            StartCoroutine(StartSpawning());
+        }
     }
 
     // Recursive IEnumerator because it has to wait for spawnDelay between spawns

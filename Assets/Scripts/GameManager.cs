@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     // Timer Variables
     public float timerDelay;
-    float timerLengthSeconds = 60;
+    float timerLengthSeconds = 120;
     int timerMinutesLeft;
     int timerSecondsLeft;
     bool startSpawning = true;

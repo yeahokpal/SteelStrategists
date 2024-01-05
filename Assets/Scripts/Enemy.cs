@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Tutorial")
             {
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("StartingMenu");
             }
 
             gm.score += 100;
