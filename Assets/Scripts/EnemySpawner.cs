@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class EnemySpawner : MonoBehaviour
     // Interval between spawning enemies
     float spawnDelay = 3f;
 
+    private void Start()
+    {
+        StartCoroutine(StartSpawning());
+    }
+
     // Recursive IEnumerator because it has to wait for spawnDelay between spawns
     public IEnumerator StartSpawning()
     {
@@ -24,6 +30,10 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(spawnDelay);
         Enemy enemy = Instantiate(enemyPrefab, gameObject.transform).GetComponent<Enemy>();
         enemy.SetDamage(modifier);
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            enemy.goUp = true;
+        }
         modifier *= 1.05f;
         StartCoroutine(StartSpawning());
     }

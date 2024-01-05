@@ -32,10 +32,14 @@ public class Building : MonoBehaviour
     [System.Obsolete]
     private IEnumerator Attack(Enemy enemy)
     {
+        if (enemy.Health <= 0)
+        {
+            enemies.Remove(enemy);
+        }
         if (enemy.Health > 0)
         {
             audio.Play();
-            enemy.Health -= Damage;
+            enemy.TakeDamage(Damage);
 
             lr.enabled = true;
 
@@ -48,10 +52,6 @@ public class Building : MonoBehaviour
             lr.enabled = false;
 
             yield return new WaitForSeconds(AttackInterval);
-        }
-        if (enemy.Health <= 0)
-        {
-            enemies.Remove(enemy);
         }
         canAttack = true;
     }

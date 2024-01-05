@@ -43,6 +43,8 @@ public class PlayerManager : MonoBehaviour
         playerControls = new PlayerControls();
         saveManager = GameObject.Find("SaveManager").GetComponent<SaveManager>();
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
+
+        SceneManager.activeSceneChanged += DefineMaterialUIElements;
     }
 
     void Update()
@@ -86,6 +88,12 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
+    private void DefineMaterialUIElements(Scene x, Scene y)
+    {
+
+    }
+
 
     // Changing the current Camera Position
     private void OnTriggerEnter2D(Collider2D collision)

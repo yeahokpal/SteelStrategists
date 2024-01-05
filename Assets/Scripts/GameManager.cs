@@ -332,6 +332,8 @@ public class GameManager : MonoBehaviour
                 childSprite.sprite = currentBot.GetComponent<Interactables>().materialSprites[2];
                 break;
         }
+
+        currentBot.GetComponent<Interactables>().UpdateBot();
     }
 
     #endregion

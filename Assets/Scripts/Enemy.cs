@@ -17,14 +17,35 @@ public class Enemy : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameManager gm;
     [SerializeField] new AudioSource audio;
+    public bool goUp;
+    float timerStart;
     // Raycast for detecting a wall in front of it
     public float Health = 5;
 
     [SerializeField] float damage = 1;
     void Start()
     {
-        rb.velocity = new Vector2(-2f, 0f);
+        timerStart = Time.realtimeSinceStartup;
+
+        // Setting velocity if in tutorial of main game
+        if (!goUp)
+        {
+            rb.velocity = new Vector2(-2f, 0f);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0f, 2f);
+        }
+
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+    private void Update()
+    {
+        if (Time.realtimeSinceStartup - timerStart >= 100000)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Increasing damage and health for every enemy spawned
@@ -45,7 +66,7 @@ public class Enemy : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Tutorial")
             {
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("MainMenu");
             }
 
             gm.score += 100;

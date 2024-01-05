@@ -33,6 +33,7 @@ public class Interactables : MonoBehaviour
     #region Default Methods
     private void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         interactionArea.radius = interactionRadius;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.Find("Player").GetComponent<PlayerManager>();
@@ -82,7 +83,6 @@ public class Interactables : MonoBehaviour
             // Things related to bot management
             if (botNum != 0)
             {
-                gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();  
                 Bot bot = gameManager.bots[botNum - 1];
 
                 if (bot.currentStatus == BotStatus.WaitingToGather)
@@ -95,17 +95,17 @@ public class Interactables : MonoBehaviour
                             player.woodAmount += random.Next(1, 5);
                             break;
                         case Material.Steel:
-                            player.woodAmount += random.Next(1, 5);
+                            player.steelAmount += random.Next(1, 5);
                             break;
                         case Material.Electronics:
-                            player.woodAmount += random.Next(1, 5);
+                            player.electronicsAmount += random.Next(1, 5);
                             break;
                     }
                     bot.currentMaterial = Material.None;
                     bot.currentStatus = BotStatus.Idle;
                     UpdateBot();
 
-                    child.GetComponent<SpriteRenderer>().enabled = false;
+                    child.GetComponent<SpriteRenderer>().sprite = null;
                 }
             }
         }
@@ -136,7 +136,7 @@ public class Interactables : MonoBehaviour
     {
         if (botNum != 0)
         {
-            switch (gameManager.bots[botNum + 1].currentStatus)
+            switch (gameManager.bots[botNum - 1].currentStatus)
             {
                 case BotStatus.Idle:
                     child.GetComponent<SpriteRenderer>().sprite = null;
@@ -147,7 +147,7 @@ public class Interactables : MonoBehaviour
                     spriteRenderer.enabled = true;
                     break;
                 case BotStatus.WaitingToGather:
-                    switch (gameManager.bots[botNum + 1].currentMaterial)
+                    switch (gameManager.bots[botNum - 1].currentMaterial)
                     {
                         case Material.Wood:
                             child.GetComponent<SpriteRenderer>().sprite = materialSprites[0];
