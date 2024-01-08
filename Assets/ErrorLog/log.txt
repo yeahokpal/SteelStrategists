@@ -32,3 +32,956 @@ Issue:
 ArgumentNullException: Value cannot be null.
 Parameter name: _unity_self
 --------------------------
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Player Opened Map
+Player Opened Map
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 8.  Selected Y = 7.
+Map Coordinates: Selected X = 8.  Selected Y = 7.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Map Coordinates: Selected X = 9.  Selected Y = 7.
+Map Coordinates: Selected X = 9.  Selected Y = 7.
+Current Selected Tile: Rock
+Current Selected Tile: Rock
+Map Coordinates: Selected X = 10.  Selected Y = 7.
+Map Coordinates: Selected X = 10.  Selected Y = 7.
+Current Selected Tile: Water
+Current Selected Tile: Water
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 10.  Selected Y = 8.
+Map Coordinates: Selected X = 10.  Selected Y = 8.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Map Coordinates: Selected X = 10.  Selected Y = 9.
+Map Coordinates: Selected X = 10.  Selected Y = 9.
+Current Selected Tile: Grass
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 10.  Selected Y = 10.
+Map Coordinates: Selected X = 10.  Selected Y = 10.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Map Coordinates: Selected X = 10.  Selected Y = 9.
+Map Coordinates: Selected X = 10.  Selected Y = 9.
+Current Selected Tile: Grass
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 10.  Selected Y = 8.
+Map Coordinates: Selected X = 10.  Selected Y = 8.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Map Coordinates: Selected X = 9.  Selected Y = 8.
+Map Coordinates: Selected X = 9.  Selected Y = 8.
+Current Selected Tile: Grass
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 8.  Selected Y = 8.
+Map Coordinates: Selected X = 8.  Selected Y = 8.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 7.  Selected Y = 8.
+Map Coordinates: Selected X = 7.  Selected Y = 8.
+Current Selected Tile: Water
+Current Selected Tile: Water
+Map Coordinates: Selected X = 7.  Selected Y = 7.
+Map Coordinates: Selected X = 7.  Selected Y = 7.
+Current Selected Tile: None
+Current Selected Tile: None
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 7.  Selected Y = 6.
+Map Coordinates: Selected X = 7.  Selected Y = 6.
+Current Selected Tile: Water
+Current Selected Tile: Water
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 6.  Selected Y = 6.
+Map Coordinates: Selected X = 6.  Selected Y = 6.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Spawn an enemy
+Spawn an enemy
+Updating bot...
+Updating bot...
+Bot #3 | Status: Gathering
+Bot #3 | Status: Gathering
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Updating bot...
+Updating bot...
+Bot #3 | Status: Gathering
+Bot #3 | Status: Gathering
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Can Craft
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Can Craft
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Crafted!
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Can Craft
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Crafted!
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Can Craft
+Interacted
+Interacted
+Crafted!
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Can Craft
+Interacted
+Interacted
+Crafted!
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+Paused Status: True
+An exception has occurred!
+Location:
+UnityEditor.SerializedObject.FindProperty (System.String propertyPath) (at <97436df440ca462884c5332c1d8ebbe7>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindPropertyRelative (UnityEngine.UIElements.IBindable field, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.BindTree (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.SerializedObjectBindingContext.ContinueBinding (UnityEngine.UIElements.VisualElement element, UnityEditor.SerializedProperty parentProperty) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEditor.UIElements.Bindings.DefaultSerializedObjectBindingImplementation+BindingRequest.Bind (UnityEngine.UIElements.VisualElement element) (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+UnityEngine.UIElements.VisualTreeBindingsUpdater.Update () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.VisualTreeUpdater.UpdateVisualTreePhase (UnityEngine.UIElements.VisualTreeUpdatePhase phase) (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.Panel.UpdateBindings () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.UIElementsUtility.UnityEngine.UIElements.IUIElementsUtility.UpdateSchedulers () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEngine.UIElements.UIEventRegistration.UpdateSchedulers () (at <9d7fc877145d4138982bf12cdd3484c6>:0)
+UnityEditor.RetainedMode.UpdateSchedulers () (at <f90f2d9cb28d4393afc1338e6af635e0>:0)
+Issue:
+ArgumentNullException: Value cannot be null.
+Parameter name: _unity_self
+--------------------------
+Paused Status: True
+Paused Status: True
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 6.  Selected Y = 7.
+Current Selected Tile: Grass
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 5.  Selected Y = 7.
+Current Selected Tile: Desert
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Player Opened Map
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 5.  Selected Y = 8.
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 6.  Selected Y = 8.
+Current Selected Tile: Rock
+Updating bot...
+Bot #3 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 5.  Selected Y = 8.
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 4.  Selected Y = 8.
+Current Selected Tile: Water
+Updating bot...
+Bot #1 | Status: Gathering
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot1
+Can Craft
+Interacted
+Crafted!
+Interacted
+An exception has occurred!
+Location:
+UnityEngine.GameObject.GetComponent[T] () (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+GameManager.Update () (at Assets/Scripts/GameManager.cs:143)
+Issue:
+UnassignedReferenceException: The variable enemySpawner of GameManager has not been assigned.
+You probably need to assign the enemySpawner variable of the GameManager script in the inspector.
+--------------------------
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 6.  Selected Y = 7.
+Current Selected Tile: Grass
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 6.  Selected Y = 8.
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 7.  Selected Y = 8.
+Current Selected Tile: Rock
+Updating bot...
+Bot #3 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Interacted
+Interacted
+Interacted
+Interacted
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 6.  Selected Y = 8.
+Current Selected Tile: Grass
+Updating bot...
+Bot #1 | Status: Gathering
+Map Coordinates: Selected X = 6.  Selected Y = 9.
+Current Selected Tile: Desert
+Updating bot...
+Bot #3 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot3
+Can Craft
+Interacted
+Crafted!
+Can Craft
+Can Craft
+Interacted
+Crafted!
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 7.  Selected Y = 9.
+Current Selected Tile: Rock
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 6.  Selected Y = 9.
+Current Selected Tile: Desert
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Spawn an enemy
+Can Craft
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot3
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot1
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 8.  Selected Y = 7.
+Current Selected Tile: Rock
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 9.  Selected Y = 7.
+Current Selected Tile: Desert
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot3
+Can Craft
+Interacted
+Crafted!
+Interacted
+Player Opened Map
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 8.  Selected Y = 7.
+Current Selected Tile: Rock
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Player Opened Map
+Updating bot...
+Bot #1 | Status: Gathering
+Map Coordinates: Selected X = 7.  Selected Y = 7.
+Current Selected Tile: NonInteracted
+Player Opened Map
+Map Coordinates: Selected X = 8.  Selected Y = 7.
+Current Selected Tile: Grass
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 9.  Selected Y = 7.
+Current Selected Tile: Desert
+Map Coordinates: Selected X = 9.  Selected Y = 8.
+Current Selected Tile: Rock
+Updating bot...
+Bot #2 | Status: Gathering
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Interacted
+Interacted
+Interacted
+Interacted
+Interacted
+Interacted
+Interacted
+Interacted
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 8.  Selected Y = 8.
+Current Selected Tile: Grass
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 9.  Selected Y = 8.
+Current Selected Tile: Rock
+Map Coordinates: Selected X = 9.  Selected Y = 7.
+Current Selected Tile: Desert
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot3
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Interacted
+Player Opened Map
+Updating bot...
+Bot #3 | Status: Gathering
+Spawn an enemy
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 9.  Selected Y = 8.
+Current Selected Tile: Rock
+Spawn an enemy
+Updating bot...
+Bot #1 | Status: Gathering
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Colleting Materials from: Bot2
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot1
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Player Opened Map
+Spawn an enemy
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Spawn an enemy
+Updating bot...
+Bot #3 | Status: Gathering
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Game Over
+Spawn an enemy
+Spawn an enemy
+An exception has occurred!
+Location:
+Door.AddToDatabase () (at Assets/Scripts/Door.cs:50)
+UnityEngine.Events.InvokableCall.Invoke () (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+UnityEngine.Events.UnityEvent.Invoke () (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+UnityEngine.UI.Button.Press () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs:70)
+UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs:114)
+UnityEngine.EventSystems.ExecuteEvents.Execute (UnityEngine.EventSystems.IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs:57)
+UnityEngine.EventSystems.ExecuteEvents.Execute[T] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.ExecuteEvents+EventFunction`1[T1] functor) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs:272)
+UnityEngine.EventSystems.EventSystem:Update() (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+Issue:
+NullReferenceException: Object reference not set to an instance of an object
+--------------------------
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 8.  Selected Y = 7.
+Current Selected Tile: Rock
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 8.  Selected Y = 8.
+Current Selected Tile: Desert
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 7.  Selected Y = 8.
+Current Selected Tile: Grass
+Updating bot...
+Bot #3 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 8.  Selected Y = 8.
+Current Selected Tile: Desert
+Map Coordinates: Selected X = 8.  Selected Y = 7.
+Current Selected Tile: Rock
+Updating bot...
+Bot #1 | Status: Gathering
+Can Craft
+Interacted
+Crafted!
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Interacted
+Player Opened Map
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 8.  Selected Y = 8.
+Current Selected Tile: Desert
+Updating bot...
+Bot #3 | Status: Gathering
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Game Over
+Spawn an enemy
+Spawn an enemy
+An exception has occurred!
+Location:
+Door.AddToDatabase () (at Assets/Scripts/Door.cs:51)
+UnityEngine.Events.InvokableCall.Invoke () (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+UnityEngine.Events.UnityEvent.Invoke () (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+UnityEngine.UI.Button.Press () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs:70)
+UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs:114)
+UnityEngine.EventSystems.ExecuteEvents.Execute (UnityEngine.EventSystems.IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs:57)
+UnityEngine.EventSystems.ExecuteEvents.Execute[T] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.ExecuteEvents+EventFunction`1[T1] functor) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs:272)
+UnityEngine.EventSystems.EventSystem:Update() (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+Issue:
+NullReferenceException: Object reference not set to an instance of an object
+--------------------------
+An exception has occurred!
+Location:
+MainMenu.Start () (at Assets/Scripts/MainMenu.cs:24)
+Issue:
+NullReferenceException: Object reference not set to an instance of an object
+--------------------------
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 6.  Selected Y = 7.
+Current Selected Tile: Grass
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 6.  Selected Y = 8.
+Current Selected Tile: Rock
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 5.  Selected Y = 8.
+Current Selected Tile: Rock
+Updating bot...
+Bot #1 | Status: Gathering
+Map Coordinates: Selected X = 6.  Selected Y = 8.
+Current Selected Tile: Rock
+Map Coordinates: Selected X = 6.  Selected Y = 9.
+Current Selected Tile: Desert
+Updating bot...
+Bot #2 | Status: Gathering
+Updating bot...
+Bot #3 | Status: Gathering
+Updating bot...
+Bot #3 | Status: Gathering
+Can Craft
+Interacted
+Crafted!
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot3
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Game Over
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Player Opened Map
+Player Opened Map
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Game Over
+Game Over
+An exception has occurred!
+Location:
+PlayerManager.OnCancel () (at Assets/Player/PlayerManager.cs:226)
+UnityEngine.InputSystem.LowLevel.<>c__DisplayClass7_0:<set_onUpdate>b__0(NativeInputUpdateType, NativeInputEventBuffer*)
+UnityEngineInternal.Input.NativeInputSystem:NotifyUpdate(NativeInputUpdateType, IntPtr)
+Issue:
+NullReferenceException: Object reference not set to an instance of an object
+--------------------------
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Player Opened Map
+Player Opened Map
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 6.  Selected Y = 7.
+Map Coordinates: Selected X = 6.  Selected Y = 7.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Map Coordinates: Selected X = 5.  Selected Y = 7.
+Map Coordinates: Selected X = 5.  Selected Y = 7.
+Current Selected Tile: Grass
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 4.  Selected Y = 7.
+Map Coordinates: Selected X = 4.  Selected Y = 7.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 5.  Selected Y = 7.
+Map Coordinates: Selected X = 5.  Selected Y = 7.
+Current Selected Tile: Grass
+Current Selected Tile: Grass
+Spawn an enemy
+Spawn an enemy
+Updating bot...
+Updating bot...
+Bot #3 | Status: Gathering
+Bot #3 | Status: Gathering
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 4.  Selected Y = 7.
+Map Coordinates: Selected X = 4.  Selected Y = 7.
+Current Selected Tile: Desert
+Current Selected Tile: Desert
+Updating bot...
+Updating bot...
+Bot #2 | Status: Gathering
+Bot #2 | Status: Gathering
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Colleting Materials from: Bot3
+Colleting Materials from: Bot3
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Colleting Materials from: Bot2
+Colleting Materials from: Bot2
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Player Opened Map
+Player Opened Map
+Spawn an enemy
+Spawn an enemy
+Map Coordinates: Selected X = 4.  Selected Y = 6.
+Map Coordinates: Selected X = 4.  Selected Y = 6.
+Current Selected Tile: Grass
+Current Selected Tile: Grass
+Updating bot...
+Updating bot...
+Bot #2 | Status: Gathering
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 5.  Selected Y = 6.
+Map Coordinates: Selected X = 5.  Selected Y = 6.
+Current Selected Tile: Rock
+Current Selected Tile: Rock
+Spawn an enemy
+Spawn an enemy
+Updating bot...
+Updating bot...
+Bot #3 | Status: Gathering
+Bot #3 | Status: Gathering
+Map Coordinates: Selected X = 5.  Selected Y = 5.
+Map Coordinates: Selected X = 5.  Selected Y = 5.
+Current Selected Tile: Grass
+Current Selected Tile: Grass
+Spawn an enemy
+Spawn an enemy
+Updating bot...
+Updating bot...
+Bot #1 | Status: Gathering
+Bot #1 | Status: Gathering
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Interacted
+Spawn an enemy

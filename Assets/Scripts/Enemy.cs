@@ -6,8 +6,6 @@
  */
 
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Scene = UnityEngine.SceneManagement.Scene;
@@ -21,7 +19,7 @@ public class Enemy : MonoBehaviour
     float timerStart;
     // Raycast for detecting a wall in front of it
     public float Health = 5;
-
+    float speed = 2f;
     [SerializeField] float damage = 1;
     void Start()
     {
@@ -30,11 +28,11 @@ public class Enemy : MonoBehaviour
         // Setting velocity if in tutorial of main game
         if (!goUp)
         {
-            rb.velocity = new Vector2(-2f, 0f);
+            rb.velocity = new Vector2(-1 * speed, 0f);
         }
         else
         {
-            rb.velocity = new Vector2(0f, 2f);
+            rb.velocity = new Vector2(0f, speed);
         }
 
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -53,6 +51,9 @@ public class Enemy : MonoBehaviour
     {
         // Increasing Damage
         damage = (damage + modifier) * damage;
+
+        // Increasing Speed
+        speed += modifier;
 
         // Increasing Health
         Health += (modifier * 5);

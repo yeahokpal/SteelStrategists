@@ -70,20 +70,8 @@ public class GameManager : MonoBehaviour
         // Calls HandleException Method whenever something is logged to the console (for crash reporting)
         Application.logMessageReceived += HandleException;
 
-        // For closing the writer when the player quits
-        Application.quitting += Quit;
+        DontDestroyOnLoad(this);
 
-        if (!GameObject.Find("GameManager"))
-        {
-            DontDestroyOnLoad(this);
-        }
-
-    }
-
-    // For closing the writer when the player quits
-    private void Quit()
-    {
-        writer.Close();
     }
 
     void Start()
@@ -95,7 +83,7 @@ public class GameManager : MonoBehaviour
         }
         Directory.CreateDirectory(Application.dataPath + "/ErrorLog/");
 
-        enemySpawner = GameObject.Find("EnemySpawner");
+        
 
         // Me purposefully causing errors to cause Exceptions
         //int[] test = new int[1];
@@ -171,9 +159,18 @@ public class GameManager : MonoBehaviour
     public void ChangeVolume(Scene current, Scene next)
     {
         // Put here because it is called on scene changes
+        score = 0;
+
         if (GameObject.Find("StartBotButton"))
         {
             ci = GameObject.Find("StartBotButton").GetComponent<CanvasInteractions>();
+        }
+
+        // Put here because it is called on scene changes
+        if (GameObject.Find("EnemySpawner"))
+        {
+            enemySpawner = GameObject.Find("EnemySpawner");
+
         }
 
         GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
@@ -213,7 +210,6 @@ public class GameManager : MonoBehaviour
     // Gets called whenever something is logged to console, error or intentional
     void HandleException(string logString, string stackTrace, LogType type)
     {
-        /*
         // Handling generic logs
         if (type == LogType.Log)
         {
@@ -233,9 +229,8 @@ public class GameManager : MonoBehaviour
             logFile.Add("--------------------------");
             DumpLogs(); // Dump new logs
 
-            // PLEASE REMEMBER TO UNCOMMENT THIS LINE OH MY GOD!!!!!
-            //SendBugReport(bug);
-        }*/
+            SendBugReport(bug);
+        }
     }
 
     // Write all logs to log.txt if there is an error

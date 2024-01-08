@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Door : MonoBehaviour
 {
@@ -47,7 +49,7 @@ public class Door : MonoBehaviour
     }
     public void AddToDatabase()
     {
-        string Initials = GameObject.Find("InitialsTextBox").GetComponent<Text>().text;
+        string Initials = GameObject.Find("InitialsTextField").GetComponent<TextMeshProUGUI>().text;
         if (Initials.Length >= 3)
         {
             Initials = Initials.Substring(0, 3);
@@ -55,6 +57,7 @@ public class Door : MonoBehaviour
         int Score = gm.score;
 
         sm.Write(Initials, Score);
+        SceneManager.LoadScene("StartingMenu");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
-    [SerializeField] float modifier = 0f;
+    float modifier = 1f;
 
     // Interval between spawning enemies
     float spawnDelay = 3f;
@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             StartCoroutine(StartSpawning());
+            modifier = 0;
         }
     }
 

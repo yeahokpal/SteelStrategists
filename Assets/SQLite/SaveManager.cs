@@ -22,10 +22,7 @@ public class SaveManager : MonoBehaviour
             Directory.CreateDirectory(Application.streamingAssetsPath + "/Saves/");
         }
 
-        if (!GameObject.Find("SaveManager"))
-        {
-            DontDestroyOnLoad(this);
-        }
+        DontDestroyOnLoad(this);
     }
     void Start()
     {

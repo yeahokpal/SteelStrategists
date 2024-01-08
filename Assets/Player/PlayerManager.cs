@@ -215,6 +215,9 @@ public class PlayerManager : MonoBehaviour
     // Quit to Main Menu
     public void QuitToMenu()
     {
+        isPaused = false;
+        Time.timeScale = 1f;
+
         SceneManager.LoadScene("StartingMenu");
     }
 
