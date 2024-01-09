@@ -37,23 +37,30 @@ public class GameManager : MonoBehaviour
 
     // Timer Variables
     public float timerDelay;
-    float timerLengthSeconds = 120;
-    int timerMinutesLeft;
-    int timerSecondsLeft;
-    bool startSpawning = true;
+    private float timerLengthSeconds = 120;
+    private int timerMinutesLeft;
+    private int timerSecondsLeft;
+    private bool startSpawning = true;
     public bool startTimer = false;
-    bool hasStartedTimer = false;
+    private bool hasStartedTimer = false;
+    public bool playerHasPressedAButton = false;
     TextMeshProUGUI timerTxt;
 
     // Crash Report Variables
     public bool handleExceptions = true;
     public Log mostRecentLog = new Log();
     public static List<string> logFile = new List<string>();
-    public static StreamWriter writer = new StreamWriter(Application.dataPath + "/ErrorLog/log.txt", true);
+    public static StreamWriter writer;
     string bug;
 
     private void Awake()
     {
+        if (GameObject.Find("GameManager") == this.gameObject)
+        {
+            DontDestroyOnLoad(gameObject);
+            writer = new StreamWriter(Application.dataPath + "/ErrorLog/log.txt", true);
+        }
+
         // Initializing Bots
         bots[0] = new Bot();
         bots[1] = new Bot();
@@ -69,9 +76,6 @@ public class GameManager : MonoBehaviour
 
         // Calls HandleException Method whenever something is logged to the console (for crash reporting)
         Application.logMessageReceived += HandleException;
-
-        DontDestroyOnLoad(this);
-
     }
 
     void Start()
@@ -82,8 +86,6 @@ public class GameManager : MonoBehaviour
             Directory.Delete(Application.dataPath + "/ErrorLog/");
         }
         Directory.CreateDirectory(Application.dataPath + "/ErrorLog/");
-
-        
 
         // Me purposefully causing errors to cause Exceptions
         //int[] test = new int[1];
@@ -104,7 +106,7 @@ public class GameManager : MonoBehaviour
         if (timerTxt != null)
         {
             // Adds timer delay for whenever the player presses a button
-            if (Input.anyKey && !hasStartedTimer)
+            if (playerHasPressedAButton && !hasStartedTimer)
             {
                 timerDelay = Time.realtimeSinceStartup;
                 hasStartedTimer = true;
@@ -161,6 +163,13 @@ public class GameManager : MonoBehaviour
         // Put here because it is called on scene changes
         score = 0;
 
+        // Put here because it is called on scene changes
+        if (GameObject.Find("StartBotButton"))
+        {
+            ci = GameObject.Find("StartBotButton").GetComponent<CanvasInteractions>();
+        }
+
+        // Put here because it is called on scene changes
         if (GameObject.Find("StartBotButton"))
         {
             ci = GameObject.Find("StartBotButton").GetComponent<CanvasInteractions>();

@@ -143,11 +143,13 @@ public class PlayerManager : MonoBehaviour
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+        gm.playerHasPressedAButton = true;
     }
 
     // When player presses interact key, run interact script on all GameObjects with Interactable tag
     public void OnInteract()
     {
+        gm.playerHasPressedAButton = true;
         for (int i = 0; i < interactables.Length; ++i)
         {
             interactables[i].GetComponent<Interactables>().PlayerInteracted();
@@ -157,6 +159,7 @@ public class PlayerManager : MonoBehaviour
     // Place a Building
     public void OnPlaceBuilding()
     {
+        gm.playerHasPressedAButton = true;
         // Only let player place buildings outside
         if (currentBuilding != null && cameraManager.vcam4.Priority == 1)
         {

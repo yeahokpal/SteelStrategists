@@ -984,4 +984,269 @@ Spawn an enemy
 Spawn an enemy
 Interacted
 Interacted
+Spawn an enemySpawn an enemy
 Spawn an enemy
+Interacted
+Player Opened Map
+Map Screen Closed
+An exception has occurred!
+Location:
+UnityEngine.GameObject.GetComponent[T] () (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+CanvasInteractions.MapScreenClose () (at Assets/Interacting/CanvasInteractions.cs:77)
+UnityEngine.Events.InvokableCall.Invoke () (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+UnityEngine.Events.UnityEvent.Invoke () (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+UnityEngine.UI.Button.Press () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs:70)
+UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs:114)
+UnityEngine.EventSystems.ExecuteEvents.Execute (UnityEngine.EventSystems.IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs:57)
+UnityEngine.EventSystems.ExecuteEvents.Execute[T] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.ExecuteEvents+EventFunction`1[T1] functor) (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs:272)
+UnityEngine.EventSystems.EventSystem:Update() (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+Issue:
+UnassignedReferenceException: The variable Player of CanvasInteractions has not been assigned.
+You probably need to assign the Player variable of the CanvasInteractions script in the inspector.
+--------------------------
+An exception has occurred!
+Location:
+GameManager.Start () (at Assets/Scripts/GameManager.cs:87)
+Issue:
+IndexOutOfRangeException: Index was outside the bounds of the array.
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append, System.Text.Encoding encoding, System.Int32 bufferSize) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.StreamWriter..ctor(string,bool)
+GameManager.Awake () (at Assets/Scripts/GameManager.cs:57)
+GameManager.ChangeVolume (UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next) (at Assets/Scripts/GameManager.cs:162)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+Issue:
+IOException: Sharing violation on path C:\Users\ps24jgill\GitHubRepos\SteelStrategists\Assets\ErrorLog\log.txt
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append, System.Text.Encoding encoding, System.Int32 bufferSize) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.StreamWriter..ctor(string,bool)
+GameManager.Awake () (at Assets/Scripts/GameManager.cs:57)
+GameManager.ChangeVolume (UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next) (at Assets/Scripts/GameManager.cs:160)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+Issue:
+IOException: Sharing violation on path C:\Users\ps24jgill\GitHubRepos\SteelStrategists\Assets\ErrorLog\log.txt
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append, System.Text.Encoding encoding, System.Int32 bufferSize) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.StreamWriter..ctor(string,bool)
+GameManager.Awake () (at Assets/Scripts/GameManager.cs:59)
+GameManager.ChangeVolume (UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next) (at Assets/Scripts/GameManager.cs:162)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+Issue:
+IOException: Sharing violation on path C:\Users\ps24jgill\GitHubRepos\SteelStrategists\Assets\ErrorLog\log.txt
+--------------------------
+An exception has occurred!
+Location:
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append, System.Text.Encoding encoding, System.Int32 bufferSize) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.StreamWriter..ctor(string,bool)
+GameManager.Awake () (at Assets/Scripts/GameManager.cs:59)
+GameManager.ChangeVolume (UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next) (at Assets/Scripts/GameManager.cs:162)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+Issue:
+IOException: Sharing violation on path C:\Users\ps24jgill\GitHubRepos\SteelStrategists\Assets\ErrorLog\log.txt
+--------------------------
+Interacted
+Player Opened Map
+Map Coordinates: Selected X = 6.  Selected Y = 7.
+Current Selected Tile: Rock
+Updating bot...
+Bot #1 | Status: Gathering
+Updating bot...
+Bot #2 | Status: Gathering
+Map Coordinates: Selected X = 6.  Selected Y = 8.
+Current Selected Tile: Grass
+Updating bot...
+Bot #3 | Status: Gathering
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Can Craft
+Interacted
+Can Craft
+Interacted
+Crafted!
+Interacted
+Player Opened Map
+Updating bot...
+Bot #3 | Status: Gathering
+Map Coordinates: Selected X = 6.  Selected Y = 7.
+Current Selected Tile: Rock
+Map Coordinates: Selected X = 6.  Selected Y = 8.
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 6.  Selected Y = 9.
+Current Selected Tile: Desert
+Updating bot...
+Bot #2 | Status: Gathering
+Updating bot...
+Bot #1 | Status: Gathering
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Colleting Materials from: Bot1
+Can Craft
+Interacted
+Crafted!
+Interacted
+Player Opened Map
+Updating bot...
+Bot #1 | Status: Gathering
+Map Coordinates: Selected X = 7.  Selected Y = 9.
+Current Selected Tile: Rock
+Updating bot...
+Bot #2 | Status: Gathering
+Updating bot...
+Bot #3 | Status: Gathering
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot1
+Interacted
+Colleting Materials from: Bot2
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot3
+Spawn an enemy
+Interacted
+Player Opened Map
+Spawn an enemy
+Map Coordinates: Selected X = 7.  Selected Y = 8.
+Current Selected Tile: Grass
+Updating bot...
+Bot #1 | Status: Gathering
+Map Coordinates: Selected X = 7.  Selected Y = 9.
+Current Selected Tile: Rock
+Spawn an enemy
+Updating bot...
+Bot #2 | Status: Gathering
+Updating bot...
+Bot #3 | Status: Gathering
+Can Craft
+Spawn an enemy
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot1
+Spawn an enemy
+Interacted
+Interacted
+Colleting Materials from: Bot2
+Interacted
+Interacted
+Colleting Materials from: Bot3
+Spawn an enemy
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Interacted
+Player Opened Map
+Spawn an enemy
+Updating bot...
+Bot #3 | Status: Gathering
+Spawn an enemy
+Map Coordinates: Selected X = 7.  Selected Y = 10.
+Current Selected Tile: Grass
+Map Coordinates: Selected X = 6.  Selected Y = 10.
+Current Selected Tile: Desert
+Updating bot...
+Bot #2 | Status: Gathering
+Spawn an enemy
+Updating bot...
+Bot #1 | Status: Gathering
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Spawn an enemy
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot3
+Interacted
+Colleting Materials from: Bot2
+Spawn an enemy
+Interacted
+Colleting Materials from: Bot1
+Spawn an enemy
+Can Craft
+Spawn an enemy
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Can Craft
+Interacted
+Crafted!
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Spawn an enemy
+Game Over
+Spawn an enemy
+An exception has occurred!
+Location:
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.IO.FileOptions options) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,int,System.IO.FileOptions)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append, System.Text.Encoding encoding, System.Int32 bufferSize) (at <b89873cb176e44a995a4781c7487d410>:0)
+System.IO.StreamWriter..ctor (System.String path, System.Boolean append) (at <b89873cb176e44a995a4781c7487d410>:0)
+(wrapper remoting-invoke-with-check) System.IO.StreamWriter..ctor(string,bool)
+GameManager.Awake () (at Assets/Scripts/GameManager.cs:59)
+Issue:
+IOException: Sharing violation on path C:\Users\ps24jgill\GitHubRepos\SteelStrategists\Assets\ErrorLog\log.txt
+--------------------------

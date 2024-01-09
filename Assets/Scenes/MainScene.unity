@@ -45577,7 +45577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapScreen: {fileID: 13272656}
-  Player: {fileID: 0}
+  Player: {fileID: 9105984859850856897}
   gm: {fileID: 0}
   selectedBotNum: 0
   selectedTileType: 4
@@ -65993,12 +65993,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9059362521754613762, guid: e544a3d23ffd0424f9805c80747d7267, type: 3}
   m_PrefabInstance: {fileID: 9105984859850856895}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 9105984859850856897}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 535a8f25972ea104aa42684c8d458895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &9105984859850856897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9154186035497790977, guid: e544a3d23ffd0424f9805c80747d7267, type: 3}
+  m_PrefabInstance: {fileID: 9105984859850856895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
