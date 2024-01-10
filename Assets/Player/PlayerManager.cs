@@ -51,6 +51,11 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        GameObject.Find("GameManager").SetActive(true);
+        GameObject.Find("GameManager").GetComponent<GameManager>().enabled = true;
+        GameObject.Find("SaveManager").SetActive(true);
+        GameObject.Find("SaveManager").GetComponent<SaveManager>().enabled = true;
+
         // Movement Calculation
         rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
 

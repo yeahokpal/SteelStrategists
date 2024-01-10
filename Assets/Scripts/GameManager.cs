@@ -18,8 +18,12 @@ using TMPro;
 using System.IO;
 using System.Web;
 
+public enum BotStatus { Idle, Gathering, WaitingToGather }
+public enum Material { Wood, Steel, Electronics, None }
+
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject woodamount;
     // Misc Variables
     [SerializeField] Camera cam;
     [SerializeField] Slider volumeSlider;
@@ -30,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     // Volume
     public float Volume = 1f;
+
+    [SerializeField] AudioClip battle2Song;
 
     // Bot Variables
     public Bot[] bots = new Bot[3];
@@ -55,9 +61,18 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        // Avoid duplicate GameManagers
         if (GameObject.Find("GameManager") == this.gameObject)
         {
             DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        if (writer == null)
+        {
             writer = new StreamWriter(Application.dataPath + "/ErrorLog/log.txt", true);
         }
 
@@ -108,14 +123,17 @@ public class GameManager : MonoBehaviour
             // Adds timer delay for whenever the player presses a button
             if (playerHasPressedAButton && !hasStartedTimer)
             {
-                timerDelay = Time.realtimeSinceStartup;
                 hasStartedTimer = true;
+                timerDelay = Time.realtimeSinceStartup;
                 startTimer = true;
+                UnityEngine.Debug.Log("Timer Start");
             }
 
             // When the game starts...
             if (startTimer)
             {
+                this.GetComponent<AudioSource>().Play();
+
                 // Calculate the remaining time on the timer and put it into minute:second format
                 timerMinutesLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) / 60;
                 timerSecondsLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) % 60;
@@ -133,9 +151,13 @@ public class GameManager : MonoBehaviour
                 // When the timer is donw, start spawning enemies
                 if (timerMinutesLeft <= 0 && timerSecondsLeft <= 0 && startSpawning)
                 {
+                    enemySpawner = GameObject.Find("EnemySpawner");
                     enemySpawner.GetComponent<EnemySpawner>().StartCoroutine(enemySpawner.GetComponent<EnemySpawner>().StartSpawning());
                     startSpawning = false;
                     startTimer = false;
+                    this.GetComponent<AudioSource>().clip = battle2Song;
+                    this.GetComponent<AudioSource>().loop = true;
+                    this.GetComponent<AudioSource>().Play();
                 }
             }
         }
@@ -162,6 +184,16 @@ public class GameManager : MonoBehaviour
     {
         // Put here because it is called on scene changes
         score = 0;
+        timerDelay = Time.realtimeSinceStartup;
+        timerSecondsLeft = 0;
+        timerMinutesLeft = 0;
+        hasStartedTimer = false;
+        startSpawning = true;
+        startTimer = true;
+        playerHasPressedAButton = false;
+        bots[0] = new Bot();
+        bots[1] = new Bot();
+        bots[2] = new Bot();
 
         // Put here because it is called on scene changes
         if (GameObject.Find("StartBotButton"))
@@ -249,9 +281,6 @@ public class GameManager : MonoBehaviour
         {
             writer.WriteLine(logString);
         }
-
-        // For closing the writer when the game crashes, because this method only gets called on crash
-        writer.Close();
     }
 
     // Sending email of the bug report
@@ -275,6 +304,9 @@ public class GameManager : MonoBehaviour
     public void UpdateBot(int botNum, TileType tileType)
     {
         UnityEngine.Debug.Log("Updating bot...");
+        if (bots[0] == null) bots[0] = new Bot();
+        if (bots[1] == null) bots[1] = new Bot();
+        if (bots[2] == null) bots[2] = new Bot();
         bots[botNum - 1].currentStatus = BotStatus.Gathering;
         switch (tileType)
         {
