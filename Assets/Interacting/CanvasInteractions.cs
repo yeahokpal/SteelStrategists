@@ -74,6 +74,7 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     {
         Debug.Log("Map Screen Closed");
         MapScreen.SetActive(false);
+        if (Player == null) Debug.Log("player is null");
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
     }
     // Called when the start button on the Map Screen UI is clicked
