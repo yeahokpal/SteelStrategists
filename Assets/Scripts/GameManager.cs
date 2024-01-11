@@ -20,7 +20,7 @@ public enum Material { Wood, Steel, Electronics, None }
 
 public class GameManager : MonoBehaviour
 {
-    #region Global Variables
+    #region Variables
     // Misc Variables
     [SerializeField] Camera cam;
     [SerializeField] Slider volumeSlider;
@@ -30,7 +30,10 @@ public class GameManager : MonoBehaviour
     public int score;
 
     // Volume
-    [SerializeField] AudioClip battle2Song;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip battle2Song;
+    [SerializeField] private AudioClip battle1Song;
+    [SerializeField] private AudioClip themeSong;
     public float Volume = 1f;
 
     // Bot Variables
@@ -131,7 +134,7 @@ public class GameManager : MonoBehaviour
             // When the game starts...
             if (startTimer)
             {
-                this.GetComponent<AudioSource>().Play();
+                audioSource.Play();
 
                 // Calculate the remaining time on the timer and put it into minute:second format
                 timerMinutesLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) / 60;
@@ -154,9 +157,9 @@ public class GameManager : MonoBehaviour
                     enemySpawner.GetComponent<EnemySpawner>().StartCoroutine(enemySpawner.GetComponent<EnemySpawner>().StartSpawning());
                     startSpawning = false;
                     startTimer = false;
-                    this.GetComponent<AudioSource>().clip = battle2Song;
-                    this.GetComponent<AudioSource>().loop = true;
-                    this.GetComponent<AudioSource>().Play();
+                    audioSource.clip = battle2Song;
+                    audioSource.loop = true;
+                    audioSource.Play();
                 }
             }
         }
@@ -196,6 +199,22 @@ public class GameManager : MonoBehaviour
         bots[0] = new Bot();
         bots[1] = new Bot();
         bots[2] = new Bot();
+
+        switch (next.name)
+        {
+            case "StartingMenu":
+                audioSource.clip = themeSong;
+                audioSource.Play();
+                break;
+            case "MainScene":
+                audioSource.clip = battle1Song;
+                audioSource.Play();
+                break;
+            case "Tutorial":
+                audioSource.clip = battle2Song;
+                audioSource.Play();
+                break;
+        }
 
         // Put here because it is called on scene changes
         if (GameObject.Find("StartBotButton"))
