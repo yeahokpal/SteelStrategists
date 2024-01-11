@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    List<Enemy> enemies = new List<Enemy>();
-
-    [SerializeField] int Damage;
-    [SerializeField] float AttackInterval;
-    [SerializeField] new AudioSource audio;
-
+    #region Global Variables
+    [SerializeField] private int Damage;
+    [SerializeField] private float AttackInterval;
+    [SerializeField] private new AudioSource audio;
+    private List<Enemy> enemies = new List<Enemy>();
     public LineRenderer lr;
+    private bool canAttack = true;
+    #endregion
 
-    bool canAttack = true;
-
+    #region Default Methods
     private void Start()
     {
         lr = gameObject.GetComponent<LineRenderer>();
@@ -28,7 +28,24 @@ public class Building : MonoBehaviour
             StartCoroutine(Attack(enemies[0]));
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            enemies.Add(collision.gameObject.GetComponent<Enemy>());
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            enemies.Remove(collision.gameObject.GetComponent<Enemy>());
+        }
+    }
+    #endregion
+
+    #region Custom Methods
     [System.Obsolete]
     private IEnumerator Attack(Enemy enemy)
     {
@@ -55,20 +72,6 @@ public class Building : MonoBehaviour
         }
         canAttack = true;
     }
+    #endregion
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            enemies.Add(collision.gameObject.GetComponent<Enemy>());
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            enemies.Remove(collision.gameObject.GetComponent<Enemy>());
-        }
-    }
 }

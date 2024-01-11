@@ -11,12 +11,16 @@ public enum TileType { Grass, Rock, Water, Desert, None };
 
 public class MapTile
 {
+    #region Global Variables
     public int xPos;
     public int yPos;
     private int num;
     private Sprite img;
     private TileStatus tileStatus = TileStatus.Unharvested;
     private TileType tileType = TileType.None;
+    #endregion
+
+    #region Constructors
     public MapTile(int xPosition, int yPosition, int index, Sprite image)
     {
         xPos = xPosition;
@@ -24,6 +28,9 @@ public class MapTile
         img = image;
         num = index;
     }
+    #endregion
+
+    #region Getters and Setters
     public int getIndex()
     {
         return num;
@@ -56,4 +63,5 @@ public class MapTile
     {
         return tileStatus;
     }
+    #endregion
 }

@@ -8,19 +8,21 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Scene = UnityEngine.SceneManagement.Scene;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] GameManager gm;
-    [SerializeField] new AudioSource audio;
-    public bool goUp;
-    float timerStart;
-    // Raycast for detecting a wall in front of it
+    #region Global Variables
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameManager gm;
+    [SerializeField] private new AudioSource audio;
+    [SerializeField] private float damage = 1;
+    private float timerStart;
     public float Health = 5;
-    float speed = 2f;
-    [SerializeField] float damage = 1;
+    private float speed = 2f;
+    public bool goUp;
+    #endregion
+
+    #region Default Methods
     void Start()
     {
         timerStart = Time.realtimeSinceStartup;
@@ -45,7 +47,17 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Door" && collision.gameObject.GetComponent<Door>().Health > 0)
+        {
+            rb.velocity = new Vector2(0f, 0f);
+            StartCoroutine(StartAttackingBase(collision));
+        } 
+    }
+    #endregion
 
+    #region Custom Methods
     // Increasing damage and health for every enemy spawned
     public void SetDamage(float modifier)
     {
@@ -76,15 +88,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Door" && collision.gameObject.GetComponent<Door>().Health > 0)
-        {
-            rb.velocity = new Vector2(0f, 0f);
-            StartCoroutine(StartAttackingBase(collision));
-        } 
-    }
-
     // Code that executes when the enemy is attacking the base
     IEnumerator StartAttackingBase(Collider2D collision)
     {
@@ -96,4 +99,5 @@ public class Enemy : MonoBehaviour
             StartCoroutine(StartAttackingBase(collision));
         }
     }
+    #endregion
 }

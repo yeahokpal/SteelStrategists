@@ -4,20 +4,22 @@
  * Output: Change settings and open scenes and quit games
  */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameManager gm;
-    [SerializeField] SaveManager sm;
-    [SerializeField] Slider slider;
-    [SerializeField] TextMeshProUGUI[] scoretxts; 
+    #region Global Variables
+    [SerializeField] private GameManager gm;
+    [SerializeField] private SaveManager sm;
+    [SerializeField] private Slider slider;
+    [SerializeField] private TextMeshProUGUI[] scoretxts;
+    #endregion
 
+    #region Default Methods
     private void Start()
     {
         // Reading the high scores and filling them into the text boxes
@@ -34,7 +36,9 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Custom Methods
     // Load Main Level
     public void StartGame ()
     {
@@ -62,4 +66,5 @@ public class MainMenu : MonoBehaviour
         float volume = slider.value;
         gm.ChangeVolume(volume);
     }
+    #endregion
 }

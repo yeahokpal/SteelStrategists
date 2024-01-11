@@ -4,31 +4,49 @@
  * Inputs: Circle collider on door
  * Outputs: Change current door animation and control base health
  */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] GameObject deathScreen;
-    [SerializeField] GameObject Player;
-    [SerializeField] Animator anim;
-    [SerializeField] Slider slider;
-    SaveManager sm;
-    GameManager gm;
+    #region Global Variables
+    [SerializeField] private GameObject deathScreen;
+    [SerializeField] private GameObject Player;
+    [SerializeField] private Animator anim;
+    [SerializeField] private Slider slider;
+    private SaveManager sm;
+    private GameManager gm;
     public float Health = 100;
+    #endregion
 
+    #region Default Methods
     private void Awake()
     {
         Player = GameObject.Find("Player");
         sm = GameObject.Find("SaveManager").GetComponent<SaveManager>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            anim.SetTrigger("Open");
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            anim.SetTrigger("Close");
+        }
+    }
+    #endregion
+
+    #region Custom Methods
     public void TakeDamage(float damage)
     {
         Health -= damage;
@@ -59,19 +77,5 @@ public class Door : MonoBehaviour
         sm.Write(Initials, Score);
         SceneManager.LoadScene("StartingMenu");
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            anim.SetTrigger("Open");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            anim.SetTrigger("Close");
-        }
-    }
+    #endregion
 }

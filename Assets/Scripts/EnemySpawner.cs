@@ -6,18 +6,20 @@
  */
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
+    #region Global Variables
     [SerializeField] GameObject enemyPrefab;
-    float modifier = 1f;
+    private float modifier = 1f;
 
     // Interval between spawning enemies
-    float spawnDelay = 3f;
+    private float spawnDelay = 3f;
+    #endregion
 
+    #region Default Methods
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "Tutorial")
@@ -26,7 +28,9 @@ public class EnemySpawner : MonoBehaviour
             modifier = 0;
         }
     }
+    #endregion
 
+    #region Custom Methods
     // Recursive IEnumerator because it has to wait for spawnDelay between spawns
     public IEnumerator StartSpawning()
     {
@@ -41,4 +45,5 @@ public class EnemySpawner : MonoBehaviour
         modifier *= 1.05f;
         StartCoroutine(StartSpawning());
     }
+    #endregion
 }

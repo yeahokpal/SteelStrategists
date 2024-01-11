@@ -1,4 +1,4 @@
-/* Programmers: Jack Gill
+/* Programmers: Jack Gill and Caden Mesina
  * This script is to manage individual game elements that arent enough for their own scripts
  * Purposes: - Manage Game Timer
  *           - Catch Exceptions and Send Emails
@@ -11,37 +11,34 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
-using UnityEngine.Audio;
 using UnityEngine.UI;
-using TMPro;
 using System.IO;
-using System.Web;
+using TMPro;
 
 public enum BotStatus { Idle, Gathering, WaitingToGather }
 public enum Material { Wood, Steel, Electronics, None }
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject woodamount;
+    #region Global Variables
     // Misc Variables
     [SerializeField] Camera cam;
     [SerializeField] Slider volumeSlider;
     [SerializeField] TextMeshProUGUI scoreTxt;
-    public GameObject enemySpawner;
     [SerializeField] Texture2D cursorPoint;
+    public GameObject enemySpawner;
     public int score;
 
     // Volume
-    public float Volume = 1f;
-
     [SerializeField] AudioClip battle2Song;
+    public float Volume = 1f;
 
     // Bot Variables
     public Bot[] bots = new Bot[3];
     CanvasInteractions ci;
 
     // Timer Variables
+    private TextMeshProUGUI timerTxt;
     public float timerDelay;
     private float timerLengthSeconds = 120;
     private int timerMinutesLeft;
@@ -50,7 +47,6 @@ public class GameManager : MonoBehaviour
     public bool startTimer = false;
     private bool hasStartedTimer = false;
     public bool playerHasPressedAButton = false;
-    TextMeshProUGUI timerTxt;
 
     // Crash Report Variables
     public bool handleExceptions = true;
@@ -58,6 +54,9 @@ public class GameManager : MonoBehaviour
     public static List<string> logFile = new List<string>();
     public static StreamWriter writer;
     string bug;
+    #endregion
+
+    #region Default Methods
 
     private void Awake()
     {
@@ -163,6 +162,9 @@ public class GameManager : MonoBehaviour
         }
         #endregion
     }
+    #endregion
+
+    #region Custom Methods
 
     #region Volume changing
     // - Used to update the volume whenever the slider value changes
@@ -241,7 +243,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Crash Reporting
-
     public class Log
     {
         public string logString{get; set;}
@@ -372,5 +373,6 @@ public class GameManager : MonoBehaviour
         currentBot.GetComponent<Interactables>().UpdateBot();
     }
 
+    #endregion
     #endregion
 }
