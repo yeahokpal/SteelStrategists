@@ -75,6 +75,7 @@ public class Door : MonoBehaviour
         int Score = gm.score;
 
         sm.Write(Initials, Score);
+        Destroy(gm.gameObject);
         SceneManager.LoadScene("StartingMenu");
     }
     #endregion

@@ -18,6 +18,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private GameObject mapTiles;
     [SerializeField] private GameObject mapSelector;
     [SerializeField] TextMeshProUGUI selectedTypeText;
+    [SerializeField] TextMeshProUGUI availableResources;
     [NonSerialized] public int selectedX = 7;
     [NonSerialized] public int selectedY = 7;
     private MapTile[,] mapGrid = new MapTile[15, 15];
@@ -121,6 +122,12 @@ public class MapManager : MonoBehaviour
         //updates the selected tile to the tile that is specified by selectedX and selectedY
         mapSelector.GetComponentInChildren<Transform>().position = mapTiles.transform.GetChild(mapGrid[selectedY, selectedX].getIndex()).GetComponent<Transform>().position;
 
+        UpdateSelectedTile();
+    }
+
+    // Updating UI based on what is currently selected
+    public void UpdateSelectedTile()
+    {
         //finding the currently selected tile's typing
         switch (mapGrid[selectedY, selectedX].getTileType())
         {
@@ -128,26 +135,31 @@ public class MapManager : MonoBehaviour
                 startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.Grass;
                 selectedTypeText.text = "Grass";
                 if (startButton.GetComponent<CanvasInteractions>().selectedBotNum != 0) startButton.GetComponent<Button>().interactable = true;
+                availableResources.text = "Available Resources: Wood";
                 break;
             case TileType.Rock:
                 startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.Rock;
                 selectedTypeText.text = "Rock";
                 if (startButton.GetComponent<CanvasInteractions>().selectedBotNum != 0) startButton.GetComponent<Button>().interactable = true;
+                availableResources.text = "Available Resources: Steel";
                 break;
             case TileType.Water:
                 startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.Water;
                 selectedTypeText.text = "Water";
                 if (startButton.GetComponent<CanvasInteractions>().selectedBotNum != 0) startButton.GetComponent<Button>().interactable = true;
+                availableResources.text = "Available Resources: Wood or Steel";
                 break;
             case TileType.Desert:
                 startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.Desert;
                 selectedTypeText.text = "Desert";
                 if (startButton.GetComponent<CanvasInteractions>().selectedBotNum != 0) startButton.GetComponent<Button>().interactable = true;
+                availableResources.text = "Available Resources: Electronics";
                 break;
             case TileType.None:
                 startButton.GetComponent<CanvasInteractions>().selectedTileType = TileType.None;
                 selectedTypeText.text = "Home";
                 startButton.GetComponent<Button>().interactable = false;
+                availableResources.text = "Available Resources: None";
                 break;
         }
         Debug.Log("Current Selected Tile: " + mapGrid[selectedY, selectedX].getTileType().ToString());

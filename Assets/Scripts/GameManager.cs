@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip battle1Song;
     [SerializeField] private AudioClip themeSong;
     bool startPrepAudio = true;
-    public float Volume = 1f;
+    public float Volume = .3f;
 
     // Bot Variables
     public Bot[] bots = new Bot[3];
@@ -64,15 +64,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // Avoid duplicate GameManagers
-        if (GameObject.Find("GameManager") == gameObject)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        DontDestroyOnLoad(gameObject);
 
         if (writer == null)
         {
@@ -90,7 +82,7 @@ public class GameManager : MonoBehaviour
         }
 
         Cursor.SetCursor(cursorPoint, Vector2.zero, CursorMode.ForceSoftware);
-        SceneManager.activeSceneChanged += ChangeVolume;
+        SceneManager.activeSceneChanged += ChangeActiveScene;
 
         // Calls HandleException Method whenever something is logged to the console (for crash reporting)
         Application.logMessageReceived += HandleException;
@@ -133,7 +125,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                timerTxt.text = "2:00";
+                timerTxt.text = "0:00";
             }
 
             // When the game starts...
@@ -150,7 +142,7 @@ public class GameManager : MonoBehaviour
                 timerSecondsLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) % 60;
                 // Update the Timer UI
 
-                if (timerSecondsLeft <= 9) // If the remaining seconds is <= 9, add another 0 so that "1:6" is actually "1:06"
+                if (timerSecondsLeft <= 9) // If the remaining seconds is <= 9, add another 0 so that "1:6" gets written as "1:06"
                 {
                     timerTxt.text = timerMinutesLeft + ":0" + timerSecondsLeft;
                 }
@@ -193,11 +185,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // - Used to update the volume of each GameObject whenever the scene changes
-    public void ChangeVolume(Scene current, Scene next)
+    public void ChangeActiveScene(Scene current, Scene next)
     {
-        audioSource.enabled = true;
-        
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        AudioSource audioSource = gm.GetComponent<AudioSource>();
+
         switch (next.name)
         {
             case "StartingMenu":
@@ -229,13 +221,6 @@ public class GameManager : MonoBehaviour
         bots[1] = new Bot();
         bots[2] = new Bot();
 
-
-        // Put here because it is called on scene changes
-        if (GameObject.Find("StartBotButton"))
-        {
-            ci = GameObject.Find("StartBotButton").GetComponent<CanvasInteractions>();
-        }
-
         // Put here because it is called on scene changes
         if (GameObject.Find("StartBotButton"))
         {
@@ -249,15 +234,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-
-        foreach (GameObject go in allObjects)
-        {
-            if (go.GetComponent<AudioSource>())
-            {
-                go.GetComponent<AudioSource>().volume = Volume;
-            }
-        }
+        ChangeVolume(Volume);
     }
     #endregion
 

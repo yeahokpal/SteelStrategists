@@ -13,7 +13,7 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     #region Global Variables
-    [SerializeField] private GameManager gm;
+    private GameManager gm;
     [SerializeField] private SaveManager sm;
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI[] scoretxts;
@@ -22,6 +22,8 @@ public class MainMenu : MonoBehaviour
     #region Default Methods
     private void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         // Reading the high scores and filling them into the text boxes
         List<string> scores = sm.ReadScores();
         scores.Sort();

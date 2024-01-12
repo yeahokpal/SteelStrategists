@@ -89,6 +89,7 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
         //visually show which bot is selected (do later)
         overlay.transform.position = RobotSprites[botNum - 1].transform.position;
 
+        GameObject.Find("Map").GetComponent<MapManager>().UpdateSelectedTile();
     }
     #endregion
 }
