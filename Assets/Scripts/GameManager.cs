@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip battle2Song;
     [SerializeField] private AudioClip battle1Song;
     [SerializeField] private AudioClip themeSong;
+    bool startPrepAudio = true;
     public float Volume = 1f;
 
     // Bot Variables
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         // Avoid duplicate GameManagers
-        if (GameObject.Find("GameManager") == this.gameObject)
+        if (GameObject.Find("GameManager") == gameObject)
         {
             DontDestroyOnLoad(gameObject);
         }
@@ -130,11 +131,19 @@ public class GameManager : MonoBehaviour
                 startTimer = true;
                 UnityEngine.Debug.Log("Timer Start");
             }
+            else
+            {
+                timerTxt.text = "2:00";
+            }
 
             // When the game starts...
             if (startTimer)
             {
-                audioSource.Play();
+                if (startPrepAudio && playerHasPressedAButton)
+                {
+                    audioSource.Play();
+                    startPrepAudio = false;
+                }
 
                 // Calculate the remaining time on the timer and put it into minute:second format
                 timerMinutesLeft = (int)(timerLengthSeconds - (int)Time.realtimeSinceStartup + timerDelay) / 60;
@@ -187,6 +196,26 @@ public class GameManager : MonoBehaviour
     // - Used to update the volume of each GameObject whenever the scene changes
     public void ChangeVolume(Scene current, Scene next)
     {
+        audioSource.enabled = true;
+        
+        switch (next.name)
+        {
+            case "StartingMenu":
+                audioSource.Stop();
+                audioSource.clip = themeSong;
+                audioSource.Play();
+                break;
+            case "MainScene":
+                audioSource.Stop();
+                audioSource.clip = battle1Song;
+                break;
+            case "Tutorial":
+                audioSource.Stop();
+                audioSource.clip = battle2Song;
+                audioSource.Play();
+                break;
+        }
+
         // Put here because it is called on scene changes
         score = 0;
         timerDelay = Time.realtimeSinceStartup;
@@ -200,21 +229,6 @@ public class GameManager : MonoBehaviour
         bots[1] = new Bot();
         bots[2] = new Bot();
 
-        switch (next.name)
-        {
-            case "StartingMenu":
-                audioSource.clip = themeSong;
-                audioSource.Play();
-                break;
-            case "MainScene":
-                audioSource.clip = battle1Song;
-                audioSource.Play();
-                break;
-            case "Tutorial":
-                audioSource.clip = battle2Song;
-                audioSource.Play();
-                break;
-        }
 
         // Put here because it is called on scene changes
         if (GameObject.Find("StartBotButton"))
