@@ -14996,4 +14996,17 @@ Your script should either check if it is null or you should not destroy the obje
 An exception has occurred!
 Location:
 GameManager.ChangeVolume (UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next) (at Assets/Scripts/GameManager.cs:212)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActTimer Start
+Paused Status: True
+An exception has occurred!
+Location:
+GameManager.ChangeVolume (UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next) (at Assets/Scripts/GameManager.cs:199)
+UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newActiveScene) (at <e97d84204f8d4aef92b538c5bab948f1>:0)
+Issue:
+MissingReferenceException: The object of type 'AudioSource' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+--------------------------
+An exception has occurred!
+Location:
+GameManager.ChangeVolume (UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next) (at Assets/Scripts/GameManager.cs:199)
 UnityEngine.SceneManagement.SceneManager.Internal_ActiveSceneChanged (UnityEngine.SceneManagement.Scene previousActiveScene, UnityEngine.SceneManagement.Scene newAct
