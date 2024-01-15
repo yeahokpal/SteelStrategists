@@ -32,6 +32,7 @@ public class Interactables : MonoBehaviour
     #endregion
 
     #region Default Methods
+    // Defining variables
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -40,6 +41,7 @@ public class Interactables : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
+    // The player can interact when they enter a certain radius of the interactable object
     private void OnTriggerEnter2D(Collider2D other)
     {
         canInteract = true;
@@ -47,6 +49,7 @@ public class Interactables : MonoBehaviour
         spriteRenderer.color = new Color(0.5f, 0.75f, 1f);
     }
 
+    // The player cant interact when they exit a certain radius of the interactable object
     private void OnTriggerExit2D(Collider2D other)
     {
         canInteract = false;
@@ -69,10 +72,12 @@ public class Interactables : MonoBehaviour
                 childCanvas.GetComponent<CanvasManager>().SelectDialog();
             }
 
+            // If the object is a crafting table, then craft
             if (ct != null)
             {
                 ct.Craft();
             }
+            // If the object is the map, then open the map
 
             if (this.name == "Map")
             {
@@ -136,6 +141,7 @@ public class Interactables : MonoBehaviour
         return child;
     }
 
+    // Updating the bot sprites based on current status and material
     public void UpdateBot()
     {
         if (botNum != 0)
