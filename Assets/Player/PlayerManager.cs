@@ -204,6 +204,8 @@ public class PlayerManager : MonoBehaviour
             Time.timeScale = 1f;
             // Continue updating timer UI
             gm.startTimer = true;
+            // Pausing the music
+            gm.GetComponent<AudioSource>().Play();
         }
         // Pause
         else
@@ -216,6 +218,8 @@ public class PlayerManager : MonoBehaviour
             Time.timeScale = 0f;
             // Stop updating timer UI
             gm.startTimer = false;
+            // Pausing the music
+            gm.GetComponent<AudioSource>().Pause();
         }
         Debug.Log("Paused Status: " + isPaused);
     }

@@ -152,11 +152,15 @@ public class GameManager : MonoBehaviour
                 }
 
                 // When the timer is donw, start spawning enemies
-                if (timerMinutesLeft <= 0 && timerSecondsLeft <= 0 && startSpawning)
+                if (timerMinutesLeft <= 0 && timerSecondsLeft <= 0)
                 {
-                    enemySpawner = GameObject.Find("EnemySpawner");
-                    enemySpawner.GetComponent<EnemySpawner>().StartCoroutine(enemySpawner.GetComponent<EnemySpawner>().StartSpawning());
-                    startSpawning = false;
+                    timerTxt.text = "0:00";
+                    if (startSpawning)
+                    {
+                        enemySpawner = GameObject.Find("EnemySpawner");
+                        startSpawning = false;
+                        enemySpawner.GetComponent<EnemySpawner>().StartCoroutine(enemySpawner.GetComponent<EnemySpawner>().StartSpawning());
+                    }
                     startTimer = false;
                     audioSource.clip = battle2Song;
                     audioSource.loop = true;

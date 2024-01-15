@@ -151,7 +151,7 @@ MonoBehaviour:
   audio: {fileID: 2810233876296799663}
   damage: 1
   animationController: {fileID: 2358392728700141525}
-  Health: 5
+  Health: 4
   goUp: 0
 --- !u!50 &5324400860708091824
 Rigidbody2D:

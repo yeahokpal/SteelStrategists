@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     private float modifier = 1f;
 
     // Interval between spawning enemies
-    private float spawnDelay = 3f;
+    private float spawnDelay = 4f;
     #endregion
 
     #region Default Methods
@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
             modifier = 0;
         }
         //calls ChangePosition() every 0.5 seconds
-        InvokeRepeating("ChangePosition", 0, 0.5f);
+        InvokeRepeating("ChangePosition", 0, spawnDelay);
     }
     #endregion
 
@@ -45,6 +45,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy.goUp = true;
         }
+        spawnDelay -= (modifier * .01f);
         modifier *= 1.05f;
         StartCoroutine(StartSpawning());
     }
@@ -52,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
     //moves the position of the enemy spawner every time it is called
     private void ChangePosition()
     {
-        this.transform.position = new Vector3(36f, random.Next(-3, 4), 0f);
+        this.transform.position = new Vector3(36f, random.Next(-2, 2), 0f);
     }
     #endregion
 }
