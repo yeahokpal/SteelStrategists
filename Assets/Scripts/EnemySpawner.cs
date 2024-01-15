@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
     //moves the position of the enemy spawner every time it is called
     private void ChangePosition()
     {
-        this.transform.position = new Vector3(36f, random.Next(-2, 2), 0f);
+        this.transform.position = new Vector3(36f, random.Next(-3, 4), 0f);
     }
     #endregion
 }
