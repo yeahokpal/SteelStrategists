@@ -5,6 +5,8 @@
  * Output: N/A
  */
 
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -13,11 +15,16 @@ using UnityEngine.UI;
 public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
 {
     #region Variables
-    [SerializeField] private GameObject MapScreen;
-    [SerializeField] private GameObject Player;
-    [SerializeField] GameManager gm;
+    [SerializeField] private GameObject mapScreen;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject botIcon1;
+    [SerializeField] private GameObject botIcon2;
+    [SerializeField] private GameObject botIcon3;
+    [SerializeField] private GameManager gm;
+    private List<GameObject> botIconList = new List<GameObject>();
     private GameObject[] dialogObjects;
     private GameObject mapCamera;
+    private MapManager mapManager;
     public int selectedBotNum;
     public TileType selectedTileType = TileType.None;
     public GameObject overlay;
@@ -28,8 +35,12 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         dialogObjects = GameObject.FindGameObjectsWithTag("Dialog Object");
+        mapManager = GameObject.Find("Map").GetComponent<MapManager>();
         mapCamera = GameObject.Find("MapCamera");
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        botIconList.Add(botIcon1);
+        botIconList.Add(botIcon2);
+        botIconList.Add(botIcon3);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -41,11 +52,6 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     #endregion
 
     #region Custom Methods
-    //when player presses the select button on the map screen
-    public void SelectButtonClicked()
-    {
-        Debug.Log("Select Button Clicked");
-    }
     /* 
      * the next 4 methods happen when players press a specific direction on the map screen
      * they trigger MoveSelector(int, int) from MapManager.cs which moves the position of the
@@ -74,9 +80,9 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     public void MapScreenClose()
     {
         Debug.Log("Map Screen Closed");
-        MapScreen.SetActive(false);
-        if (Player == null) Debug.Log("player is null");
-        Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        mapScreen.SetActive(false);
+        if (player == null) Debug.Log("player is null");
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
     }
     // Called when the start button on the Map Screen UI is clicked
     public void StartButtonClicked()
@@ -91,6 +97,7 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
         gameObject.GetComponent<Button>().interactable = false;
      
         gm.UpdateBot(selectedBotNum, selectedTileType);
+        botIconList[selectedBotNum - 1].transform.position = mapManager.mapTiles.transform.GetChild(mapManager.mapGrid[mapManager.selectedY, mapManager.selectedX].getIndex()).transform.position;
     }
     // Called whenever a bot is clicked on the Map Screen UI
     public void UpdateSelectedBot(int botNum)

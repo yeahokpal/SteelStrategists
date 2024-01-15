@@ -15,13 +15,13 @@ using TMPro;
 public class MapManager : MonoBehaviour
 {
     #region Global Variables
-    [SerializeField] private GameObject mapTiles;
+    public GameObject mapTiles;
     [SerializeField] private GameObject mapSelector;
     [SerializeField] TextMeshProUGUI selectedTypeText;
     [SerializeField] TextMeshProUGUI availableResources;
     [NonSerialized] public int selectedX = 7;
     [NonSerialized] public int selectedY = 7;
-    private MapTile[,] mapGrid = new MapTile[15, 15];
+    public readonly MapTile[,] mapGrid = new MapTile[15, 15];
     private System.Random random = new System.Random();
     public GameObject startButton;
     //this controls the odds of each tile being generated
