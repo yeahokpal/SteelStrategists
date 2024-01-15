@@ -207,6 +207,7 @@ public class GameManager : MonoBehaviour
                 break;
             case "Tutorial":
                 audioSource.Stop();
+                audioSource.loop = true;
                 audioSource.clip = battle2Song;
                 audioSource.Play();
                 break;
