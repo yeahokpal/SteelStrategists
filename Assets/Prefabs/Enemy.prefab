@@ -149,8 +149,10 @@ MonoBehaviour:
   rb: {fileID: 5324400860708091824}
   gm: {fileID: 0}
   audio: {fileID: 2810233876296799663}
-  Health: 5
   damage: 1
+  animationController: {fileID: 2358392728700141525}
+  Health: 5
+  goUp: 0
 --- !u!50 &5324400860708091824
 Rigidbody2D:
   serializedVersion: 4

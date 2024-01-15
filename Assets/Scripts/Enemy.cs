@@ -1,5 +1,5 @@
 /*
- * Programmers: Jack Gill
+ * Programmers: Jack Gill and Caden Mesina
  * Purpose: Manage enemy behavior
  * Inputs: If enemy is facing a structure or not
  * Outputs: Either attack or keep walking
@@ -8,6 +8,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Animations;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameManager gm;
     [SerializeField] private new AudioSource audio;
     [SerializeField] private float damage = 1;
+    [SerializeField] private Animator animationController;
     private float timerStart;
     public float Health = 5;
     private float speed = 2f;
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
     #region Default Methods
     void Start()
     {
+        this.transform.parent = null;
         timerStart = Time.realtimeSinceStartup;
 
         // Setting velocity if in tutorial of main game
@@ -93,6 +96,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Door" && collision.gameObject.GetComponent<Door>().Health > 0)
         {
+            animationController.SetTrigger("Attacking");
             collision.gameObject.GetComponent<Door>().TakeDamage(damage);
             audio.Play();
             yield return new WaitForSeconds(1f);
