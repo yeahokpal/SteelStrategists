@@ -363,6 +363,9 @@ public class GameManager : MonoBehaviour
         // It takes 30 seconds for a bot to gather materials
         yield return new WaitForSeconds(30f);
 
+        //resets the position of the map bot icon to be off screen
+        GameObject.Find("MapBot" + botNum).transform.position = new Vector3(-66.5f, 12f, 0f);
+
         currentBot.GetComponent<SpriteRenderer>().enabled = true;
 
         // Updating bot variables
