@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
 {
@@ -80,13 +81,22 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
     // Called when the start button on the Map Screen UI is clicked
     public void StartButtonClicked()
     {
+        // Making it so that you cant send out this bot until you gather its materials
+        GameObject button = GameObject.Find("Robot" + selectedBotNum + "Button");
+        button.GetComponent<Image>().color = Color.black;
+        button.GetComponent<Button>().interactable = false;
+
+        // Deselecting from the current button
+        EventSystem.current.SetSelectedGameObject(null);
+        gameObject.GetComponent<Button>().interactable = false;
+     
         gm.UpdateBot(selectedBotNum, selectedTileType);
     }
     // Called whenever a bot is clicked on the Map Screen UI
     public void UpdateSelectedBot(int botNum)
     {
         selectedBotNum = botNum;
-        //visually show which bot is selected (do later)
+        //visually show which bot is selected
         overlay.transform.position = RobotSprites[botNum - 1].transform.position;
 
         GameObject.Find("Map").GetComponent<MapManager>().UpdateSelectedTile();

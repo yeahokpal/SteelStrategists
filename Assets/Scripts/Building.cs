@@ -22,6 +22,7 @@ public class Building : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
+        // If there are multiple enemies around a tower, attack the first one
         if (enemies.Count > 0 && canAttack)
         {
             canAttack = false;
@@ -30,6 +31,7 @@ public class Building : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Add enemies to a list as they get withing attacking range
         if (collision.gameObject.tag == "Enemy")
         {
             enemies.Add(collision.gameObject.GetComponent<Enemy>());
@@ -38,6 +40,7 @@ public class Building : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        // Remove enemies to a list as they get withing attacking range
         if (collision.gameObject.tag == "Enemy")
         {
             enemies.Remove(collision.gameObject.GetComponent<Enemy>());
@@ -58,16 +61,13 @@ public class Building : MonoBehaviour
             audio.Play();
             enemy.TakeDamage(Damage);
 
+            // Showing a line from the tower to the enemy to show which enemy it is attacking
             lr.enabled = true;
-
             lr.SetWidth(0.05f, 0.05f);
             lr.SetPosition(0, gameObject.transform.position);
             lr.SetPosition(1, enemy.gameObject.transform.position);
-
             yield return new WaitForSeconds(.1f);
-            
             lr.enabled = false;
-
             yield return new WaitForSeconds(AttackInterval);
         }
         canAttack = true;

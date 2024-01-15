@@ -10,6 +10,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interactables : MonoBehaviour
 {
@@ -106,6 +107,9 @@ public class Interactables : MonoBehaviour
                     UpdateBot();
 
                     child.GetComponent<SpriteRenderer>().sprite = null;
+
+                    GameObject.Find("Map").GetComponent<MapManager>().startButton.GetComponent<CanvasInteractions>().RobotSprites[botNum - 1].GetComponent<Image>().color = Color.white;
+                    GameObject.Find("Map").GetComponent<MapManager>().startButton.GetComponent<CanvasInteractions>().RobotSprites[botNum - 1].GetComponent<Button>().interactable = true;
                 }
             }
         }
