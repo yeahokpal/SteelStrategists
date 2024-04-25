@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -17,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     public int woodAmount;
     public int steelAmount;
     public int electronicsAmount;
+    public bool isDead = false;
 
     bool isPaused = false;
     int moveDir = 3;
@@ -206,6 +208,7 @@ public class PlayerManager : MonoBehaviour
             gm.startTimer = true;
             // Pausing the music
             gm.GetComponent<AudioSource>().Play();
+            EventSystem.current.SetSelectedGameObject(null);
         }
         // Pause
         else
@@ -220,6 +223,8 @@ public class PlayerManager : MonoBehaviour
             gm.startTimer = false;
             // Pausing the music
             gm.GetComponent<AudioSource>().Pause();
+
+            EventSystem.current.SetSelectedGameObject(GameObject.Find("ResumeButton"));
         }
         Debug.Log("Paused Status: " + isPaused);
     }
@@ -235,8 +240,32 @@ public class PlayerManager : MonoBehaviour
 
     public void OnCancel()
     {
-        GameObject.Find("MapScreen").SetActive(false);
-        this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        if (!isDead)
+        {
+            GameObject.Find("MapScreen").SetActive(false);
+            this.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        }
+    }
+
+    // Map Screen Controller Inputs - Coppied from CanvasInteractions.cs
+    public void OnNorthButtonClicked()
+    {
+        GameObject.Find("Map").GetComponent<MapManager>().MoveSelector(0, 1);
+    }
+    //when player presses the east button on the map screen
+    public void OnEastButtonClicked()
+    {
+        GameObject.Find("Map").GetComponent<MapManager>().MoveSelector(1, 0);
+    }
+    //when player presses the south button on the map screen
+    public void OnSouthButtonClicked()
+    {
+        GameObject.Find("Map").GetComponent<MapManager>().MoveSelector(0, -1);
+    }
+    //when player presses the west button on the map screen
+    public void OnWestButtonClicked()
+    {
+        GameObject.Find("Map").GetComponent<MapManager>().MoveSelector(-1, 0);
     }
 
     #endregion

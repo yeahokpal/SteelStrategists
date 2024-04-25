@@ -210,6 +210,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f1719819-7cf4-4603-8ea5-79647b0466f5"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""dede4f74-a83c-4d03-b208-927210ccf2b8"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -227,6 +238,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f595d8d6-2e92-4c08-b41c-a33bec7ab16d"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f941463-bcde-4cea-8a31-320ffc9e7515"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlaceBuilding"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -322,6 +355,42 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""bf4c75be-6e7f-48b5-8d38-a1f48f5a381e"",
                     ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NorthButtonClicked"",
+                    ""type"": ""Button"",
+                    ""id"": ""86cb3bf1-f737-46d2-9d2b-2d14a0c853d6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EastButtonClicked"",
+                    ""type"": ""Button"",
+                    ""id"": ""d431baeb-2fd1-4cc8-b1d8-d42d9a2738eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SouthButtonClicked"",
+                    ""type"": ""Button"",
+                    ""id"": ""f19a739e-3750-4004-b93c-0d4c6f1eb753"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WestButtonClicked"",
+                    ""type"": ""Button"",
+                    ""id"": ""d219e052-0aea-4065-8f07-0a3be1e12b04"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -616,6 +685,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""3219a6d9-6844-417c-bd7e-f59fa9001614"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c52c8e0b-8179-41d3-b8a1-d149033bbe86"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
@@ -693,6 +773,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f372ca99-d5f0-41ba-854a-d3a2c083f0c1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""38c99815-14ea-4617-8627-164d27641299"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
@@ -743,6 +834,50 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""TrackedDeviceOrientation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e340576-c1f9-44c1-838b-fe8682cc1f53"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NorthButtonClicked"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb66621b-03d0-4def-b11f-4741ae32e7ab"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EastButtonClicked"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8daa7562-cbc2-4e9f-907f-5865b920ca35"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SouthButtonClicked"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8920cef-3ddc-46e5-83ed-03a11c73fad3"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WestButtonClicked"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -830,6 +965,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_NorthButtonClicked = m_UI.FindAction("NorthButtonClicked", throwIfNotFound: true);
+        m_UI_EastButtonClicked = m_UI.FindAction("EastButtonClicked", throwIfNotFound: true);
+        m_UI_SouthButtonClicked = m_UI.FindAction("SouthButtonClicked", throwIfNotFound: true);
+        m_UI_WestButtonClicked = m_UI.FindAction("WestButtonClicked", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -971,6 +1110,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_NorthButtonClicked;
+    private readonly InputAction m_UI_EastButtonClicked;
+    private readonly InputAction m_UI_SouthButtonClicked;
+    private readonly InputAction m_UI_WestButtonClicked;
     public struct UIActions
     {
         private @PlayerControls m_Wrapper;
@@ -985,6 +1128,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        public InputAction @NorthButtonClicked => m_Wrapper.m_UI_NorthButtonClicked;
+        public InputAction @EastButtonClicked => m_Wrapper.m_UI_EastButtonClicked;
+        public InputAction @SouthButtonClicked => m_Wrapper.m_UI_SouthButtonClicked;
+        public InputAction @WestButtonClicked => m_Wrapper.m_UI_WestButtonClicked;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1024,6 +1171,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+            @NorthButtonClicked.started += instance.OnNorthButtonClicked;
+            @NorthButtonClicked.performed += instance.OnNorthButtonClicked;
+            @NorthButtonClicked.canceled += instance.OnNorthButtonClicked;
+            @EastButtonClicked.started += instance.OnEastButtonClicked;
+            @EastButtonClicked.performed += instance.OnEastButtonClicked;
+            @EastButtonClicked.canceled += instance.OnEastButtonClicked;
+            @SouthButtonClicked.started += instance.OnSouthButtonClicked;
+            @SouthButtonClicked.performed += instance.OnSouthButtonClicked;
+            @SouthButtonClicked.canceled += instance.OnSouthButtonClicked;
+            @WestButtonClicked.started += instance.OnWestButtonClicked;
+            @WestButtonClicked.performed += instance.OnWestButtonClicked;
+            @WestButtonClicked.canceled += instance.OnWestButtonClicked;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1058,6 +1217,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
+            @NorthButtonClicked.started -= instance.OnNorthButtonClicked;
+            @NorthButtonClicked.performed -= instance.OnNorthButtonClicked;
+            @NorthButtonClicked.canceled -= instance.OnNorthButtonClicked;
+            @EastButtonClicked.started -= instance.OnEastButtonClicked;
+            @EastButtonClicked.performed -= instance.OnEastButtonClicked;
+            @EastButtonClicked.canceled -= instance.OnEastButtonClicked;
+            @SouthButtonClicked.started -= instance.OnSouthButtonClicked;
+            @SouthButtonClicked.performed -= instance.OnSouthButtonClicked;
+            @SouthButtonClicked.canceled -= instance.OnSouthButtonClicked;
+            @WestButtonClicked.started -= instance.OnWestButtonClicked;
+            @WestButtonClicked.performed -= instance.OnWestButtonClicked;
+            @WestButtonClicked.canceled -= instance.OnWestButtonClicked;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1139,5 +1310,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnNorthButtonClicked(InputAction.CallbackContext context);
+        void OnEastButtonClicked(InputAction.CallbackContext context);
+        void OnSouthButtonClicked(InputAction.CallbackContext context);
+        void OnWestButtonClicked(InputAction.CallbackContext context);
     }
 }

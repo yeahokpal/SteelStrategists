@@ -6,6 +6,8 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using TMPro;
@@ -62,6 +64,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void Options()
+    {
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("Slider"));
+    }
+
+    public void BackFromOptions()
+    {
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("Options Button"));
+    }
+
     // Change the volume
     public void ChangeVolume()
     {
@@ -69,4 +81,5 @@ public class MainMenu : MonoBehaviour
         gm.ChangeVolume(volume);
     }
     #endregion
+
 }

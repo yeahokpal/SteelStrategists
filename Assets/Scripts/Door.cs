@@ -7,6 +7,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -64,6 +65,9 @@ public class Door : MonoBehaviour
         Debug.Log("Game Over");
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
         deathScreen.SetActive(true);
+        Player.GetComponent<PlayerManager>().isDead = true;
+
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("DeadQuitButton"));
     }
     public void AddToDatabase()
     {

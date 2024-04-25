@@ -100,6 +100,8 @@ public class CanvasInteractions : MonoBehaviour, IPointerClickHandler
         botIconList[selectedBotNum - 1].transform.position = mapManager.mapTiles.transform.GetChild(mapManager.mapGrid[mapManager.selectedY, mapManager.selectedX].getIndex()).transform.position;
 
         selectedBotNum = 0;
+
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("Robot1Button"));
     }
     // Called whenever a bot is clicked on the Map Screen UI
     public void UpdateSelectedBot(int botNum)

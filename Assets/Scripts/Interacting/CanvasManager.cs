@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CanvasManager : MonoBehaviour
@@ -79,14 +80,19 @@ public class CanvasManager : MonoBehaviour
         if (MapCanvas == null) Debug.Log("Map Canvas not found");
         else
         {
-            foreach (Transform child in MapCanvas.transform) child.gameObject.SetActive(true);
+            foreach (Transform child in MapCanvas.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
             Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+            EventSystem.current.SetSelectedGameObject(GameObject.Find("Robot1Button"));
         }
     }
     public void CloseDialog()
     {
         foreach (Transform child in DialogCanvas.transform) child.gameObject.SetActive(false);
         Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
+        EventSystem.current.SetSelectedGameObject(null);
     }
     #endregion
     #endregion
